@@ -4,16 +4,14 @@
             clojure-clipper.properties))
 
 ;; TODO
-;; - separate source files
-;; - download & use recipe HTMLs
 ;; - write tests
 
 (def sources
   [
-   {:symbol :nyt :name "NYT" :url  "http://cooking.nytimes.com/recipes/1016153-lemon-and-garlic-chicken-with-mushrooms"}
-   {:symbol :alr :name "All Recipes" :url  "http://allrecipes.com/recipe/235710/chef-johns-ricotta-meatballs/"}]) 
+   {:symbol :nyt :name "NYT" :url  "htmls/nyt.html"}
+   {:symbol :alr :name "All Recipes" :url  "htmls/allrecipes.html"}]) 
 
-(defn fetch [url] (html/html-resource (java.net.URL. url)))
+(defn fetch [url] (html/html-resource url))
 
 (defn get-prop-container [content prop]
   (first
@@ -38,9 +36,11 @@
 (defn parse-recipe [source]
   (let [url (:url source)
         page (fetch url)]
-    {(:name  source)
-     (apply merge
-            (map #(get-prop source page %) properties))}))
+    ; build the result as (this is just one possibility):
+    {(:name  source) ; 1. the source name
+     (apply merge    ; 3. merge properties into a single map
+            (map #(get-prop source page %) properties) ; 2. get parsed values for each property; produces a list of maps
+            )}))
 
 
 (clojure.pprint/pprint
