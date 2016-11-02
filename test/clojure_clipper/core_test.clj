@@ -1,6 +1,7 @@
 (ns clojure-clipper.core-test
   (:require [clojure.test :refer :all]
-            [clojure-clipper.core :as clipper]))
+            [clojure-clipper.core :as clipper]
+            [clojure-clipper.data :as data]))
 
 (def sources
   [
@@ -17,9 +18,11 @@
       (let [nyt-parsed (get (clipper/parse-recipe nyt-fixture) "NYT")
             name (get nyt-parsed "Name")
             description (get nyt-parsed "Description")
+            instructions (get nyt-parsed "Instructions")
             image (get nyt-parsed "Photo")]
         (is (= name "Lemon and Garlic Chicken With Mushrooms"))
         (is (= image "https://static01.nyt.com/images/2014/03/22/science/28recipehealth/28recipehealth-articleLarge.jpg"))
+        (is (= instructions data/nyt-instructions))
         (is (= description "In this Provençal rendition of pan-cooked chicken breasts, the mushrooms take on and added dimension of flavor as they deglaze the pan with the help of one of their favorite partners, dry white wine."))
         ))
     (testing "All Recipes"
