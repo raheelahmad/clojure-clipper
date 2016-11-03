@@ -15,23 +15,25 @@
 (deftest recipe-testing
   (testing "Recipe parsing"
     (testing "NYT"
-      (let [nyt-parsed (get (clipper/parse-recipe nyt-fixture) "NYT")
-            name (get nyt-parsed "Name")
-            description (get nyt-parsed "Description")
-            instructions (get nyt-parsed "Instructions")
-            image (get nyt-parsed "Photo")]
+      (let [nyt-parsed (clipper/parse-recipe nyt-fixture)
+            name (get nyt-parsed :name)
+            description (get nyt-parsed :description)
+            instructions (get nyt-parsed :instructions)
+            image (get nyt-parsed :image)]
         (is (= name "Lemon and Garlic Chicken With Mushrooms"))
         (is (= image "https://static01.nyt.com/images/2014/03/22/science/28recipehealth/28recipehealth-articleLarge.jpg"))
         (is (= instructions data/nyt-instructions))
         (is (= description "In this Provençal rendition of pan-cooked chicken breasts, the mushrooms take on and added dimension of flavor as they deglaze the pan with the help of one of their favorite partners, dry white wine."))
         ))
     (testing "All Recipes"
-      (let [all-recipe-parsed (get (clipper/parse-recipe alr-fixture) "All Recipes")
-            name (get all-recipe-parsed "Name")
-            description (get all-recipe-parsed "Description")
-            image (get all-recipe-parsed "Photo")]
+      (let [all-recipe-parsed (clipper/parse-recipe alr-fixture)
+            name (get all-recipe-parsed :name)
+            description (get all-recipe-parsed :description)
+            instructions (get all-recipe-parsed :instructions)
+            image (get all-recipe-parsed :image)]
         (is (= name "Chef John's Ricotta Meatballs"))
         (is (= image "http://images.media-allrecipes.com/userphotos/560x315/1077229.jpg"))
         (is (= description "See how to turn regular beef meatballs into a ricotta-filled sensation."))
+        (is (= instructions "Some FAKE instructions for All Recipes"))
         ))
     ))
