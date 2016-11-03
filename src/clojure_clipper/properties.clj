@@ -2,14 +2,14 @@
   (:require [net.cgrand.enlive-html :as html]))
 
 (def schema-selector (html/attr= :itemtype "http://schema.org/Recipe"))
-(def prop-selector (html/attr= :itemprop prop))
+(defn prop-selector [prop] (html/attr= :itemprop prop))
 
 (defn get-prop-container [content prop from-top]
   (first
    (html/select content
                 (if from-top
-                  [schema-selector prop-selector]
-                  [prop-selector])
+                  [schema-selector (prop-selector prop)]
+                  [(prop-selector prop)])
                 )))
 
 (defn default-container [content prop]
