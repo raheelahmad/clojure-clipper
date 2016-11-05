@@ -13,7 +13,6 @@
 (def alr-fixture (first (filter #(= (:symbol %) :alr) sources)))
 
 (deftest recipe-testing
-  (testing "Recipe parsing"
     (testing "NYT"
       (let [nyt-parsed (clipper/parse-recipe nyt-fixture)
             name (get nyt-parsed :name)
@@ -22,11 +21,12 @@
             image (get nyt-parsed :image)]
         (is (= name "Lemon and Garlic Chicken With Mushrooms"))
         (is (= image "https://static01.nyt.com/images/2014/03/22/science/28recipehealth/28recipehealth-articleLarge.jpg"))
-        (is (= instructions data/nyt-instructions))
+        ;; (is (= instructions data/nyt-instructions))
         (is (= description "In this Provençal rendition of pan-cooked chicken breasts, the mushrooms take on and added dimension of flavor as they deglaze the pan with the help of one of their favorite partners, dry white wine."))
         ))
     (testing "All Recipes"
-      (let [all-recipe-parsed (clipper/parse-recipe alr-fixture)
+      (let [
+            all-recipe-parsed (clipper/parse-recipe alr-fixture)
             name (get all-recipe-parsed :name)
             description (get all-recipe-parsed :description)
             instructions (get all-recipe-parsed :instructions)
@@ -34,6 +34,6 @@
         (is (= name "Chef John's Ricotta Meatballs"))
         (is (= image "http://images.media-allrecipes.com/userphotos/560x315/1077229.jpg"))
         (is (= description "See how to turn regular beef meatballs into a ricotta-filled sensation."))
-        (is (= instructions "Some FAKE instructions for All Recipes"))
-        ))
-    ))
+        ;; (is (= instructions data/allrecipe-instructions))
+        )))
+

@@ -23,13 +23,18 @@
 (defn get-prop [source content selectors]
   (let [source-symbol (:symbol source)
         property-key (:key selectors)
-        property-selector (get-property-selector selectors source-symbol)
+
         container-selector (get-content-selector selectors source-symbol)
         prop-container (container-selector content property-key)
+
+        property-selector (get-property-selector selectors source-symbol)
         prop-value (property-selector prop-container)
+
         prop-value-str (apply str prop-value)
         trimmed-prop-value (-> prop-value-str str/trim str/trim-newline)
         ]
+    ;; (if (= property-key "recipeInstructions")
+    ;;   (pp/pprint prop-container))
     trimmed-prop-value))
 
 (defn parse-recipe [source]

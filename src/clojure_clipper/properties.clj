@@ -5,6 +5,7 @@
 (defn prop-selector [prop] (html/attr= :itemprop prop))
 
 (defn get-prop-container [content prop from-top]
+  ;; Get the container inside which we will find the property
   (first
    (html/select content
                 (if from-top
@@ -38,15 +39,20 @@
                                       :alr #(:content (:attrs %))}
                   }
    :instructions {
-                 :key "recipeInstructions"
-                 :container-selector prop-container
-                 :property-selector {:nyt #(:content (second (:content %)))
-                                     :alr #(:content (:attrs %))}
-                 }
-
-   ;; :instructions #(:src (:attrs %))
-   ;; :description {:nyt #(:content (second (:content %)))
-   ;;               :alr #(:content (:attrs %))}
+                  :key "recipeInstructions"
+                  :container-selector prop-container
+                  :property-selector {:nyt #(:content (second (:content %)))
+                                      :alr (fn [cont]
+                                             (->>
+                                              cont
+                                              :content
+                                              (filter #(= (:tag %) :li))
+                                              (map #(:content %))
+                                              (map #(first %))
+                                              (map #(:content %))
+                                              (map #(first %))))
+                                     }
+                  }
    })
 
 ;; (def source-properties
