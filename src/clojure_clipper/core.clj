@@ -15,10 +15,15 @@
 (defn get-property-selector [selectors source-symbol]
   (get-selector :property-selector selectors source-symbol))
 
+(defn get-post-processor [selectors source-symbol]
+  (or
+   (get-selector :post-processor selectors source-symbol)
+   default-post-processor))
 
 (defn get-content-selector [selectors source-symbol]
-  (get-selector :container-selector selectors source-symbol))
-
+  (or
+   (get-selector :container-selector selectors source-symbol)
+   default-container))
 
 (defn get-prop [source content selectors]
   (let [source-symbol (:symbol source)
@@ -30,12 +35,10 @@
         property-selector (get-property-selector selectors source-symbol)
         prop-value (property-selector prop-container)
 
-        prop-value-str (apply str prop-value)
-        trimmed-prop-value (-> prop-value-str str/trim str/trim-newline)
+        post-proccesor (get-post-processor selectors source-symbol)
+        processed-prop-value (post-proccesor prop-value)
         ]
-    ;; (if (= property-key "recipeInstructions")
-    ;;   (pp/pprint prop-container))
-    trimmed-prop-value))
+    processed-prop-value))
 
 (defn parse-recipe [source]
   (let [page (html/html-resource (:url source))
