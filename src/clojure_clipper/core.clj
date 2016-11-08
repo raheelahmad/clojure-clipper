@@ -2,6 +2,7 @@
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as str]
             [clojure.pprint :as pp]
+            [spyscope.core :as spy]
             [clojure-clipper.properties :refer :all]))
 
 (defn fetch [url] (html/html-resource url))
@@ -27,7 +28,7 @@
 
 (defn get-prop [source content selectors]
   (let [source-symbol (:symbol source)
-        property-key (:key selectors)
+        property-key #spy/p (:key selectors)
 
         container-selector (get-content-selector selectors source-symbol)
         prop-container (container-selector content property-key)
@@ -49,3 +50,6 @@
                    {}
                    properties)]
     result))
+
+
+

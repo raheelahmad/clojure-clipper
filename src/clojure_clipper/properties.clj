@@ -42,7 +42,34 @@
 
 (def properties
   {
-   :name {:key "name"
+   :ingredients {
+                 :key "recipeIngredient"
+                 :container-selector (fn [content prop]
+                                       (html/select content [(html/attr= :itemprop prop)]))
+                 :property-selector {
+                                     :nyt (fn [cont]
+                                            (
+                                             ->> cont
+                                             (map :content)
+                                             (reduce (fn [acc val]
+                                                       (concat acc
+                                                               (filter #(.contains ["quantity" "ingredient-name"] (-> % :attrs :class)) val)))
+                                                     [])
+                                             ))
+                                     }
+                 :post-processor #(identity %)
+                 }
+   }
+  )
+
+(def propertieso
+  {
+   :name {
+          :key "name"
+          :container-selector {
+                               :nyt (fn [cont]
+                                       )
+                               }
           :property-selector {
                               :nyt #(first (:content %))
                               :alr #(:content (:attrs %))
@@ -52,7 +79,6 @@
            :key "image"
            :property-selector #(:src (:attrs %))
            }
-
    :description {
                  :key "description"
                  :property-selector {:nyt #(:content (second (:content %)))
