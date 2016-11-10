@@ -81,18 +81,18 @@
                                               cont
                                               :content
                                               (filter #(= (:tag %) :li))
-                                              (map #(:content %))
-                                              (map #(first %))
+                                              (map :content)
+                                              (map first)
                                               ))
                                       :alr (fn [cont]
                                              (->>
                                               cont
                                               :content
                                               (filter #(= (:tag %) :li))
-                                              (map #(:content %))
-                                              (map #(first %))
-                                              (map #(:content %))
-                                              (map #(first %))))
+                                              (map :content)
+                                              (map first)
+                                              (map :content)
+                                              (map first)))
                                       }
                   }
    })
