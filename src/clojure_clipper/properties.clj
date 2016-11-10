@@ -1,6 +1,7 @@
 (ns clojure-clipper.properties
   (:require [net.cgrand.enlive-html :as html]
-            [clojure.string :as str]))
+            [clojure.string :as str]
+            [clojure-clipper.property-helpers :as helper]))
 
 (def schema-selector (html/attr= :itemtype "http://schema.org/Recipe"))
 (defn prop-selector [prop] (html/attr= :itemprop prop))
@@ -47,29 +48,13 @@
                  :container-selector (fn [content prop]
                                        (html/select content [(html/attr= :itemprop prop)]))
                  :property-selector {
-                                     :nyt (fn [cont]
-                                            (
-                                             ->> cont
-                                             (map :content)
-                                             (reduce (fn [acc val]
-                                                       (concat acc
-                                                               (filter #(.contains ["quantity" "ingredient-name"] (-> % :attrs :class)) val)))
-                                                     [])
-                                             ))
+                                     :nyt helper/nyt-ingredient-selector
                                      }
                  :post-processor #(identity %)
                  }
-   }
-  )
 
-(def propertieso
-  {
    :name {
           :key "name"
-          :container-selector {
-                               :nyt (fn [cont]
-                                       )
-                               }
           :property-selector {
                               :nyt #(first (:content %))
                               :alr #(:content (:attrs %))
@@ -110,9 +95,5 @@
                                               (map #(first %))))
                                       }
                   }
-   }
-  )
-
-;; (def source-properties
-;;   {:nyt })
+   })
 
