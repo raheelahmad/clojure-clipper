@@ -30,9 +30,11 @@
   (let [source-symbol (:symbol source)
         property-key (:key selectors)
 
+        ; Get the container inside which the property is spread out
         container-selector (get-content-selector selectors source-symbol)
         prop-container (container-selector content property-key)
 
+        ; Get the property from the container
         property-selector (get-property-selector selectors source-symbol)
         prop-value (property-selector prop-container)
 

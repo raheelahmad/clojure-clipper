@@ -39,7 +39,7 @@
         (is (= name "Chef John's Ricotta Meatballs"))
         (is (= image "http://images.media-allrecipes.com/userphotos/560x315/1077229.jpg"))
         (is (= description "See how to turn regular beef meatballs into a ricotta-filled sensation."))
-        (is (= ingredients data/alr-ingredient ))
+        (is (= ingredients data/alr-ingredients))
         ;; (is (= instructions data/allrecipe-instructions))
   ))
   )

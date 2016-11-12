@@ -15,10 +15,10 @@
                   [(prop-selector prop)])
                 )))
 
-(defn default-container [content prop]
-  (get-prop-container content prop true))
-(defn prop-container [content prop]
-  (get-prop-container content prop false))
+(defn default-container [content property]
+  (get-prop-container content property true))
+(defn prop-container [content property]
+  (get-prop-container content property false))
 
 (defn default-post-processor [value]
   (->>
