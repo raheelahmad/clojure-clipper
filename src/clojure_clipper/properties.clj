@@ -45,10 +45,15 @@
   {
    :ingredients {
                  :key "recipeIngredient"
-                 :container-selector (fn [content prop]
-                                       (html/select content [(html/attr= :itemprop prop)]))
+                 :container-selector {
+                                      :alr (fn [content prop]
+                                             (html/select content [(html/attr= :itemprop "ingredients")]))
+                                      :nyt (fn [content prop]
+                                             (html/select content [(html/attr= :itemprop prop)]))
+                                      }
                  :property-selector {
                                      :nyt helper/nyt-ingredient-selector
+                                     :alr #(->> % (map :content) (map first))
                                      }
                  :post-processor #(identity %)
                  }

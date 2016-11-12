@@ -28,7 +28,7 @@
 
 (defn get-prop [source content selectors]
   (let [source-symbol (:symbol source)
-        property-key #spy/p (:key selectors)
+        property-key (:key selectors)
 
         container-selector (get-content-selector selectors source-symbol)
         prop-container (container-selector content property-key)
@@ -43,12 +43,16 @@
 
 (defn parse-recipe [source]
   (let [page (html/html-resource (:url source))
-        result (reduce-kv (fn [col prop-name prop-selector]
-                     (assoc col
-                            prop-name
-                            (get-prop source page prop-selector)))
-                   {}
-                   properties)]
+        result (reduce-kv (fn [col
+                              prop-name ; key from `properties`
+                              prop-selector ; selector that finds the property in page
+                              ]
+                            (assoc col
+                                   prop-name
+                                   (get-prop source page prop-selector) ; this is the parsing step: get the property
+                                   ))
+                          {}
+                          properties)]
     result))
 
 
