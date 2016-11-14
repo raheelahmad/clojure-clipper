@@ -34,14 +34,15 @@
           description (get all-recipe-parsed :description)
           yield (get all-recipe-parsed :yield)
           cookTime (get all-recipe-parsed :cook-time)
+          prepTime (get all-recipe-parsed :prep-time)
           instructions (get all-recipe-parsed :instructions)
           image (get all-recipe-parsed :image)]
       (is (= yield "8"))
       (is (= name "Chef John's Ricotta Meatballs"))
       (is (= cookTime "PT40M"))
+      (is (= prepTime "PT20M"))
       (is (= image "http://images.media-allrecipes.com/userphotos/560x315/1077229.jpg"))
       (is (= description "See how to turn regular beef meatballs into a ricotta-filled sensation."))
       (is (= ingredients data/alr-ingredients))
         ;; (is (= instructions data/allrecipe-instructions))
 ))
-

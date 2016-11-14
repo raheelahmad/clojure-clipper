@@ -52,6 +52,11 @@
    :name {:key "name"
           :property-selector {:nyt #(first (:content %))
                               :alr #(:content (:attrs %))}}
+   :prep-time {:key "prepTime"
+               :container-selector {:nyt default-container
+                                    :alr prop-container}
+               :property-selector {:nyt #(:content (:attrs %))
+                                   :alr #(:datetime (:attrs %))}}
    :cook-time {:key "cookTime"
                :container-selector {:nyt default-container
                                     :alr prop-container}
