@@ -12,8 +12,7 @@
    (html/select content
                 (if from-top
                   [schema-selector (prop-selector prop)]
-                  [(prop-selector prop)])
-                )))
+                  [(prop-selector prop)]))))
 
 (defn default-container [content property]
   (get-prop-container content property true))
@@ -25,8 +24,7 @@
    value
    (apply str) ;; stringify
    str/trim
-   str/trim-newline)
-  )
+   str/trim-newline))
 
 (defn add-space-as-needed [string]
   (if (Character/isSpace (first string))
@@ -35,60 +33,41 @@
 
 (defn post-process-as-sentence [string]
   (let
-      [sentences (map clojure.string/trim (clojure.string/split string #"\."))
-       with-period (interpose ". " sentences)
-       components (concat with-period ["."])
-       result (apply str components)]
+   [sentences (map clojure.string/trim (clojure.string/split string #"\."))
+    with-period (interpose ". " sentences)
+    components (concat with-period ["."])
+    result (apply str components)]
     result))
 
 (def properties
-  {
-   :ingredients {
-                 :key "recipeIngredient"
-                 :container-selector {
-                                      :alr (fn [content prop]
+  {:ingredients {:key "recipeIngredient"
+                 :container-selector {:alr (fn [content prop]
                                              (html/select content [(html/attr= :itemprop "ingredients")]))
                                       :nyt (fn [content prop]
-                                             (html/select content [(html/attr= :itemprop prop)]))
-                                      }
-                 :property-selector {
-                                     :nyt helper/nyt-ingredient-selector
-                                     :alr #(->> % (map :content) (map first))
-                                     }
-                 :post-processor #(identity %)
-                 }
+                                             (html/select content [(html/attr= :itemprop prop)]))}
+                 :property-selector {:nyt helper/nyt-ingredient-selector
+                                     :alr #(->> % (map :content) (map first))}
+                 :post-processor #(identity %)}
 
-   :name {
-          :key "name"
-          :property-selector {
-                              :nyt #(first (:content %))
-                              :alr #(:content (:attrs %))
-                              }
-          }
-   :image {
-           :key "image"
-           :property-selector #(:src (:attrs %))
-           }
-   :description {
-                 :key "description"
+   :name {:key "name"
+          :property-selector {:nyt #(first (:content %))
+                              :alr #(:content (:attrs %))}}
+   :image {:key "image"
+           :property-selector #(:src (:attrs %))}
+   :description {:key "description"
                  :property-selector {:nyt #(:content (second (:content %)))
-                                     :alr #(:content (:attrs %))}
-                  }
-   :instructions {
-                  :key "recipeInstructions"
+                                     :alr #(:content (:attrs %))}}
+   :instructions {:key "recipeInstructions"
                   :container-selector prop-container
                   :post-processor #(->> %
-                                        default-post-processor
-                                        )
-                  :property-selector {
-                                      :nyt (fn [cont]
+                                        default-post-processor)
+                  :property-selector {:nyt (fn [cont]
                                              (->>
                                               cont
                                               :content
                                               (filter #(= (:tag %) :li))
                                               (map :content)
-                                              (map first)
-                                              ))
+                                              (map first)))
                                       :alr (fn [cont]
                                              (->>
                                               cont
@@ -97,8 +76,5 @@
                                               (map :content)
                                               (map first)
                                               (map :content)
-                                              (map first)))
-                                      }
-                  }
-   })
+                                              (map first)))}}})
 
