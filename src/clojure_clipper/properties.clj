@@ -52,6 +52,11 @@
    :name {:key "name"
           :property-selector {:nyt #(first (:content %))
                               :alr #(:content (:attrs %))}}
+   :cook-time {:key "cookTime"
+               :container-selector {:nyt default-container
+                                    :alr prop-container}
+               :property-selector {:nyt #(:content (:attrs %))
+                                   :alr #(:datetime (:attrs %))}}
    :yield {:key "recipeYield"
            :container-selector {:nyt default-container
                                 :alr prop-container}
