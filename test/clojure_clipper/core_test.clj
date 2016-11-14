@@ -14,6 +14,7 @@
     (let [nyt-parsed (clipper/parse-recipe nyt-fixture)
           ingredients (get nyt-parsed :ingredients)
           name (get nyt-parsed :name)
+          author (get nyt-parsed :author)
           description (get nyt-parsed :description)
           instructions (get nyt-parsed :instructions)
           yield (get nyt-parsed :yield)
@@ -24,6 +25,8 @@
           (is (= yield "Serves 4")))
         (testing "name"
           (is (= name "Lemon and Garlic Chicken With Mushrooms")))
+        (testing "author"
+          (is (= "Martha Rose Shulman" author)))
         (testing "cookTime"
           (is (= cookTime "PT45M")))
         (testing "image"
@@ -44,13 +47,16 @@
           cookTime (get all-recipe-parsed :cook-time)
           prepTime (get all-recipe-parsed :prep-time)
           totalTime (get all-recipe-parsed :total-time)
+          author (get all-recipe-parsed :author)
           instructions (get all-recipe-parsed :instructions)
           image (get all-recipe-parsed :image)]
       (testing "All Recipes"
         (testing "yield"
           (is (= "8" yield )))
         (testing "name"
-          (is (= "Chef John's Ricotta Meatballs" name )))
+          (is (= "Chef John's Ricotta Meatballs" name)))
+        (testing "author"
+          (is (= "Chef John" author)))
         (testing "cookTime"
           (is (= cookTime "PT40M")))
         (testing "prepTime"

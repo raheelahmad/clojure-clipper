@@ -33,7 +33,7 @@
         ; Get the container inside which the property is spread out
         container-selector (get-content-selector selectors source-symbol)
         prop-container (container-selector content property-key)
-        ;; moko (if (and (= property-key "cookTime")
+        ;; just-for-printing (if (and (= property-key "author")
         ;;               (= source-symbol :alr))
         ;;        (clojure.pprint/pprint prop-container))
 
