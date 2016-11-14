@@ -43,6 +43,7 @@
           yield (get all-recipe-parsed :yield)
           cookTime (get all-recipe-parsed :cook-time)
           prepTime (get all-recipe-parsed :prep-time)
+          totalTime (get all-recipe-parsed :total-time)
           instructions (get all-recipe-parsed :instructions)
           image (get all-recipe-parsed :image)]
       (testing "All Recipes"
@@ -54,6 +55,8 @@
           (is (= cookTime "PT40M")))
         (testing "prepTime"
           (is (= prepTime "PT20M")))
+        (testing "totalTime"
+          (is (= totalTime "PT1H")))
         (testing "image"
           (is (= image "http://images.media-allrecipes.com/userphotos/560x315/1077229.jpg")))
         (testing "description"

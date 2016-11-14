@@ -62,6 +62,11 @@
                                     :alr prop-container}
                :property-selector {:nyt #(:content (:attrs %))
                                    :alr #(:datetime (:attrs %))}}
+   :total-time {:key "totalTime"
+               :container-selector {:nyt default-container
+                                    :alr prop-container}
+               :property-selector {:nyt #(:content (:attrs %))
+                                   :alr #(:datetime (:attrs %))}}
    :yield {:key "recipeYield"
            :container-selector {:nyt default-container
                                 :alr prop-container}
