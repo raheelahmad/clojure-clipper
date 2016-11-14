@@ -52,6 +52,11 @@
    :name {:key "name"
           :property-selector {:nyt #(first (:content %))
                               :alr #(:content (:attrs %))}}
+   :yield {:key "recipeYield"
+           :container-selector {:nyt default-container
+                                :alr prop-container}
+          :property-selector {:nyt #(first (:content %))
+                              :alr #(:content (:attrs %))}}
    :image {:key "image"
            :property-selector #(:src (:attrs %))}
    :description {:key "description"

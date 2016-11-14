@@ -1,10 +1,11 @@
 (ns clojure-clipper.property-helpers)
 
-(defn- get-ingredient [input] (-> input
+(defn- get-nyt-ingredient [input] (-> input
                                  :content
                                  first))
 
 (defn nyt-ingredient-selector [container]
+  "Select ingredients from the ingredient container for NYT. Much malarkey is needed."
   (->>
    container
    (map :content)
@@ -19,10 +20,10 @@
           (let [amount (first first-val)
                 first-of-second-val (first second-val)
                 second-of-second-val (second second-val)
-                ingredient-in-first-of-second (get-ingredient first-of-second-val)
-                ingredient-in-second-of-second (get-ingredient second-of-second-val)
+                ingredient-in-first-of-second (get-nyt-ingredient first-of-second-val)
+                ingredient-in-second-of-second (get-nyt-ingredient second-of-second-val)
                 ingredient (or ingredient-in-second-of-second
-                               (get-ingredient first-of-second-val))
+                               (get-nyt-ingredient first-of-second-val))
                 unit (if (nil? ingredient-in-first-of-second) first-of-second-val)]
             {:amount amount :unit unit :ingredient ingredient}))))
   )
