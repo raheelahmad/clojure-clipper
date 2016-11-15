@@ -10,34 +10,35 @@
 (def nyt-fixture (first (filter #(= (:symbol %) :nyt) sources)))
 (def alr-fixture (first (filter #(= (:symbol %) :alr) sources)))
 
+(defn test-data [site-symbol]
+  (let [fixture (first (filter #(= (:symbol %) site-symbol) sources))
+        parsed (clipper/parse-recipe fixture)
+        ]
+    parsed
+    )
+  )
+
 (deftest nyt
-    (let [nyt-parsed (clipper/parse-recipe nyt-fixture)
-          ingredients (get nyt-parsed :ingredients)
-          name (get nyt-parsed :name)
-          author (get nyt-parsed :author)
-          description (get nyt-parsed :description)
-          instructions (get nyt-parsed :instructions)
-          yield (get nyt-parsed :yield)
-          cookTime (get nyt-parsed :cook-time)
-          image (get nyt-parsed :image)]
-      (testing "NYT"
-        (testing "yield"
-          (is (= yield "Serves 4")))
-        (testing "name"
-          (is (= name "Lemon and Garlic Chicken With Mushrooms")))
-        (testing "author"
-          (is (= "Martha Rose Shulman" author)))
-        (testing "cookTime"
-          (is (= cookTime "PT45M")))
-        (testing "image"
-          (is (= image "https://static01.nyt.com/images/2014/03/22/science/28recipehealth/28recipehealth-articleLarge.jpg")))
-        (testing "description"
-          (is (= description "In this Provençal rendition of pan-cooked chicken breasts, the mushrooms take on and added dimension of flavor as they deglaze the pan with the help of one of their favorite partners, dry white wine.")))
-        (testing "ingredients"
-          (is (= ingredients data/nyt-ingredients)))
-        )
-        ;; (is (= instructions data/nyt-instructions))
-      ))
+  (let [result (test-data :nyt)]
+        (testing "NYT"
+          (testing "yield"
+            (is (= "Serves 4" (:yield result))))
+          (testing "name"
+            (is (= "Lemon and Garlic Chicken With Mushrooms" (:name result))))
+          (testing "author"
+            (is (= "Martha Rose Shulman" (:author result))))
+          (testing "cookTime"
+            (is (= "PT45M" (:cook-time result))))
+          (testing "image"
+            (is (= "https://static01.nyt.com/images/2014/03/22/science/28recipehealth/28recipehealth-articleLarge.jpg"(:image result))))
+          (testing "description"
+            (is (= "In this Provençal rendition of pan-cooked chicken breasts, the mushrooms take on and added dimension of flavor as they deglaze the pan with the help of one of their favorite partners, dry white wine."
+                    (:description result))))
+          (testing "ingredients"
+            (is (= data/nyt-ingredients
+                   (:ingredients result) )))
+          ;; (is (= instructions data/nyt-instructions))
+          )))
 (deftest alr
     (let [all-recipe-parsed (clipper/parse-recipe alr-fixture)
           ingredients (get all-recipe-parsed :ingredients)

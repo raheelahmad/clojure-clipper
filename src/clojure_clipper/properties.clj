@@ -55,8 +55,7 @@
    :author {:key "author"
             :container-selector {:nyt default-container
                                  :alr prop-container}
-          :property-selector {:nyt #(first (:content %))
-                              :alr #(first (:content %))}}
+            :property-selector #(first (:content %))}
    :prep-time {:key "prepTime"
                :container-selector {:nyt default-container
                                     :alr prop-container}
