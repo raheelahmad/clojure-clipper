@@ -24,7 +24,7 @@
                      :author "Martha Rose Shulman"
                      :cook-time "PT45M"
                      :image "https://static01.nyt.com/images/2014/03/22/science/28recipehealth/28recipehealth-articleLarge.jpg"
-                     :description "n this Provençal rendition of pan-cooked chicken breasts, the mushrooms take on and added dimension of flavor as they deglaze the pan with the help of one of their favorite partners, dry white wine."
+                     :description "In this Provençal rendition of pan-cooked chicken breasts, the mushrooms take on and added dimension of flavor as they deglaze the pan with the help of one of their favorite partners, dry white wine."
                      :ingredients data/nyt-ingredients
                      }
                :alr {
@@ -41,8 +41,8 @@
                }
   )
 
-(doseq [[source-symbol expected-result] expected]
-  (deftest recipe-tests
+(deftest recipe-tests
+  (doseq [[source-symbol expected-result] expected]
     (testing source-symbol
       (let [result (test-data source-symbol)]
         (doseq [[key expected-value] expected-result]
