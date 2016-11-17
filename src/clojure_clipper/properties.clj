@@ -1,7 +1,9 @@
 (ns clojure-clipper.properties
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as str]
-            [clojure-clipper.property-helpers :as helper]))
+            [clojure-clipper.nyt-selectors :as nyt-helper]
+            [clojure-clipper.alr-selectors :as alr-helper]
+            ))
 
 (def schema-selector (html/attr= :itemtype "http://schema.org/Recipe"))
 (defn prop-selector [prop] (html/attr= :itemprop prop))
@@ -45,7 +47,7 @@
                                              (html/select content [(html/attr= :itemprop "ingredients")]))
                                       :nyt (fn [content prop]
                                              (html/select content [(html/attr= :itemprop prop)]))}
-                 :property-selector {:nyt helper/nyt-ingredient-selector
+                 :property-selector {:nyt nyt-helper/nyt-ingredient-selector
                                      :alr #(->> % (map :content) (map first))}
                  :post-processor #(identity %)}
 
@@ -56,6 +58,12 @@
             :container-selector {:nyt default-container
                                  :alr prop-container}
             :property-selector #(first (:content %))}
+   :nutrition {:key "nutrition"
+               :container-selector {:nyt default-container
+                                    :alr prop-container}
+               :property-selector {:nyt alr-helper/alr-nutrition-selector
+                                   :alr alr-helper/alr-nutrition-selector}
+               :post-processor identity}
    :prep-time {:key "prepTime"
                :container-selector {:nyt default-container
                                     :alr prop-container}
@@ -74,7 +82,7 @@
    :yield {:key "recipeYield"
            :container-selector {:nyt default-container
                                 :alr prop-container}
-          :property-selector {:nyt #(first (:content %))
+           :property-selector {:nyt #(first (:content %))
                               :alr #(:content (:attrs %))}}
    :image {:key "image"
            :property-selector #(:src (:attrs %))}

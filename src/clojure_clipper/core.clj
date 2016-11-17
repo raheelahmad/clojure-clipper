@@ -33,13 +33,14 @@
         ; Get the container inside which the property is spread out
         container-selector (get-content-selector selectors source-symbol)
         prop-container (container-selector content property-key)
-        ;; just-for-printing (if (and (= property-key "author")
-        ;;               (= source-symbol :alr))
-        ;;        (clojure.pprint/pprint prop-container))
-
         ; Get the property from the container
         property-selector (get-property-selector selectors source-symbol)
         prop-value (property-selector prop-container)
+
+        ;; just-for-printing (if (and (= property-key "nutrition")
+        ;;                            (= source-symbol :alr))
+        ;;                     (clojure.pprint/pprint prop-value))
+
 
         post-proccesor (get-post-processor selectors source-symbol)
         processed-prop-value (post-proccesor prop-value)

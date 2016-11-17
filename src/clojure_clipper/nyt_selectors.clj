@@ -1,4 +1,4 @@
-(ns clojure-clipper.property-helpers)
+(ns clojure-clipper.nyt-selectors)
 
 (defn- get-nyt-ingredient [input] (-> input
                                  :content

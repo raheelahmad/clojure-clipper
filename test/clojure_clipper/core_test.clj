@@ -37,6 +37,13 @@
                      :image "http://images.media-allrecipes.com/userphotos/560x315/1077229.jpg"
                      :description "See how to turn regular beef meatballs into a ricotta-filled sensation."
                      :ingredients data/alr-ingredients
+                     :nutrition {
+                                 "calories" [ 331 "kcal" ]
+                                 "fat" [ 20.9 "g"]
+                                 "carbohydrate" [ 18.9 "g"]
+                                 "protein" [ 16.3 "g"]
+                                 "sodium" [ 865 "mg"]
+                                 }
                      }
                }
   )
