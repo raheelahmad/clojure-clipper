@@ -5,4 +5,6 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [enlive "1.1.6"]
-                 [spyscope "0.1.5"]])
+                 [spyscope "0.1.5"]]
+  :plugins [[test2junit "1.1.2"]]
+  :test2junit-output-dir ~(or (System/getenv "CIRCLE_TEST_REPORTS") "target/test2junit"))
