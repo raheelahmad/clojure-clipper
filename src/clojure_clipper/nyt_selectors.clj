@@ -1,4 +1,6 @@
-(ns clojure-clipper.nyt-selectors)
+(ns clojure-clipper.nyt-selectors
+  (:require [net.cgrand.enlive-html :as html]))
+
 
 (defn- get-nyt-ingredient [input] (-> input
                                  :content

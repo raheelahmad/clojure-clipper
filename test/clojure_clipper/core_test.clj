@@ -26,6 +26,7 @@
                      :image "https://static01.nyt.com/images/2014/03/22/science/28recipehealth/28recipehealth-articleLarge.jpg"
                      :description "In this Provençal rendition of pan-cooked chicken breasts, the mushrooms take on and added dimension of flavor as they deglaze the pan with the help of one of their favorite partners, dry white wine."
                      :ingredients data/nyt-ingredients
+                     :nutrition data/nyt-nutrition
                      }
                :alr {
                      :yield "8"
@@ -37,13 +38,7 @@
                      :image "http://images.media-allrecipes.com/userphotos/560x315/1077229.jpg"
                      :description "See how to turn regular beef meatballs into a ricotta-filled sensation."
                      :ingredients data/alr-ingredients
-                     :nutrition {
-                                 "calories" [ 331 "kcal" ]
-                                 "fat" [ 20.9 "g"]
-                                 "carbohydrate" [ 18.9 "g"]
-                                 "protein" [ 16.3 "g"]
-                                 "sodium" [ 865 "mg"]
-                                 }
+                     :nutrition data/alr-nutrition
                      }
                }
   )

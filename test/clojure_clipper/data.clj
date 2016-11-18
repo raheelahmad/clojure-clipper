@@ -24,3 +24,45 @@
    {:amount "1", :unit "teaspoon ", :ingredient "fresh thyme leaves"}
    {:amount "¼", :unit "cup ", :ingredient "dry white wine"} ]
   )
+
+(def alr-nutrition
+  {
+   "calories" [ 331 "kcal" ]
+   "fat" [ 20.9 "g"]
+   "carbohydrate" [ 18.9 "g"]
+   "protein" [ 16.3 "g"]
+   "sodium" [ 865 "mg"]
+   } )
+
+
+(def nyt-nutrition
+  {
+   "calories" [ 250 ]
+   "fat" [ 15 "grams"]
+   "saturated-fat" [ 1 "gram"]
+   "trans-fat" [ 0 "grams"]
+   "carbohydrate" [ 8 "grams"]
+   "fiber" [ 1 "gram"]
+   "protein" [ 18 "grams"]
+   "cholesterol" [ 46 "milligrams"]
+   "sodium" [ 616 "milligrams"]
+   }
+  ;; calories	
+  ;; 250
+  ;; fatContent	
+  ;; 15 grams
+  ;; saturatedFatContent	
+  ;; 1 gram
+  ;; transFatContent	
+  ;; 0 grams
+  ;; carbohydrateContent	
+  ;; 8 grams
+  ;; fiberContent	
+  ;; 1 gram
+  ;; proteinContent	
+  ;; 18 grams
+  ;; cholesterolContent	
+  ;; 46 milligrams
+  ;; sodiumContent	
+  ;; 616 milligrams
+  )

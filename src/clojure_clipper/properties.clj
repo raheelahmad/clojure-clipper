@@ -2,7 +2,7 @@
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as str]
             [clojure-clipper.nyt-selectors :as nyt-helper]
-            [clojure-clipper.alr-selectors :as alr-helper]
+            [clojure-clipper.nutrition-helpers :as nutrition]
             ))
 
 (def schema-selector (html/attr= :itemtype "http://schema.org/Recipe"))
@@ -61,8 +61,8 @@
    :nutrition {:key "nutrition"
                :container-selector {:nyt default-container
                                     :alr prop-container}
-               :property-selector {:nyt alr-helper/alr-nutrition-selector
-                                   :alr alr-helper/alr-nutrition-selector}
+               :property-selector {:nyt nutrition/nyt-nutrition-selector
+                                   :alr nutrition/alr-nutrition-selector}
                :post-processor identity}
    :prep-time {:key "prepTime"
                :container-selector {:nyt default-container

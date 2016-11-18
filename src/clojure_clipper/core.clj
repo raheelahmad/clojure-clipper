@@ -38,7 +38,7 @@
         prop-value (property-selector prop-container)
 
         ;; just-for-printing (if (and (= property-key "nutrition")
-        ;;                            (= source-symbol :alr))
+        ;;                            (= source-symbol :nyt))
         ;;                     (clojure.pprint/pprint prop-value))
 
 
