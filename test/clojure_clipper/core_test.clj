@@ -4,31 +4,38 @@
             [clojure-clipper.data :as data]))
 
 (def sources
-  [{:symbol :nyt :name "NYT" :url  "htmls/nyt.html"}
-   {:symbol :alr :name "All Recipes" :url  "htmls/allrecipes.html"}])
+  [{:source :nyt :name :nyt-lemon-garlic :url "htmls/nyt.html"}
+   {:source :alr :name :alr-meatballs :url  "htmls/allrecipes.html"}
+   {:source :nyt :name :nyt-brussel-sprouts :url  "htmls/nyt_brussel_sprouts.html"}])
 
-(def nyt-fixture (first (filter #(= (:symbol %) :nyt) sources)))
-(def alr-fixture (first (filter #(= (:symbol %) :alr) sources)))
-
-(defn test-data [site-symbol]
-  (let [fixture (first (filter #(= (:symbol %) site-symbol) sources))
-        parsed (clipper/parse-recipe fixture)
-        ]
+(defn parsed-recipe [recipe-name]
+  (let [fixture (first (filter #(= (:name %) recipe-name) sources))
+        parsed (clipper/parse-recipe fixture)]
     parsed
     )
   )
 
-(def expected {:nyt {
+(def expected {
+               :nyt-brussel-sprouts {
+                                     :name "Brussels Sprouts Sliders"
+                                     :yield "Serves 8 - 10 appetizer portions"
+                                     :image "https://static01.nyt.com/images/2014/11/05/science/05VEGTHANKSGIVING3/05VEGTHANKSGIVING3-articleLarge.jpg"
+                                     :cook-time "PT1H45M"
+                                     :description "A creative and fun way to enjoy a great fall and winter vegetable: crunchy “buns” of roasted brussels sprouts with a tasty middle -- a confit of caramelized onions, tangy mustard and savory tempeh -- that makes for “dreamy bites of pure umami goodness,\" said Marla Rose of Berwyn, Ill. who sent us this special recipe."
+                                     :ingredients data/nyt-brussel-sprouts-ingredients
+                                     ;; :nutrition data
+                              }
+               :nyt-lemon-garlic {
                      :yield "Serves 4"
                      :name "Lemon and Garlic Chicken With Mushrooms"
                      :author "Martha Rose Shulman"
                      :cook-time "PT45M"
                      :image "https://static01.nyt.com/images/2014/03/22/science/28recipehealth/28recipehealth-articleLarge.jpg"
                      :description "In this Provençal rendition of pan-cooked chicken breasts, the mushrooms take on and added dimension of flavor as they deglaze the pan with the help of one of their favorite partners, dry white wine."
-                     :ingredients data/nyt-ingredients
-                     :nutrition data/nyt-nutrition
-                     }
-               :alr {
+                     :ingredients data/nyt-lemon-garlic-ingredients
+                     :nutrition data/nyt-lemon-garlic-nutrition
+                                  }
+               :alr-meatballs {
                      :yield "8"
                      :name "Chef John's Ricotta Meatballs"
                      :author "Chef John"
@@ -44,9 +51,9 @@
   )
 
 (deftest recipe-tests
-  (doseq [[source-symbol expected-result] expected]
-    (testing source-symbol
-      (let [result (test-data source-symbol)]
+  (doseq [[recipe-name expected-result] expected]
+    (testing recipe-name
+      (let [result (parsed-recipe recipe-name)]
         (doseq [[key expected-value] expected-result]
           (testing key
             (is (= expected-value (key result))))

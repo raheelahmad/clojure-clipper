@@ -27,7 +27,7 @@
    default-container))
 
 (defn get-prop [source content selectors]
-  (let [source-symbol (:symbol source)
+  (let [source-symbol (:source source)
         property-key (:key selectors)
 
         ; Get the container inside which the property is spread out
@@ -37,8 +37,8 @@
         property-selector (get-property-selector selectors source-symbol)
         prop-value (property-selector prop-container)
 
-        ;; just-for-printing (if (and (= property-key "nutrition")
-        ;;                            (= source-symbol :nyt))
+        ;; just-for-printing (if (and (= source-symbol :nyt)
+        ;;                            (= property-key "recipeIngredient"))
         ;;                     (clojure.pprint/pprint prop-value))
 
 

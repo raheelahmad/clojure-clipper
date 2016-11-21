@@ -1,10 +1,37 @@
 (ns clojure-clipper.nyt-selectors
-  (:require [net.cgrand.enlive-html :as html]))
+  (:require [net.cgrand.enlive-html :as html]
+            [clojure-clipper.ingredient-parser :as parser]))
 
 
-(defn- get-nyt-ingredient [input] (-> input
+(defn- get-ingredient [input] (-> input
                                  :content
                                  first))
+
+(defn- get-component [input]
+  (or (-> input
+          :content
+          first)
+      (first input)))
+
+(defn parse-comp
+  "Normalize a component to string.
+  Component could be
+  ('6')
+  or
+  (
+    {:tag :span, :attrs nil, :content ('olive oil')}
+    ', a little warm'
+  )
+  ... Notice that in the second form, there could be multiple elements,
+  where after the first map they are strings to be concatenated.
+  "
+  [input]
+  (if (= (count input) 1)
+    (first input)
+    (->> input
+         (map #(or (get-ingredient %) (identity %)))
+         (apply str)
+         )))
 
 (defn nyt-ingredient-selector [container]
   "Select ingredients from the ingredient container for NYT. Much malarkey is needed."
@@ -19,13 +46,10 @@
    (map :content)
    (partition 2)
    (map (fn [[first-val second-val]]
-          (let [amount (first first-val)
-                first-of-second-val (first second-val)
-                second-of-second-val (second second-val)
-                ingredient-in-first-of-second (get-nyt-ingredient first-of-second-val)
-                ingredient-in-second-of-second (get-nyt-ingredient second-of-second-val)
-                ingredient (or ingredient-in-second-of-second
-                               (get-nyt-ingredient first-of-second-val))
-                unit (if (nil? ingredient-in-first-of-second) first-of-second-val)]
-            {:amount amount :unit unit :ingredient ingredient}))))
+          (let [
+                fst-comp (parse-comp first-val)
+                snd-comp (parse-comp second-val)
+                comps (apply str fst-comp " " snd-comp) ; comps finally has "3 tablespoon olive oil" format
+                ]
+            (parser/parse-ingredient comps)))))
   )

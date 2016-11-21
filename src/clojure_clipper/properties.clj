@@ -2,6 +2,7 @@
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as str]
             [clojure-clipper.nyt-selectors :as nyt-helper]
+            [clojure-clipper.alr-selectors :as alr-helper]
             [clojure-clipper.nutrition-helpers :as nutrition]
             ))
 
@@ -48,7 +49,8 @@
                                       :nyt (fn [content prop]
                                              (html/select content [(html/attr= :itemprop prop)]))}
                  :property-selector {:nyt nyt-helper/nyt-ingredient-selector
-                                     :alr #(->> % (map :content) (map first))}
+                                     :alr alr-helper/alr-ingredient-selector
+                                     }
                  :post-processor #(identity %)}
 
    :name {:key "name"

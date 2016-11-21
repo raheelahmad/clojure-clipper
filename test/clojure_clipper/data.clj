@@ -8,21 +8,51 @@
   "Saute onion in 2 tablespoons olive oil in a skillet over medium heat until onion is translucent, about 5 minutes. Stir garlic into onion and turn off heat. Transfer onion mixture to a large mixing bowl. Stir ground beef, ricotta cheese, parsley, egg, kosher salt, black pepper, and cayenne pepper with onion mixture until almost combined; stir in bread crumbs and continue to mix until thoroughly blended. Roll about 2 tablespoons of mixture into a 1-inch ball for each meatball. Pour 2 tablespoons olive oil in same skillet used to cook onions. Place skillet over medium heat and brown meatballs on all sides in hot oil, about 5 minutes. Hold a crumpled paper towel in a tongs and use it to remove excess grease from skillet. Pour marinara sauce and water over meatballs in skillet. Stir to combine and bring to a simmer. Reduce heat to medium-low and simmer, stirring occasionally, until meatballs are cooked through and no longer pink in the center, about 30 minutes.")
 
 (def alr-ingredients
-  [ "1/2 onion, minced" "2 tablespoons olive oil" "3 cloves garlic, minced" "1 pound ground beef" "1 cup whole milk ricotta cheese" "1/4 cup packed chopped Italian parsley" "1 egg, beaten" "1 1/2 teaspoons kosher salt" "1/2 teaspoon freshly ground black pepper" "1 pinch cayenne pepper, or to taste" "1/3 cup dry bread crumbs" "2 tablespoons olive oil" "1 (28 ounce) jar marinara sauce" "1 cup water" ])
+  [
+   {:amount "1/2" :unit nil :ingredient "onion, minced"}
+   {:amount "2" :unit "tablespoons" :ingredient "olive oil"}
+   {:amount "3" :unit nil :ingredient "cloves garlic, minced"}
+   {:amount "1" :unit "pound" :ingredient "ground beef"}
+   {:amount "1" :unit "cup" :ingredient "whole milk ricotta cheese"}
+   {:amount "1/4" :unit "cup" :ingredient "packed chopped Italian parsley"}
+   {:amount "1" :unit nil :ingredient "egg, beaten"}
+   {:amount "1 1/2" :unit "teaspoons" :ingredient "kosher salt"}
+   {:amount "1/2" :unit "teaspoon" :ingredient "freshly ground black pepper"}
+   {:amount "1" :unit "pinch" :ingredient "cayenne pepper, or to taste"}
+   {:amount "1/3" :unit "cup" :ingredient "dry bread crumbs"}
+   {:amount "2" :unit "tablespoons" :ingredient "olive oil"}
+   {:amount "1" :unit nil :ingredient "(28 ounce) jar marinara sauce"}
+   {:amount "1" :unit "cup" :ingredient "water"}
+   ])
 
-(def nyt-ingredients
-  [ {:amount "2", :unit nil, :ingredient "boneless skinless chicken breasts"}
-   {:amount "2", :unit "tablespoons ", :ingredient "extra-virgin olive oil"}
-   {:amount "3", :unit "tablespoons ", :ingredient "fresh lemon juice"}
-   {:amount "2", :unit nil, :ingredient "garlic"}
-   {:amount "1", :unit "teaspoon ", :ingredient "chopped fresh rosemary"}
-   {:amount nil, :unit "Salt to taste", :ingredient nil}
-   {:amount nil, :unit "Freshly ground pepper", :ingredient nil}
-   {:amount "2", :unit "tablespoons ", :ingredient "all-purpose flour"}
-   {:amount "2", :unit "tablespoons grapeseed, sunflower or canola oil", :ingredient nil}
-   {:amount "1", :unit "pound ", :ingredient "mushrooms"}
-   {:amount "1", :unit "teaspoon ", :ingredient "fresh thyme leaves"}
-   {:amount "¼", :unit "cup ", :ingredient "dry white wine"} ]
+(def nyt-brussel-sprouts-ingredients
+  [ {:amount "6", :unit "tablespoons", :ingredient "olive oil, divided"}
+   {:amount "2", :unit nil, :ingredient "large sweet or yellow onions, sliced thin"}
+   {:amount nil, :unit nil, :ingredient "Salt to taste"}
+   {:amount "20", :unit nil, :ingredient "large brussels sprouts"}
+   {:amount "1", :unit "tablespoon", :ingredient "tamari"}
+   {:amount "2", :unit nil, :ingredient "to 3 cloves garlic, pressed"}
+   {:amount nil, :unit nil, :ingredient "a dash of liquid smoke (if desired)"}
+   {:amount "1/2", :unit "teaspoon", :ingredient "ground cumin"}
+   {:amount "1/4", :unit "teaspoon", :ingredient "cayenne pepper"}
+   {:amount "8", :unit "ounces", :ingredient "tempeh, cut into thin slices"}
+   {:amount "5", :unit "teaspoons", :ingredient "grainy mustard"}
+   ]
+  )
+
+(def nyt-lemon-garlic-ingredients
+  [ {:amount "2", :unit nil, :ingredient "boneless skinless chicken breasts (most weigh 8 to 10 ounces)"}
+   {:amount "2", :unit "tablespoons", :ingredient "extra-virgin olive oil"}
+   {:amount "3", :unit "tablespoons", :ingredient "fresh lemon juice"}
+   {:amount "2", :unit nil, :ingredient "garlic cloves, minced or puréed"}
+   {:amount "1", :unit "teaspoon", :ingredient "chopped fresh rosemary"}
+   {:amount nil, :unit nil, :ingredient "Salt to taste"}
+   {:amount nil, :unit nil, :ingredient  "Freshly ground pepper"}
+   {:amount "2", :unit "tablespoons", :ingredient "all-purpose flour or a gluten-free flour such as rice flour or corn flour"}
+   {:amount "2", :unit "tablespoons", :ingredient "grapeseed, sunflower or canola oil"}
+   {:amount "1", :unit "pound", :ingredient "mushrooms, sliced"}
+   {:amount "1", :unit "teaspoon", :ingredient "fresh thyme leaves or 1 tablespoon chopped flat-leaf parsley"}
+   {:amount "1/4", :unit "cup", :ingredient "dry white wine"} ]
   )
 
 (def alr-nutrition
@@ -35,7 +65,7 @@
    } )
 
 
-(def nyt-nutrition
+(def nyt-lemon-garlic-nutrition
   {
    "calories" [ 250 ]
    "fat" [ 15 "grams"]

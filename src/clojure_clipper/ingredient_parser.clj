@@ -1,13 +1,13 @@
 (ns clojure-clipper.ingredient-parser
   (:require [inflections.core :as infl]))
 
-(defn parse-number
+(defn- parse-number
   "Returns the passed string if a number. Otherwise nil"
   [s]
   (if (re-find #"^-?\d+\.?\d*$" s)
     s))
 
-(defn unicode-fraction?
+(defn- unicode-fraction?
   "Returns string if it's a unicode fraction (with fancy / replaced). E.g. ½ → 1/2.
   Returns nil if not fractional"
   [num]
@@ -15,7 +15,7 @@
     (if (.contains parsed "⁄")
       (clojure.string/replace parsed "⁄" "/"))))
 
-(defn fraction?
+(defn- fraction?
   "Returns a string if it is a fraction. E.g. 1/2"
   [num]
   (let [comps (clojure.string/split num #"/")]
@@ -23,14 +23,15 @@
       (if (every? #(some? (parse-number %)) comps)
         num))))
 
-(defn amount?
+(defn- amount?
+  "If given string is an amount or not (i.e., numeric)"
   [amount-string]
   (or
    (parse-number amount-string)
    (fraction? amount-string)
    (unicode-fraction? amount-string)))
 
-(defn parse-amount-from-components
+(defn- parse-amount-from-components
   "Returns an amount if found"
   [comps]
   (let [fst (first comps)
@@ -59,17 +60,15 @@
       [maybe-unit (rest comps)]
       [nil comps])))
 
-(defn parse-ingredient [in]
-  (let [comps (clojure.string/split in #" ")
+(defn parse-ingredient
+  "Parse an ingredient string (e.g., 3 tablespoons olive oil)
+  into a map with :amount :unit :ingredient"
+  [in]
+  (let [
+        comps (clojure.string/split in #" ")
         [amount rest-after-amount] (parse-amount-from-components comps)
         [unit rest-after-unit] (parse-unit-from-components rest-after-amount)
-        ingredient (clojure.string/join " " rest-after-unit)
+        ingredient (clojure.string/trim (clojure.string/join " " rest-after-unit))
         ]
     {:amount amount :unit unit :ingredient ingredient}))
-
-(parse-ingredient "teaspoon ground cumin")
-(parse-ingredient "1 2/3 cups ground cumin")
-(parse-ingredient "1 2/3 teaspoons ground cumin")
-(parse-ingredient "12/2 tablespoons olive oil")
-(parse-ingredient "½ teaspoon ground cumin")
 
