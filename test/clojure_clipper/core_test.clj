@@ -5,8 +5,10 @@
 
 (def sources
   [{:source :nyt :name :nyt-lemon-garlic :url "htmls/nyt.html"}
+   {:source :nyt :name :nyt-brussel-sprouts :url  "htmls/nyt_brussel_sprouts.html"}
    {:source :alr :name :alr-meatballs :url  "htmls/allrecipes.html"}
-   {:source :nyt :name :nyt-brussel-sprouts :url  "htmls/nyt_brussel_sprouts.html"}])
+   {:source :alr :name :alr-apple-turnovers :url  "htmls/alr_apple_turnovers.html"}
+   ])
 
 (defn parsed-recipe [recipe-name]
   (let [fixture (first (filter #(= (:name %) recipe-name) sources))
@@ -35,17 +37,29 @@
                      :ingredients data/nyt-lemon-garlic-ingredients
                      :nutrition data/nyt-lemon-garlic-nutrition
                                   }
+               :alr-apple-turnovers {
+                                     :name "Apple Turnovers"
+                                     :yield "8"
+                                     :author "Maureen O'leary"
+                                     :cook-time "PT25M"
+                                     :prep-time "PT30M"
+                                     :total-time "PT55M"
+                                     :image "http://images.media-allrecipes.com/userphotos/250x250/934026.jpg"
+                                     :description "Anyone can make these delicious homemade apple pastries."
+                                     :ingredients data/alr-apple-turnover-ingredients
+                                     :nutrition data/alr-apple-turnover-nutrition
+                                     }
                :alr-meatballs {
-                     :yield "8"
-                     :name "Chef John's Ricotta Meatballs"
-                     :author "Chef John"
-                     :cook-time "PT40M"
-                     :prep-time "PT20M"
-                     :total-time "PT1H"
-                     :image "http://images.media-allrecipes.com/userphotos/560x315/1077229.jpg"
-                     :description "See how to turn regular beef meatballs into a ricotta-filled sensation."
-                     :ingredients data/alr-ingredients
-                     :nutrition data/alr-nutrition
+                               :name "Chef John's Ricotta Meatballs"
+                               :yield "8"
+                               :author "Chef John"
+                               :cook-time "PT40M"
+                               :prep-time "PT20M"
+                               :total-time "PT1H"
+                               :image "http://images.media-allrecipes.com/userphotos/560x315/1077229.jpg"
+                               :description "See how to turn regular beef meatballs into a ricotta-filled sensation."
+                               :ingredients data/alr-meatballs-ingredients
+                               :nutrition data/alr-meatballs-nutrition
                      }
                }
   )

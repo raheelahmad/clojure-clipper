@@ -7,7 +7,23 @@
 (def allrecipe-instructions
   "Saute onion in 2 tablespoons olive oil in a skillet over medium heat until onion is translucent, about 5 minutes. Stir garlic into onion and turn off heat. Transfer onion mixture to a large mixing bowl. Stir ground beef, ricotta cheese, parsley, egg, kosher salt, black pepper, and cayenne pepper with onion mixture until almost combined; stir in bread crumbs and continue to mix until thoroughly blended. Roll about 2 tablespoons of mixture into a 1-inch ball for each meatball. Pour 2 tablespoons olive oil in same skillet used to cook onions. Place skillet over medium heat and brown meatballs on all sides in hot oil, about 5 minutes. Hold a crumpled paper towel in a tongs and use it to remove excess grease from skillet. Pour marinara sauce and water over meatballs in skillet. Stir to combine and bring to a simmer. Reduce heat to medium-low and simmer, stirring occasionally, until meatballs are cooked through and no longer pink in the center, about 30 minutes.")
 
-(def alr-ingredients
+(def alr-apple-turnover-ingredients
+  [
+   {:amount "2" :unit "tablespoons" :ingredient "lemon juice"}
+   {:amount "4" :unit "cups" :ingredient "water"}
+   {:amount "4" :unit nil :ingredient "Granny Smith apples - peeled, cored and sliced"}
+   {:amount "2" :unit "tablespoons" :ingredient "butter"}
+   {:amount "1" :unit "cup" :ingredient "brown sugar"}
+   {:amount "1" :unit "teaspoon" :ingredient "ground cinnamon"}
+   {:amount "1" :unit "tablespoon" :ingredient "cornstarch"}
+   {:amount "1" :unit "tablespoon" :ingredient "water"}
+   {:amount "1" :unit nil :ingredient "(17.25 ounce) package frozen puff pastry sheets, thawed"}
+   {:amount "1" :unit "cup" :ingredient "confectioners' sugar"}
+   {:amount "1" :unit "tablespoon" :ingredient "milk"}
+   {:amount "1" :unit "teaspoon" :ingredient "vanilla extract"}
+   ])
+
+(def alr-meatballs-ingredients
   [
    {:amount "1/2" :unit nil :ingredient "onion, minced"}
    {:amount "2" :unit "tablespoons" :ingredient "olive oil"}
@@ -55,7 +71,16 @@
    {:amount "1/4", :unit "cup", :ingredient "dry white wine"} ]
   )
 
-(def alr-nutrition
+(def alr-apple-turnover-nutrition
+  {
+   "calories" [ 562 "kcal" ]
+   "fat" [ 25.9 "g"]
+   "carbohydrate" [ 80 "g"]
+   "protein" [ 4.8 "g"]
+   "sodium" [ 184 "mg"]
+   } )
+
+(def alr-meatballs-nutrition
   {
    "calories" [ 331 "kcal" ]
    "fat" [ 20.9 "g"]
