@@ -25,7 +25,8 @@
                                      :cook-time "PT1H45M"
                                      :description "A creative and fun way to enjoy a great fall and winter vegetable: crunchy “buns” of roasted brussels sprouts with a tasty middle -- a confit of caramelized onions, tangy mustard and savory tempeh -- that makes for “dreamy bites of pure umami goodness,\" said Marla Rose of Berwyn, Ill. who sent us this special recipe."
                                      :ingredients data/nyt-brussel-sprouts-ingredients
-                                     ;; :nutrition data
+                                     :nutrition data/nyt-brussel-sprouts-nutrition
+                                     :instructions data/nyt-brussel-sprouts-instructions
                               }
                :nyt-lemon-garlic {
                      :yield "Serves 4"
@@ -36,6 +37,7 @@
                      :description "In this Provençal rendition of pan-cooked chicken breasts, the mushrooms take on and added dimension of flavor as they deglaze the pan with the help of one of their favorite partners, dry white wine."
                      :ingredients data/nyt-lemon-garlic-ingredients
                      :nutrition data/nyt-lemon-garlic-nutrition
+                                  :instructions data/nyt-lemon-garlic-instructions
                                   }
                :alr-apple-turnovers {
                                      :name "Apple Turnovers"
@@ -48,6 +50,7 @@
                                      :description "Anyone can make these delicious homemade apple pastries."
                                      :ingredients data/alr-apple-turnover-ingredients
                                      :nutrition data/alr-apple-turnover-nutrition
+                                     :instructions data/alr-apple-turnover-instructions
                                      }
                :alr-meatballs {
                                :name "Chef John's Ricotta Meatballs"
@@ -60,6 +63,7 @@
                                :description "See how to turn regular beef meatballs into a ricotta-filled sensation."
                                :ingredients data/alr-meatballs-ingredients
                                :nutrition data/alr-meatballs-nutrition
+                               :instructions data/alr-meatballs-instructions
                      }
                }
   )

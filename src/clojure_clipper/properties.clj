@@ -94,7 +94,14 @@
    :instructions {:key "recipeInstructions"
                   :container-selector prop-container
                   :post-processor #(->> %
-                                        default-post-processor)
+                                        default-post-processor
+                                        ((fn [in]
+                                           (-> in
+                                           (clojure.string/replace #"\s+" " ") ; replace extra whietspaces with just 1.
+                                           (clojure.string/replace #"\.([^ ])" ". $1") ; add space after the period in: ".Hello"
+                                           (clojure.string/replace #"\.[ ]\)" ".)") ; replace ". )" with ".)"
+                                           )))
+                                        )
                   :property-selector {:nyt (fn [cont]
                                              (->>
                                               cont
