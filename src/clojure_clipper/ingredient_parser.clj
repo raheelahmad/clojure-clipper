@@ -6,6 +6,7 @@
 (def unit-names
   ["tablespoon" "tbsp" "teaspoon" "tsp"
    "oz" "ounce"
+   "quart"
    "lb" "pound"
    "cup" "glass" "spoon" "pinch"
    ])

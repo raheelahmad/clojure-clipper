@@ -9,6 +9,7 @@
    {:source :alr :name :alr-meatballs :url  "htmls/allrecipes.html"}
    {:source :alr :name :alr-apple-turnovers :url  "htmls/alr_apple_turnovers.html"}
    {:source :foodnw :name :foodnw-pancakes :url  "htmls/foodnw-zucchini-pancakes.html"}
+   {:source :foodnw :name :foodnw-fajitas :url  "htmls/foodnw-spicy-fajita.html"}
    ])
 
 (defn parsed-recipe [recipe-name]
@@ -19,6 +20,17 @@
   )
 
 (def expected {
+               :foodnw-fajitas {
+                                :name "Spicy Fajita Soup"
+                                :description "Get this all-star, easy-to-follow Spicy Fajita Soup recipe from Sandra Lee"
+                                :image "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2011/2/20/0/SM0408H_spicy-fajita-soup_s4x3.jpg.rend.sni12col.landscape.jpeg"
+                                :total-time "PT5H15M"
+                                :cook-time "PT5H0M"
+                                :prep-time "PT0H15M"
+                                :yield "4 servings"
+                                :instructions data/foodnw-fajitas-instructions
+                                :ingredients data/foodnw-fajitas-ingredients
+                                }
                :foodnw-pancakes {
                                  :name "Zucchini Pancakes"
                                  :description "Get this all-star, easy-to-follow Zucchini Pancakes recipe from Ina Garten"

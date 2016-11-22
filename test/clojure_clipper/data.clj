@@ -16,6 +16,9 @@
 (def foodnw-pancakes-instructions
   "Preheat the oven to 300 degrees F. Grate the zucchini into a bowl using the large grating side of a box grater. Immediately stir in the onion and eggs. Stir in 6 tablespoons of the flour, the baking powder, salt, and pepper. (If the batter gets too thin from the liquid in the zucchini, add the remaining 2 tablespoons of flour.)Heat a large (10 to 12-inch) saute pan over medium heat and melt 1/2 tablespoon butter and 1/2 tablespoon oil together in the pan. When the butter is hot but not smoking, lower the heat to medium-low and drop heaping soup spoons of batter into the pan. Cook the pancakes about 2 minutes on each side, until browned. Place the pancakes on a sheet pan and keep warm in the oven. Wipe out the pan with a dry paper towel, add more butter and oil to the pan, and continue to fry the pancakes until all the batter is used. The pancakes can stay warm in the oven for up to 30 minutes. Serve hot.")
 
+(def foodnw-fajitas-instructions
+  "In the sleeve of a slow cooker, add the onions, peppers, corn, tomatoes, garlic, 1 tablespoon chile powder, chipotle, and broth. Season with and salt and pepper, to taste. Cook on low for 4 to 6 hours. In a deep skillet over medium heat, add the canola oil and heat to 365 degrees F. Fry the tortilla pieces until brown and crispy, 1 to 2 minutes. Drain on brown paper and immediately season with salt and the remaining 1 tablespoon chile powder. (Reserve half the chips for Online Round 2 Recipe Creamy Mexican Dip with Spiced Chips.)Preheat the broiler. (Reserve 1 cup of the onion and pepper mixture for Round 2 Recipe Creamy Mexican Dip with Spiced Chips.) Ladle the soup into ovenproof bowls or crocks and top each with 2 tablespoons cheese. (Reserve remaining 1/2 cup cheese for Round 2 Recipe Crispy Steak Sandwiches.) Put the bowls on a sheet pan and put under the broiler until the cheese is brown and bubbly, 1 to 2 minutes. Garnish with scallions and serve.")
+
 (def alr-apple-turnover-ingredients
   [
    {:amount "2" :unit "tablespoons" :ingredient "lemon juice"}
@@ -42,6 +45,23 @@
    {:amount "1" :unit "teaspoon" :ingredient "kosher salt"}
    {:amount "1/2" :unit "teaspoon" :ingredient "freshly ground black pepper"}
    {:amount nil :unit nil :ingredient "Unsalted butter and vegetable oil"}
+   ])
+
+(def foodnw-fajitas-ingredients
+  [
+   {:amount "2" :unit nil :ingredient "medium yellow onions, sliced"}
+   {:amount "2" :unit nil :ingredient "green peppers, cored, seeded, and sliced into strips"}
+   {:amount "1/2" :unit "cup" :ingredient "frozen corn, thawed"}
+   {:amount "1" :unit nil :ingredient "(14-ounce) can diced tomatoes"}
+   {:amount "1" :unit "tablespoon" :ingredient "chopped garlic"}
+   {:amount "2" :unit "tablespoons" :ingredient "chile powder, divided"}
+   {:amount "1" :unit nil :ingredient "chipotle pepper in adobo sauce, chopped (reserve adobe for Creamy Mexican Dip)"}
+   {:amount "1" :unit "quart" :ingredient "chicken broth"}
+   {:amount nil :unit nil :ingredient "Kosher salt and freshly ground black pepper"}
+   {:amount "2" :unit "cups" :ingredient "canola oil, for frying"}
+   {:amount "12" :unit nil :ingredient "corn tortillas, cut into eighths"}
+   {:amount "1" :unit "cup" :ingredient "Monterey Jack cheese, shredded"}
+   {:amount "2" :unit nil :ingredient "scallions, sliced"}
    ])
 
 (def alr-meatballs-ingredients

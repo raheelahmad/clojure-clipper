@@ -37,9 +37,9 @@
         property-selector (get-property-selector selectors source-symbol)
         prop-value (property-selector prop-container)
 
-        just-for-printing (if (and (= source-symbol :foodnw)
-                                   (= property-key "nutrition"))
-                            (clojure.pprint/pprint prop-container))
+        ;; just-for-printing (if (and (= source-symbol :foodnw)
+        ;;                            (= property-key "nutrition"))
+        ;;                     (clojure.pprint/pprint prop-container))
 
         post-proccesor (get-post-processor selectors source-symbol)
         processed-prop-value (post-proccesor prop-value)
