@@ -38,8 +38,8 @@
         prop-value (property-selector prop-container)
 
         ;; just-for-printing (if (and (= source-symbol :foodnw)
-        ;;                            (= property-key "recipeInstructions"))
-        ;;                     (clojure.pprint/pprint prop-value))
+        ;;                            (= property-key "recipeIngredient"))
+        ;;                     (clojure.pprint/pprint prop-container))
 
         post-proccesor (get-post-processor selectors source-symbol)
         processed-prop-value (post-proccesor prop-value)

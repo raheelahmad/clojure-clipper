@@ -32,6 +32,18 @@
    {:amount "1" :unit "teaspoon" :ingredient "vanilla extract"}
    ])
 
+(def foodnw-pancakes-ingredients
+  [
+   {:amount "2" :unit nil :ingredient "medium zucchini (about 3/4 pound)"}
+   {:amount "2" :unit "tablespoons" :ingredient "grated red onion"}
+   {:amount "2" :unit nil :ingredient "extra-large eggs, lightly beaten"}
+   {:amount "6 to 8" :unit "tablespoons" :ingredient "all-purpose flour"}
+   {:amount "1" :unit "teaspoon" :ingredient "baking powder"}
+   {:amount "1" :unit "teaspoon" :ingredient "kosher salt"}
+   {:amount "1/2" :unit "teaspoon" :ingredient "freshly ground black pepper"}
+   {:amount nil :unit nil :ingredient "Unsalted butter and vegetable oil"}
+   ])
+
 (def alr-meatballs-ingredients
   [
    {:amount "1/2" :unit nil :ingredient "onion, minced"}
@@ -56,7 +68,7 @@
    {:amount nil, :unit nil, :ingredient "Salt to taste"}
    {:amount "20", :unit nil, :ingredient "large brussels sprouts"}
    {:amount "1", :unit "tablespoon", :ingredient "tamari"}
-   {:amount "2", :unit nil, :ingredient "to 3 cloves garlic, pressed"}
+   {:amount "2 to 3", :unit nil, :ingredient "cloves garlic, pressed"}
    {:amount nil, :unit nil, :ingredient "a dash of liquid smoke (if desired)"}
    {:amount "1/2", :unit "teaspoon", :ingredient "ground cumin"}
    {:amount "1/4", :unit "teaspoon", :ingredient "cayenne pepper"}

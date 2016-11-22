@@ -1,6 +1,15 @@
 (ns clojure-clipper.ingredient-parser
   (:require [inflections.core :as infl]))
 
+(def conjugates
+  ["or" "to"])
+(def unit-names
+  ["tablespoon" "tbsp" "teaspoon" "tsp"
+   "oz" "ounce"
+   "lb" "pound"
+   "cup" "glass" "spoon" "pinch"
+   ])
+
 (defn- parse-number
   "Returns the passed string if a number. Otherwise nil"
   [s]
@@ -31,23 +40,28 @@
    (fraction? amount-string)
    (unicode-fraction? amount-string)))
 
+(defn- amount-phrase?
+  "ie., 2 to 4, 4 or 6"
+  [comps]
+  (let [third (get comps 2)
+        has-conjugate (.contains conjugates (second comps))
+        has-amounts (and (amount? (first comps))
+                         (amount? third))]
+    (and has-conjugate has-amounts)))
+
 (defn- parse-amount-from-components
   "Returns an amount if found"
   [comps]
   (let [fst (first comps)
-        snd (second comps)]
+        snd (second comps)
+        thrd (first (drop 2 comps))]
     (if (and (amount? fst) (amount? snd))
       [(str fst " " snd) (drop 2 comps)] ; "For two numbers together, e.g. 3 1/2 or 2 4"
-      (if (amount? fst)
-        [(amount? fst) (rest comps)]
-        [nil comps]))))
-
-(def unit-names
-  ["tablespoon" "tbsp" "teaspoon" "tsp"
-   "oz" "ounce"
-   "lb" "pound"
-   "cup" "glass" "spoon" "pinch"
-   ])
+      (if (amount-phrase? comps)
+        [(str fst " " snd " " thrd) (drop 3 comps)]
+        (if (amount? fst) ; otherwise if first is amount...
+          [(amount? fst) (rest comps)]
+          [nil comps])))))
 
 (defn parse-unit-from-components
   [comps]

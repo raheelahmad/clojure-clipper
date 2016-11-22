@@ -55,8 +55,13 @@
                  :container-selector {:alr (fn [content prop]
                                              (html/select content [(html/attr= :itemprop "ingredients")]))
                                       :nyt (fn [content prop]
-                                             (html/select content [(html/attr= :itemprop prop)]))}
-                 :property-selector {:nyt nyt-helper/nyt-ingredient-selector
+                                             (html/select content [(html/attr= :itemprop prop)]))
+                                      :foodnw (fn [content prop]
+                                             (html/select content [(html/attr= :itemprop "ingredients")]))
+                                      }
+                 :property-selector {
+                                     :nyt nyt-helper/nyt-ingredient-selector
+                                     :foodnw alr-helper/alr-ingredient-selector
                                      :alr alr-helper/alr-ingredient-selector
                                      }
                  :post-processor #(identity %)}

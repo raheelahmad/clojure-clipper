@@ -28,6 +28,7 @@
                                  :prep-time "PT0H20M"
                                  :yield "10 (3-inch) pancakes"
                                  :instructions data/foodnw-pancakes-instructions
+                                 :ingredients data/foodnw-pancakes-ingredients
                                  }
                :nyt-brussel-sprouts {
                                      :name "Brussels Sprouts Sliders"
