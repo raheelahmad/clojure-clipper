@@ -110,7 +110,6 @@
    "sodium" [ 865 "mg"]
    } )
 
-
 (def nyt-lemon-garlic-nutrition
   {
    "calories" [ 250 ]

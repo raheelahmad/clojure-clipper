@@ -39,16 +39,16 @@
                                      :ingredients data/nyt-brussel-sprouts-ingredients
                                      :nutrition data/nyt-brussel-sprouts-nutrition
                                      :instructions data/nyt-brussel-sprouts-instructions
-                              }
+                                     }
                :nyt-lemon-garlic {
-                     :yield "Serves 4"
-                     :name "Lemon and Garlic Chicken With Mushrooms"
-                     :author "Martha Rose Shulman"
-                     :cook-time "PT45M"
-                     :image "https://static01.nyt.com/images/2014/03/22/science/28recipehealth/28recipehealth-articleLarge.jpg"
-                     :description "In this Provençal rendition of pan-cooked chicken breasts, the mushrooms take on and added dimension of flavor as they deglaze the pan with the help of one of their favorite partners, dry white wine."
-                     :ingredients data/nyt-lemon-garlic-ingredients
-                     :nutrition data/nyt-lemon-garlic-nutrition
+                                  :yield "Serves 4"
+                                  :name "Lemon and Garlic Chicken With Mushrooms"
+                                  :author "Martha Rose Shulman"
+                                  :cook-time "PT45M"
+                                  :image "https://static01.nyt.com/images/2014/03/22/science/28recipehealth/28recipehealth-articleLarge.jpg"
+                                  :description "In this Provençal rendition of pan-cooked chicken breasts, the mushrooms take on and added dimension of flavor as they deglaze the pan with the help of one of their favorite partners, dry white wine."
+                                  :ingredients data/nyt-lemon-garlic-ingredients
+                                  :nutrition data/nyt-lemon-garlic-nutrition
                                   :instructions data/nyt-lemon-garlic-instructions
                                   }
                :alr-apple-turnovers {
@@ -76,7 +76,7 @@
                                :ingredients data/alr-meatballs-ingredients
                                :nutrition data/alr-meatballs-nutrition
                                :instructions data/alr-meatballs-instructions
-                     }
+                               }
                }
   )
 
