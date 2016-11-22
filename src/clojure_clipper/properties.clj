@@ -17,6 +17,14 @@
                   [schema-selector (prop-selector prop)]
                   [(prop-selector prop)]))))
 
+(defn last-in-prop-container
+  "Same as default-container but selects last element if multiple matches"
+  [content prop]
+  (last
+   (html/select content
+                [schema-selector (prop-selector prop)]
+                )))
+
 (defn default-container [content property]
   (get-prop-container content property true))
 (defn prop-container [content property]
@@ -55,7 +63,9 @@
 
    :name {:key "name"
           :property-selector {:nyt #(first (:content %))
-                              :alr #(:content (:attrs %))}}
+                              :alr #(:content (:attrs %))
+                              :foodnw #(first (:content %))
+                              }}
    :author {:key "author"
             :container-selector {:nyt default-container
                                  :alr prop-container}
@@ -67,30 +77,53 @@
                                    :alr nutrition/alr-nutrition-selector}
                :post-processor identity}
    :prep-time {:key "prepTime"
-               :container-selector {:nyt default-container
+               :container-selector {
+                                    :nyt default-container
+                                    :foodnw default-container
                                     :alr prop-container}
-               :property-selector {:nyt #(:content (:attrs %))
+               :property-selector {
+                                   :nyt #(:content (:attrs %))
+                                   :foodnw #(:content (:attrs %))
                                    :alr #(:datetime (:attrs %))}}
    :cook-time {:key "cookTime"
-               :container-selector {:nyt default-container
+               :container-selector {
+                                    :nyt default-container
+                                    :foodnw default-container
                                     :alr prop-container}
-               :property-selector {:nyt #(:content (:attrs %))
+               :property-selector {
+                                   :nyt #(:content (:attrs %))
+                                   :foodnw #(:content (:attrs %))
                                    :alr #(:datetime (:attrs %))}}
    :total-time {:key "totalTime"
-               :container-selector {:nyt default-container
+                :container-selector {
+                                     :nyt default-container
+                                     :foodnw prop-container
                                     :alr prop-container}
-               :property-selector {:nyt #(:content (:attrs %))
+                :property-selector {:nyt #(:content (:attrs %))
+                                    :foodnw #(:content (:attrs %))
                                    :alr #(:datetime (:attrs %))}}
    :yield {:key "recipeYield"
-           :container-selector {:nyt default-container
+           :container-selector {
+                                :nyt default-container
+                                :foodnw default-container
                                 :alr prop-container}
-           :property-selector {:nyt #(first (:content %))
+           :property-selector {
+                               :nyt #(first (:content %))
+                               :foodnw #(:content (:attrs %))
                               :alr #(:content (:attrs %))}}
    :image {:key "image"
+           :container-selector {
+                                :nyt default-container
+                                :alr default-container
+                                :foodnw last-in-prop-container
+                                }
            :property-selector #(:src (:attrs %))}
    :description {:key "description"
-                 :property-selector {:nyt #(:content (second (:content %)))
-                                     :alr #(:content (:attrs %))}}
+                 :property-selector {
+                                     :nyt #(:content (second (:content %)))
+                                     :alr #(:content (:attrs %))
+                                     :foodnw #(:content (:attrs %))
+                                     }}
    :instructions {:key "recipeInstructions"
                   :container-selector prop-container
                   :post-processor #(->> %
@@ -102,7 +135,29 @@
                                            (clojure.string/replace #"\.[ ]\)" ".)") ; replace ". )" with ".)"
                                            )))
                                         )
-                  :property-selector {:nyt (fn [cont]
+                  :property-selector {
+
+                                      :foodnw (fn [cont]
+                                             (->>
+                                              cont
+                                              :content
+                                              (filter #(= (:tag %) :ul))
+                                              first
+                                              :content
+                                              (filter #(= (:tag %) :li))
+                                              (map :content)
+                                              (map first)
+                                              (map :content)
+                                              (map (fn [sublevel]
+                                                     (map
+                                                          #(if (string? %)
+                                                            %
+                                                            (-> % :content first))
+                                                          sublevel)))
+                                              (map #(if (string? %) %
+                                                        (apply str %)))
+                                              ))
+                                      :nyt (fn [cont]
                                              (->>
                                               cont
                                               :content

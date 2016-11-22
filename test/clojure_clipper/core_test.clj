@@ -8,6 +8,7 @@
    {:source :nyt :name :nyt-brussel-sprouts :url  "htmls/nyt_brussel_sprouts.html"}
    {:source :alr :name :alr-meatballs :url  "htmls/allrecipes.html"}
    {:source :alr :name :alr-apple-turnovers :url  "htmls/alr_apple_turnovers.html"}
+   {:source :foodnw :name :foodnw-pancakes :url  "htmls/foodnw-zucchini-pancakes.html"}
    ])
 
 (defn parsed-recipe [recipe-name]
@@ -18,6 +19,16 @@
   )
 
 (def expected {
+               :foodnw-pancakes {
+                                 :name "Zucchini Pancakes"
+                                 :description "Get this all-star, easy-to-follow Zucchini Pancakes recipe from Ina Garten"
+                                 :image "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2011/7/26/0/BX0214_zucchini-pancakes_s4x3.jpg.rend.sni12col.landscape.jpeg"
+                                 :total-time "PT0H24M"
+                                 :cook-time "PT0H4M"
+                                 :prep-time "PT0H20M"
+                                 :yield "10 (3-inch) pancakes"
+                                 :instructions data/foodnw-pancakes-instructions
+                                 }
                :nyt-brussel-sprouts {
                                      :name "Brussels Sprouts Sliders"
                                      :yield "Serves 8 - 10 appetizer portions"
