@@ -19,9 +19,11 @@
 (def foodnw-fajitas-instructions
   "In the sleeve of a slow cooker, add the onions, peppers, corn, tomatoes, garlic, 1 tablespoon chile powder, chipotle, and broth. Season with and salt and pepper, to taste. Cook on low for 4 to 6 hours. In a deep skillet over medium heat, add the canola oil and heat to 365 degrees F. Fry the tortilla pieces until brown and crispy, 1 to 2 minutes. Drain on brown paper and immediately season with salt and the remaining 1 tablespoon chile powder. (Reserve half the chips for Online Round 2 Recipe Creamy Mexican Dip with Spiced Chips.)Preheat the broiler. (Reserve 1 cup of the onion and pepper mixture for Round 2 Recipe Creamy Mexican Dip with Spiced Chips.) Ladle the soup into ovenproof bowls or crocks and top each with 2 tablespoons cheese. (Reserve remaining 1/2 cup cheese for Round 2 Recipe Crispy Steak Sandwiches.) Put the bowls on a sheet pan and put under the broiler until the cheese is brown and bubbly, 1 to 2 minutes. Garnish with scallions and serve.")
 
+(def epic-lamb-instructions
+  "Mix first 6 ingredients in large bowl. Add lamb and toss to coat. Heat 2 tablespoons oil in heavy large skillet over medium-high heat. Working in batches, add lamb to skillet and cook until browned on all sides, turning occasionally and adding 2 more tablespoons oil to skillet between batches, about 8 minutes per batch. Transfer lamb to another large bowl after each batch. Add onion and tomato paste to drippings in skillet. Reduce heat to medium; sauté until onion is soft, about 5 minutes. Add broth, garbanzo beans, apricots, tomatoes, cinnamon sticks, ginger, and lemon peel and bring to boil, scraping up browned bits. Return lamb to skillet and bring to boil. Reduce heat to low, cover, and simmer until lamb is just tender, about 1 hour. Uncover and simmer until sauce thickens enough to coat spoon, about 20 minutes. Season with salt and pepper. (Can be prepared 1 day ahead. Cool slightly. Refrigerate uncovered until cold, then cover and keep chilled. Rewarm over medium-low heat, stirring occasionally.) Transfer lamb and sauce to bowl. Sprinkle with cilantro and serve.")
+
 (def alr-apple-turnover-ingredients
-  [
-   {:amount "2" :unit "tablespoons" :ingredient "lemon juice"}
+  [{:amount "2" :unit "tablespoons" :ingredient "lemon juice"}
    {:amount "4" :unit "cups" :ingredient "water"}
    {:amount "4" :unit nil :ingredient "Granny Smith apples - peeled, cored and sliced"}
    {:amount "2" :unit "tablespoons" :ingredient "butter"}
@@ -32,24 +34,20 @@
    {:amount "1" :unit nil :ingredient "(17.25 ounce) package frozen puff pastry sheets, thawed"}
    {:amount "1" :unit "cup" :ingredient "confectioners' sugar"}
    {:amount "1" :unit "tablespoon" :ingredient "milk"}
-   {:amount "1" :unit "teaspoon" :ingredient "vanilla extract"}
-   ])
+   {:amount "1" :unit "teaspoon" :ingredient "vanilla extract"}])
 
 (def foodnw-pancakes-ingredients
-  [
-   {:amount "2" :unit nil :ingredient "medium zucchini (about 3/4 pound)"}
+  [{:amount "2" :unit nil :ingredient "medium zucchini (about 3/4 pound)"}
    {:amount "2" :unit "tablespoons" :ingredient "grated red onion"}
    {:amount "2" :unit nil :ingredient "extra-large eggs, lightly beaten"}
    {:amount "6 to 8" :unit "tablespoons" :ingredient "all-purpose flour"}
    {:amount "1" :unit "teaspoon" :ingredient "baking powder"}
    {:amount "1" :unit "teaspoon" :ingredient "kosher salt"}
    {:amount "1/2" :unit "teaspoon" :ingredient "freshly ground black pepper"}
-   {:amount nil :unit nil :ingredient "Unsalted butter and vegetable oil"}
-   ])
+   {:amount nil :unit nil :ingredient "Unsalted butter and vegetable oil"}])
 
 (def foodnw-fajitas-ingredients
-  [
-   {:amount "2" :unit nil :ingredient "medium yellow onions, sliced"}
+  [{:amount "2" :unit nil :ingredient "medium yellow onions, sliced"}
    {:amount "2" :unit nil :ingredient "green peppers, cored, seeded, and sliced into strips"}
    {:amount "1/2" :unit "cup" :ingredient "frozen corn, thawed"}
    {:amount "1" :unit nil :ingredient "(14-ounce) can diced tomatoes"}
@@ -61,12 +59,31 @@
    {:amount "2" :unit "cups" :ingredient "canola oil, for frying"}
    {:amount "12" :unit nil :ingredient "corn tortillas, cut into eighths"}
    {:amount "1" :unit "cup" :ingredient "Monterey Jack cheese, shredded"}
-   {:amount "2" :unit nil :ingredient "scallions, sliced"}
+   {:amount "2" :unit nil :ingredient "scallions, sliced"}])
+
+(def epic-lamb-ingredients
+  [{:amount "1", :unit "tablespoon", :ingredient "ground cumin"}
+   {:amount "2", :unit "teaspoons", :ingredient "ground coriander"}
+   {:amount "1 1/2", :unit "teaspoons", :ingredient "salt"}
+   {:amount "1", :unit "teaspoon", :ingredient "fennel seeds"}
+   {:amount "1/2", :unit "teaspoon", :ingredient "cayenne pepper"}
+   {:amount "1/2", :unit "teaspoon", :ingredient "ground black pepper"}
+   {:amount "2 1/2", :unit "pounds", :ingredient "trimmed boned lamb shoulder, cut into 1 1/2- to 2-inch pieces"}
+   {:amount "4", :unit "tablespoons", :ingredient "olive oil, divided"}
+   {:amount "1", :unit nil, :ingredient "large onion, finely chopped"}
+   {:amount "1", :unit "tablespoon", :ingredient "tomato paste"}
+   {:amount "2", :unit "cups", :ingredient "low-salt chicken broth"}
+   {:amount "1 15", :unit nil, :ingredient "1/2-ounce can garbanzo beans (chickpeas), drained"} ; TODO
+   {:amount "1", :unit "cup", :ingredient "dried apricots (about 5 ounces)"}
+   {:amount "2", :unit nil, :ingredient "large plum tomatoes, chopped"}
+   {:amount "2", :unit nil, :ingredient "cinnamon sticks"}
+   {:amount "1", :unit "tablespoon", :ingredient "minced peeled fresh ginger"}
+   {:amount "2", :unit "teaspoons", :ingredient "(packed) grated lemon peel"}
+   {:amount "2", :unit "tablespoons", :ingredient "chopped fresh cilantro"}
    ])
 
 (def alr-meatballs-ingredients
-  [
-   {:amount "1/2" :unit nil :ingredient "onion, minced"}
+  [{:amount "1/2" :unit nil :ingredient "onion, minced"}
    {:amount "2" :unit "tablespoons" :ingredient "olive oil"}
    {:amount "3" :unit nil :ingredient "cloves garlic, minced"}
    {:amount "1" :unit "pound" :ingredient "ground beef"}
@@ -79,11 +96,10 @@
    {:amount "1/3" :unit "cup" :ingredient "dry bread crumbs"}
    {:amount "2" :unit "tablespoons" :ingredient "olive oil"}
    {:amount "1" :unit nil :ingredient "(28 ounce) jar marinara sauce"}
-   {:amount "1" :unit "cup" :ingredient "water"}
-   ])
+   {:amount "1" :unit "cup" :ingredient "water"}])
 
 (def nyt-brussel-sprouts-ingredients
-  [ {:amount "6", :unit "tablespoons", :ingredient "olive oil, divided"}
+  [{:amount "6", :unit "tablespoons", :ingredient "olive oil, divided"}
    {:amount "2", :unit nil, :ingredient "large sweet or yellow onions, sliced thin"}
    {:amount nil, :unit nil, :ingredient "Salt to taste"}
    {:amount "20", :unit nil, :ingredient "large brussels sprouts"}
@@ -93,12 +109,10 @@
    {:amount "1/2", :unit "teaspoon", :ingredient "ground cumin"}
    {:amount "1/4", :unit "teaspoon", :ingredient "cayenne pepper"}
    {:amount "8", :unit "ounces", :ingredient "tempeh, cut into thin slices"}
-   {:amount "5", :unit "teaspoons", :ingredient "grainy mustard"}
-   ]
-  )
+   {:amount "5", :unit "teaspoons", :ingredient "grainy mustard"}])
 
 (def nyt-lemon-garlic-ingredients
-  [ {:amount "2", :unit nil, :ingredient "boneless skinless chicken breasts (most weigh 8 to 10 ounces)"}
+  [{:amount "2", :unit nil, :ingredient "boneless skinless chicken breasts (most weigh 8 to 10 ounces)"}
    {:amount "2", :unit "tablespoons", :ingredient "extra-virgin olive oil"}
    {:amount "3", :unit "tablespoons", :ingredient "fresh lemon juice"}
    {:amount "2", :unit nil, :ingredient "garlic cloves, minced or puréed"}
@@ -109,51 +123,51 @@
    {:amount "2", :unit "tablespoons", :ingredient "grapeseed, sunflower or canola oil"}
    {:amount "1", :unit "pound", :ingredient "mushrooms, sliced"}
    {:amount "1", :unit "teaspoon", :ingredient "fresh thyme leaves or 1 tablespoon chopped flat-leaf parsley"}
-   {:amount "1/4", :unit "cup", :ingredient "dry white wine"} ]
-  )
+   {:amount "1/4", :unit "cup", :ingredient "dry white wine"}])
 
 (def alr-apple-turnover-nutrition
-  {
-   "calories" [ 562 "kcal" ]
-   "fat" [ 25.9 "g"]
-   "carbohydrate" [ 80 "g"]
-   "protein" [ 4.8 "g"]
-   "sodium" [ 184 "mg"]
-   } )
+  {:calories {:amount 562 :unit "kcal" }
+   :fat {:amount 25.9 :unit "g" }
+   :carbohydrate {:amount 80 :unit "g" }
+   :protein {:amount 4.8 :unit "g" }
+   :sodium {:amount 184 :unit "mg" }})
 
 (def alr-meatballs-nutrition
   {
-   "calories" [ 331 "kcal" ]
-   "fat" [ 20.9 "g"]
-   "carbohydrate" [ 18.9 "g"]
-   "protein" [ 16.3 "g"]
-   "sodium" [ 865 "mg"]
-   } )
+   :calories {:amount 331 :unit "kcal" }
+   :fat {:amount 20.9 :unit "g" }
+   :carbohydrate {:amount 18.9 :unit "g" }
+   :protein {:amount 16.3 :unit "g" }
+   :sodium {:amount 865 :unit "mg" }})
 
 (def nyt-lemon-garlic-nutrition
-  {
-   "calories" [ 250 ]
-   "fat" [ 15 "grams"]
-   "saturated-fat" [ 1 "gram"]
-   "trans-fat" [ 0 "grams"]
-   "carbohydrate" [ 8 "grams"]
-   "fiber" [ 1 "gram"]
-   "protein" [ 18 "grams"]
-   "cholesterol" [ 46 "milligrams"]
-   "sodium" [ 616 "milligrams"]
-   }
-  )
+  {:calories {:amount 250 }
+   :fat {:amount 15 :unit "grams" }
+   :saturated-fat {:amount 1 :unit "gram" }
+   :trans-fat {:amount 0 :unit "grams" }
+   :carbohydrate {:amount 8 :unit "grams" }
+   :fiber {:amount 1 :unit "gram" }
+   :protein {:amount 18 :unit "grams" }
+   :cholesterol {:amount 46 :unit "milligrams" }
+   :sodium {:amount 616 :unit "milligrams" }})
 
 (def nyt-brussel-sprouts-nutrition
   {
-   "calories" [ 191 ]
-   "fat" [ 13 "grams"]
-   "saturated-fat" [ 2 "grams"]
-   "trans-fat" [ 0 "grams"]
-   "carbohydrate" [ 12 "grams"]
-   "fiber" [ 3 "grams"]
-   "protein" [ 8 "grams"]
-   "sodium" [ 470 "milligrams"]
-   }
-  )
+   :calories {:amount 191}
+   :fat {:amount 13 :unit "grams"}
+   :saturated-fat {:amount 2 :unit "grams"}
+   :trans-fat {:amount 0 :unit "grams"}
+   :carbohydrate {:amount 12 :unit "grams"}
+   :fiber {:amount 3 :unit "grams"}
+   :protein {:amount 8 :unit "grams"}
+   :sodium {:amount 470 :unit "milligrams"}})
 
+(def epic-lamb-nutrition
+  {:calories {:amount "777" :unit nil :percent nil}
+   :carbohydrate {:amount "39" :unit "g" :percent "13"}
+   :fat {:amount "52" :unit "g" :percent "81"}
+   :protein {:amount "40" :unit "g" :percent "80"}
+   :saturated-fat {:amount "19" :unit "g" :percent "96"}
+   :sodium {:amount "904" :unit "mg" :percent "38"}
+   :fiber {:amount "8" :unit "g" :percent "33"}
+   })

@@ -10,6 +10,7 @@
    {:source :alr :name :alr-apple-turnovers :url  "htmls/alr_apple_turnovers.html"}
    {:source :foodnw :name :foodnw-pancakes :url  "htmls/foodnw-zucchini-pancakes.html"}
    {:source :foodnw :name :foodnw-fajitas :url  "htmls/foodnw-spicy-fajita.html"}
+   {:source :epic :name :epic-lamb :url  "htmls/epic-moroccan-lamb.html"}
    ])
 
 (defn parsed-recipe [recipe-name]
@@ -20,6 +21,15 @@
   )
 
 (def expected {
+               :epic-lamb {
+                           :name "Moroccan Slow-Cooked Lamb"
+                           :description "Goes great with: Couscous flavored with chopped mint, toasted slivered almonds, and grated lemon peel. What to drink: Australian Shiraz or red Faugères from the Languedoc in France."
+                           :image "http://assets.epicurious.com/photos/560de52cf3a00aeb2f1d5328/master/pass/231597.jpg"
+                           :yield "Makes 6 servings"
+                           :ingredients data/epic-lamb-ingredients
+                           :instructions data/epic-lamb-instructions
+                           :nutrition data/epic-lamb-nutrition
+                           }
                :foodnw-fajitas {
                                 :name "Spicy Fajita Soup"
                                 :description "Get this all-star, easy-to-follow Spicy Fajita Soup recipe from Sandra Lee"

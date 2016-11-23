@@ -87,3 +87,9 @@
         ]
     {:amount amount :unit unit :ingredient ingredient}))
 
+(defn default-ingredient-selector [container]
+  (->> container
+       (map :content)
+       (map first)
+       (map parse-ingredient)
+       ))

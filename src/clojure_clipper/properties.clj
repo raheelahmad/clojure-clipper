@@ -4,6 +4,7 @@
             [clojure-clipper.nyt-selectors :as nyt-helper]
             [clojure-clipper.alr-selectors :as alr-helper]
             [clojure-clipper.nutrition-helpers :as nutrition]
+            [clojure-clipper.ingredient-parser :as ingredients]
             ))
 
 (def schema-selector (html/attr= :itemtype "http://schema.org/Recipe"))
@@ -56,13 +57,16 @@
                                              (html/select content [(html/attr= :itemprop "ingredients")]))
                                       :nyt (fn [content prop]
                                              (html/select content [(html/attr= :itemprop prop)]))
+                                      :epic (fn [content prop]
+                                              (html/select content [(html/attr= :itemprop "ingredients")]))
                                       :foodnw (fn [content prop]
                                              (html/select content [(html/attr= :itemprop "ingredients")]))
                                       }
                  :property-selector {
                                      :nyt nyt-helper/nyt-ingredient-selector
-                                     :foodnw alr-helper/alr-ingredient-selector
-                                     :alr alr-helper/alr-ingredient-selector
+                                     :foodnw ingredients/default-ingredient-selector
+                                     :alr ingredients/default-ingredient-selector
+                                     :epic ingredients/default-ingredient-selector
                                      }
                  :post-processor #(identity %)}
 
@@ -70,6 +74,7 @@
           :property-selector {:nyt #(first (:content %))
                               :alr #(:content (:attrs %))
                               :foodnw #(first (:content %))
+                              :epic #(first (:content %))
                               }}
    :author {:key "author"
             :container-selector {:nyt default-container
@@ -77,9 +82,11 @@
             :property-selector #(first (:content %))}
    :nutrition {:key "nutrition"
                :container-selector {:nyt default-container
+                                    :epic prop-container
                                     :alr prop-container}
                :property-selector {:nyt nutrition/nyt-nutrition-selector
-                                   :alr nutrition/alr-nutrition-selector}
+                                   :alr nutrition/alr-nutrition-selector
+                                   :epic nutrition/epic-nutrition-selector}
                :post-processor identity}
    :prep-time {:key "prepTime"
                :container-selector {
@@ -111,9 +118,11 @@
            :container-selector {
                                 :nyt default-container
                                 :foodnw default-container
+                                :epic prop-container
                                 :alr prop-container}
            :property-selector {
                                :nyt #(first (:content %))
+                               :epic #(first (:content %))
                                :foodnw #(:content (:attrs %))
                               :alr #(:content (:attrs %))}}
    :image {:key "image"
@@ -121,13 +130,27 @@
                                 :nyt default-container
                                 :alr default-container
                                 :foodnw last-in-prop-container
+                                :epic prop-container
                                 }
-           :property-selector #(:src (:attrs %))}
+           :property-selector {
+                               :nyt #(:src (:attrs %))
+                               :alr #(:src (:attrs %))
+                               :foodnw #(:src (:attrs %))
+                               :epic #(:content (:attrs %))
+                               }
+           }
    :description {:key "description"
+                 :container-selector {
+                                      :nyt default-container
+                                      :alr default-container
+                                      :foodnw last-in-prop-container
+                                      :epic prop-container
+                                      }
                  :property-selector {
                                      :nyt #(:content (second (:content %)))
                                      :alr #(:content (:attrs %))
                                      :foodnw #(:content (:attrs %))
+                                     :epic #(:content (first (:content %)))
                                      }}
    :instructions {:key "recipeInstructions"
                   :container-selector prop-container
@@ -141,7 +164,18 @@
                                            )))
                                         )
                   :property-selector {
-
+                                      :epic (fn [content]
+                                             (->>
+                                              content
+                                              :content
+                                              (filter #(= (:tag %) :ol))
+                                              first :content
+                                              first :content
+                                              first :content
+                                              (filter #(= (:tag %) :li))
+                                              (map :content)
+                                              (map first)
+                                              ))
                                       :foodnw (fn [cont]
                                              (->>
                                               cont
