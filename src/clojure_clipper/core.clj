@@ -37,13 +37,12 @@
         property-selector (get-property-selector selectors source-symbol)
         prop-value (property-selector prop-container)
 
-        ;; just-for-printing (if (and (= source-symbol :epic)
-        ;;                            (= property-key "nutrition"))
-        ;;                     (let []
-        ;;                       (clojure.pprint/pprint prop-container)
-        ;;                       (clojure.pprint/pprint "------------------------------")
-        ;;                       (clojure.pprint/pprint prop-value)
-        ;;                       ))
+        just-for-printing (if (and (= source-symbol :epic)
+                                   (= property-key "image"))
+                            (let []
+                              (clojure.pprint/pprint "------------------------------")
+                              (clojure.pprint/pprint prop-container)
+                              ))
 
         post-proccesor (get-post-processor selectors source-symbol)
         processed-prop-value (post-proccesor prop-value)
@@ -64,5 +63,5 @@
                           properties)]
     result))
 
-
+(parse-recipe {:source :epic :name :epic-fajitas :url  "htmls/epic-chipotle-fajitas.html"})
 

@@ -7,16 +7,20 @@
             [clojure-clipper.ingredient-parser :as ingredients]
             ))
 
-(def schema-selector (html/attr= :itemtype "http://schema.org/Recipe"))
-(defn prop-selector [prop] (html/attr= :itemprop prop))
+(def schema-selector (html/attr= :itemtype "http://schema.org/Recipe")) ; select the schema; top-level for the recipe
+(defn prop-selector [prop] (html/attr= :itemprop prop)) ; select the property (as in <tag itemprop="some-property-name">)
 
-(defn get-prop-container [content prop from-top]
-  ;;; Get the container inside which we will find the property
-  (first
-   (html/select content
-                (if from-top
-                  [schema-selector (prop-selector prop)]
-                  [(prop-selector prop)]))))
+(defn get-prop-container
+  "Get the container inside which we will find the property"
+  [content prop from-top]
+  (let [property-selector (prop-selector prop)]
+    (first
+     (html/select content
+                  (if from-top
+                    ; some property containers should be selected with the schema-container first, and then the property
+                    [schema-selector property-selector]
+                    ; ... and some shoudl be selected directly with the property
+                    [(prop-selector prop)])))))
 
 (defn last-in-prop-container
   "Same as default-container but selects last element if multiple matches"
@@ -130,7 +134,7 @@
                                 :nyt default-container
                                 :alr default-container
                                 :foodnw last-in-prop-container
-                                :epic prop-container
+                                :epic default-container
                                 }
            :property-selector {
                                :nyt #(:src (:attrs %))
@@ -150,7 +154,8 @@
                                      :nyt #(:content (second (:content %)))
                                      :alr #(:content (:attrs %))
                                      :foodnw #(:content (:attrs %))
-                                     :epic #(:content (first (:content %)))
+                                     :epic #(or (:content (first (:content %)))
+                                                (:content (:attrs %)))
                                      }}
    :instructions {:key "recipeInstructions"
                   :container-selector prop-container

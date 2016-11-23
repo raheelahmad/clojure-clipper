@@ -11,6 +11,7 @@
    {:source :foodnw :name :foodnw-pancakes :url  "htmls/foodnw-zucchini-pancakes.html"}
    {:source :foodnw :name :foodnw-fajitas :url  "htmls/foodnw-spicy-fajita.html"}
    {:source :epic :name :epic-lamb :url  "htmls/epic-moroccan-lamb.html"}
+   {:source :epic :name :epic-fajitas :url  "htmls/epic-chipotle-fajitas.html"}
    ])
 
 (defn parsed-recipe [recipe-name]
@@ -24,11 +25,20 @@
                :epic-lamb {
                            :name "Moroccan Slow-Cooked Lamb"
                            :description "Goes great with: Couscous flavored with chopped mint, toasted slivered almonds, and grated lemon peel. What to drink: Australian Shiraz or red Faugères from the Languedoc in France."
-                           :image "http://assets.epicurious.com/photos/560de52cf3a00aeb2f1d5328/master/pass/231597.jpg"
+                           ;; :image "http://assets.epicurious.com/photos/560de52cf3a00aeb2f1d5328/master/pass/231597.jpg"
                            :yield "Makes 6 servings"
                            :ingredients data/epic-lamb-ingredients
                            :instructions data/epic-lamb-instructions
                            :nutrition data/epic-lamb-nutrition
+                           }
+               :epic-fajitas {
+                              :name "Chipotle Chicken Fajitas"
+                              :description "Get this all-star, easy-to-follow Chipotle Chicken Fajitas recipe from Aida Mollenkamp"
+                              :image "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2009/11/1/0/AI0302_Chipotle-Chicken-Fajitas_s4x3.jpg.rend.sni12col.landscape.jpeg"
+                           ;; :yield "Makes 6 servings"
+                           ;; :ingredients data/epic-lamb-ingredients
+                           ;; :instructions data/epic-lamb-instructions
+                           ;; :nutrition data/epic-lamb-nutrition
                            }
                :foodnw-fajitas {
                                 :name "Spicy Fajita Soup"
