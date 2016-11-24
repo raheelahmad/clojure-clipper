@@ -3,6 +3,7 @@
             [clojure.string :as str]
             [clojure-clipper.nyt-selectors :as nyt-helper]
             [clojure-clipper.alr-selectors :as alr-helper]
+            [clojure-clipper.epic-selectors :as epic-helper]
             [clojure-clipper.nutrition-helpers :as nutrition]
             [clojure-clipper.ingredient-parser :as ingredients]
             ))
@@ -134,13 +135,13 @@
                                 :nyt default-container
                                 :alr default-container
                                 :foodnw last-in-prop-container
-                                :epic default-container
+                                :epic epic-helper/image-selector
                                 }
            :property-selector {
                                :nyt #(:src (:attrs %))
                                :alr #(:src (:attrs %))
                                :foodnw #(:src (:attrs %))
-                               :epic #(:content (:attrs %))
+                               :epic #(:src (:attrs %))
                                }
            }
    :description {:key "description"
