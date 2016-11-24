@@ -7,11 +7,15 @@
 
 (defn fetch [url] (html/html-resource url))
 
-(defn get-selector [selector-type selectors source-symbol]
-  (let [property-selectors (selector-type selectors)
-        property-selector (or (get property-selectors source-symbol)
-                              property-selectors)]
-    property-selector))
+(defn get-selector
+  "Get selector (selector-type, either property or container)
+  from a list of selectors, for a source"
+  [selector-type selectors source-symbol]
+  (let [found-selectors (selector-type selectors)
+        ; selector is either in a map keyed by source, or a singular selector
+        found-selector (or (get found-selectors source-symbol)
+                              found-selectors)]
+    found-selector))
 
 (defn get-property-selector [selectors source-symbol]
   (get-selector :property-selector selectors source-symbol))
@@ -26,7 +30,7 @@
    (get-selector :container-selector selectors source-symbol)
    default-container))
 
-(defn get-prop [source content selectors]
+(defn get-property [source content selectors]
   (let [source-symbol (:source source)
         property-key (:key selectors)
 
@@ -52,16 +56,15 @@
 (defn parse-recipe [source]
   (let [page (html/html-resource (:url source))
         result (reduce-kv (fn [col
-                              prop-name ; key from `properties`
-                              prop-selector ; selector that finds the property in page
+                              property-name ; key from `properties`
+                              property-selector ; selector that finds the property in page
                               ]
                             (assoc col
-                                   prop-name
-                                   (get-prop source page prop-selector) ; this is the parsing step: get the property
+                                   property-name
+                                   (get-property source page property-selector) ; this is the parsing step: get the property
                                    ))
                           {}
                           properties)]
     result))
 
-(parse-recipe {:source :epic :name :epic-fajitas :url  "htmls/epic-chipotle-fajitas.html"})
 
