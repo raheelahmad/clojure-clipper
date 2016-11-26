@@ -19,8 +19,11 @@
 (def foodnw-fajitas-instructions
   "In the sleeve of a slow cooker, add the onions, peppers, corn, tomatoes, garlic, 1 tablespoon chile powder, chipotle, and broth. Season with and salt and pepper, to taste. Cook on low for 4 to 6 hours. In a deep skillet over medium heat, add the canola oil and heat to 365 degrees F. Fry the tortilla pieces until brown and crispy, 1 to 2 minutes. Drain on brown paper and immediately season with salt and the remaining 1 tablespoon chile powder. (Reserve half the chips for Online Round 2 Recipe Creamy Mexican Dip with Spiced Chips.)Preheat the broiler. (Reserve 1 cup of the onion and pepper mixture for Round 2 Recipe Creamy Mexican Dip with Spiced Chips.) Ladle the soup into ovenproof bowls or crocks and top each with 2 tablespoons cheese. (Reserve remaining 1/2 cup cheese for Round 2 Recipe Crispy Steak Sandwiches.) Put the bowls on a sheet pan and put under the broiler until the cheese is brown and bubbly, 1 to 2 minutes. Garnish with scallions and serve.")
 
+(def epic-spinach-instructions
+  "Directions Watch how to make this recipe. Preheat the oven to 425 degrees F. Melt the butter in a heavy-bottomed saute pan over medium heat. Add the onions and saute until translucent, about 15 minutes. Add the flour and nutmeg and cook, stirring, for 2 more minutes. Add the cream and milk and cook until thickened. Squeeze as much liquid as possible from the spinach and add the spinach to the sauce. Add 1/2 cup of the Parmesan cheese and mix well. Season, to taste, with salt and pepper. Transfer the spinach to a baking dish and sprinkle the remaining 1/2 cup Parmesan and the Gruyere on top. Bake for 20 minutes until hot and bubbly. Serve hot. Note: This recipe has been updated and may differ from what was originally published or broadcast. Copyright 2001, Barefoot Contessa Parties!, All Rights Reserved CATEGORIES:")
+
 (def epic-lamb-instructions
-  "Mix first 6 ingredients in large bowl. Add lamb and toss to coat. Heat 2 tablespoons oil in heavy large skillet over medium-high heat. Working in batches, add lamb to skillet and cook until browned on all sides, turning occasionally and adding 2 more tablespoons oil to skillet between batches, about 8 minutes per batch. Transfer lamb to another large bowl after each batch. Add onion and tomato paste to drippings in skillet. Reduce heat to medium; sauté until onion is soft, about 5 minutes. Add broth, garbanzo beans, apricots, tomatoes, cinnamon sticks, ginger, and lemon peel and bring to boil, scraping up browned bits. Return lamb to skillet and bring to boil. Reduce heat to low, cover, and simmer until lamb is just tender, about 1 hour. Uncover and simmer until sauce thickens enough to coat spoon, about 20 minutes. Season with salt and pepper. (Can be prepared 1 day ahead. Cool slightly. Refrigerate uncovered until cold, then cover and keep chilled. Rewarm over medium-low heat, stirring occasionally.) Transfer lamb and sauce to bowl. Sprinkle with cilantro and serve.")
+  "Preparation Mix first 6 ingredients in large bowl. Add lamb and toss to coat. Heat 2 tablespoons oil in heavy large skillet over medium-high heat. Working in batches, add lamb to skillet and cook until browned on all sides, turning occasionally and adding 2 more tablespoons oil to skillet between batches, about 8 minutes per batch. Transfer lamb to another large bowl after each batch. Add onion and tomato paste to drippings in skillet. Reduce heat to medium; sauté until onion is soft, about 5 minutes. Add broth, garbanzo beans, apricots, tomatoes, cinnamon sticks, ginger, and lemon peel and bring to boil, scraping up browned bits. Return lamb to skillet and bring to boil. Reduce heat to low, cover, and simmer until lamb is just tender, about 1 hour. Uncover and simmer until sauce thickens enough to coat spoon, about 20 minutes. Season with salt and pepper. (Can be prepared 1 day ahead. Cool slightly. Refrigerate uncovered until cold, then cover and keep chilled. Rewarm over medium-low heat, stirring occasionally.) Transfer lamb and sauce to bowl. Sprinkle with cilantro and serve.")
 
 (def alr-apple-turnover-ingredients
   [{:amount "2" :unit "tablespoons" :ingredient "lemon juice"}
@@ -60,6 +63,19 @@
    {:amount "12" :unit nil :ingredient "corn tortillas, cut into eighths"}
    {:amount "1" :unit "cup" :ingredient "Monterey Jack cheese, shredded"}
    {:amount "2" :unit nil :ingredient "scallions, sliced"}])
+
+(def epic-spinach-gratin-ingredients
+  [{:amount "4", :unit "tablespoons", :ingredient "(1/2 stick) unsalted butter"}
+   {:amount "4", :unit "cups", :ingredient "chopped yellow onions (2 large)"}
+   {:amount "1/4", :unit "cup", :ingredient "flour"}
+   {:amount "1/4", :unit "teaspoon", :ingredient "grated nutmeg"}
+   {:amount "1", :unit "cup", :ingredient "heavy cream"}
+   {:amount "2", :unit "cups", :ingredient "milk"}
+   {:amount "3", :unit "pounds", :ingredient "frozen chopped spinach, defrosted (5 (10-ounce) packages)"}
+   {:amount "1", :unit "cup", :ingredient "freshly grated Parmesan cheese"}
+   {:amount "1", :unit "tablespoon", :ingredient "kosher salt"}
+   {:amount "1/2", :unit "teaspoon", :ingredient "freshly ground black pepper"}
+   {:amount "1/2", :unit "cup", :ingredient "grated Gruyere cheese"}])
 
 (def epic-lamb-ingredients
   [{:amount "1", :unit "tablespoon", :ingredient "ground cumin"}

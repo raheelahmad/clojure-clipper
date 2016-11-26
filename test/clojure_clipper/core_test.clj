@@ -12,18 +12,26 @@
    {:source :foodnw :name :foodnw-fajitas :url  "htmls/foodnw-spicy-fajita.html"}
    {:source :epic :name :epic-lamb :url  "htmls/epic-moroccan-lamb.html"}
    {:source :epic :name :epic-fajitas :url  "htmls/epic-chipotle-fajitas.html"}
+   {:source :epic :name :epic-gratin :url  "htmls/epic-spinach-gratin.html"}
    ])
 
 (defn parsed-recipe [recipe-name]
   (let [fixture (first (filter #(= (:name %) recipe-name) sources))
         parsed (clipper/parse-recipe fixture)]
-    parsed
-    )
-  )
+    parsed))
 
 (def expected {
-               :epic-lamb {
-                           :name "Moroccan Slow-Cooked Lamb"
+               :epic-gratin {:name "Spinach Gratin"
+                             :description "Get this all-star, easy-to-follow Spinach Gratin recipe from Ina Garten"
+                             :image "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2003/9/29/1/ig1a02_spinach_gratin_new.jpg.rend.sni12col.landscape.jpeg"
+                             :total-time "PT1H35M"
+                             :prep-time "PT0H55M"
+                             :cook-time "PT0H40M"
+                             :yield "8 servings"
+                             :ingredients data/epic-spinach-gratin-ingredients
+                             :instructions data/epic-spinach-instructions
+                             }
+               :epic-lamb {:name "Moroccan Slow-Cooked Lamb"
                            :description "Goes great with: Couscous flavored with chopped mint, toasted slivered almonds, and grated lemon peel. What to drink: Australian Shiraz or red Faugères from the Languedoc in France."
                            ;; :image "http://assets.epicurious.com/photos/560de52cf3a00aeb2f1d5328/master/pass/231597.jpg"
                            :yield "Makes 6 servings"
@@ -31,17 +39,15 @@
                            :instructions data/epic-lamb-instructions
                            :nutrition data/epic-lamb-nutrition
                            }
-               :epic-fajitas {
-                              :name "Chipotle Chicken Fajitas"
+               :epic-fajitas {:name "Chipotle Chicken Fajitas"
                               :description "Get this all-star, easy-to-follow Chipotle Chicken Fajitas recipe from Aida Mollenkamp"
                               :image "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2009/11/1/0/AI0302_Chipotle-Chicken-Fajitas_s4x3.jpg.rend.sni12col.landscape.jpeg"
-                           ;; :yield "Makes 6 servings"
+                           :yield "2 to 4 servings"
                            ;; :ingredients data/epic-lamb-ingredients
                            ;; :instructions data/epic-lamb-instructions
                            ;; :nutrition data/epic-lamb-nutrition
                            }
-               :foodnw-fajitas {
-                                :name "Spicy Fajita Soup"
+               :foodnw-fajitas {:name "Spicy Fajita Soup"
                                 :description "Get this all-star, easy-to-follow Spicy Fajita Soup recipe from Sandra Lee"
                                 :image "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2011/2/20/0/SM0408H_spicy-fajita-soup_s4x3.jpg.rend.sni12col.landscape.jpeg"
                                 :total-time "PT5H15M"
@@ -51,8 +57,7 @@
                                 :instructions data/foodnw-fajitas-instructions
                                 :ingredients data/foodnw-fajitas-ingredients
                                 }
-               :foodnw-pancakes {
-                                 :name "Zucchini Pancakes"
+               :foodnw-pancakes {:name "Zucchini Pancakes"
                                  :description "Get this all-star, easy-to-follow Zucchini Pancakes recipe from Ina Garten"
                                  :image "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2011/7/26/0/BX0214_zucchini-pancakes_s4x3.jpg.rend.sni12col.landscape.jpeg"
                                  :total-time "PT0H24M"
@@ -62,8 +67,7 @@
                                  :instructions data/foodnw-pancakes-instructions
                                  :ingredients data/foodnw-pancakes-ingredients
                                  }
-               :nyt-brussel-sprouts {
-                                     :name "Brussels Sprouts Sliders"
+               :nyt-brussel-sprouts {:name "Brussels Sprouts Sliders"
                                      :yield "Serves 8 - 10 appetizer portions"
                                      :image "https://static01.nyt.com/images/2014/11/05/science/05VEGTHANKSGIVING3/05VEGTHANKSGIVING3-articleLarge.jpg"
                                      :cook-time "PT1H45M"
@@ -72,8 +76,7 @@
                                      :nutrition data/nyt-brussel-sprouts-nutrition
                                      :instructions data/nyt-brussel-sprouts-instructions
                                      }
-               :nyt-lemon-garlic {
-                                  :yield "Serves 4"
+               :nyt-lemon-garlic {:yield "Serves 4"
                                   :name "Lemon and Garlic Chicken With Mushrooms"
                                   :author "Martha Rose Shulman"
                                   :cook-time "PT45M"
@@ -83,8 +86,7 @@
                                   :nutrition data/nyt-lemon-garlic-nutrition
                                   :instructions data/nyt-lemon-garlic-instructions
                                   }
-               :alr-apple-turnovers {
-                                     :name "Apple Turnovers"
+               :alr-apple-turnovers {:name "Apple Turnovers"
                                      :yield "8"
                                      :author "Maureen O'leary"
                                      :cook-time "PT25M"
@@ -96,8 +98,7 @@
                                      :nutrition data/alr-apple-turnover-nutrition
                                      :instructions data/alr-apple-turnover-instructions
                                      }
-               :alr-meatballs {
-                               :name "Chef John's Ricotta Meatballs"
+               :alr-meatballs {:name "Chef John's Ricotta Meatballs"
                                :yield "8"
                                :author "Chef John"
                                :cook-time "PT40M"

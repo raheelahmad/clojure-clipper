@@ -31,6 +31,8 @@
                 [schema-selector (get-property-selector property)]
                 )))
 
+;; In most cases property-selector should be enough,
+;; but sometimes it is necessary to select schema first (default-container)
 (defn default-container [content property]
   (get-property-container content property true))
 (defn property-container [content property]
@@ -55,6 +57,18 @@
     components (concat with-period ["."])
     result (apply str components)]
     result))
+
+
+(defn find-content-string [container]
+  (let [
+        from-string (fn [s] s)
+        from-map (fn [m] (find-content-string (:content m)))
+        from-seq (fn [m] (map find-content-string m))]
+    (cond
+      (string? container) (from-string container)
+      (map? container) (from-map container)
+      (seq? container) (from-seq container)
+      :else "")))
 
 (def properties
   {:ingredients {:key "recipeIngredient"
@@ -97,27 +111,33 @@
                :container-selector {
                                     :nyt default-container
                                     :foodnw default-container
+                                    :epic default-container
                                     :alr property-container}
                :property-selector {
                                    :nyt #(:content (:attrs %))
                                    :foodnw #(:content (:attrs %))
+                                   :epic #(:content (:attrs %))
                                    :alr #(:datetime (:attrs %))}}
    :cook-time {:key "cookTime"
                :container-selector {
                                     :nyt default-container
                                     :foodnw default-container
+                                    :epic default-container
                                     :alr property-container}
                :property-selector {
                                    :nyt #(:content (:attrs %))
                                    :foodnw #(:content (:attrs %))
+                                   :epic #(:content (:attrs %))
                                    :alr #(:datetime (:attrs %))}}
    :total-time {:key "totalTime"
                 :container-selector {
                                      :nyt default-container
                                      :foodnw property-container
+                                     :epic property-container
                                     :alr property-container}
                 :property-selector {:nyt #(:content (:attrs %))
                                     :foodnw #(:content (:attrs %))
+                                    :epic #(:content (:attrs %))
                                    :alr #(:datetime (:attrs %))}}
    :yield {:key "recipeYield"
            :container-selector {
@@ -127,7 +147,8 @@
                                 :alr property-container}
            :property-selector {
                                :nyt #(first (:content %))
-                               :epic #(first (:content %))
+                               :epic #(or (first (:content %))
+                                          (:content (:attrs %)))
                                :foodnw #(:content (:attrs %))
                               :alr #(:content (:attrs %))}}
    :image {:key "image"
@@ -170,18 +191,9 @@
                                            )))
                                         )
                   :property-selector {
-                                      :epic (fn [content]
-                                             (->>
-                                              content
-                                              :content
-                                              (filter #(= (:tag %) :ol))
-                                              first :content
-                                              first :content
-                                              first :content
-                                              (filter #(= (:tag %) :li))
-                                              (map :content)
-                                              (map first)
-                                              ))
+                                      ; TODO: need to descend depth first
+                                      :epic (fn [initial]
+                                              (flatten (find-content-string initial)))
                                       :foodnw (fn [cont]
                                              (->>
                                               cont
@@ -218,4 +230,5 @@
                                               (map first)
                                               (map :content)
                                               (map first)))}}})
+
 
