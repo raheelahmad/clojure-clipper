@@ -59,11 +59,11 @@
     result))
 
 
-(defn find-content-string [container]
+(defn epic-find-content-string [container]
   (let [
         from-string (fn [s] s)
-        from-map (fn [m] (find-content-string (:content m)))
-        from-seq (fn [m] (map find-content-string m))]
+        from-map (fn [m] (epic-find-content-string (:content m)))
+        from-seq (fn [m] (map epic-find-content-string m))]
     (cond
       (string? container) (from-string container)
       (map? container) (from-map container)
@@ -111,7 +111,7 @@
                :container-selector {
                                     :nyt default-container
                                     :foodnw default-container
-                                    :epic default-container
+                                    :epic property-container
                                     :alr property-container}
                :property-selector {
                                    :nyt #(:content (:attrs %))
@@ -122,7 +122,7 @@
                :container-selector {
                                     :nyt default-container
                                     :foodnw default-container
-                                    :epic default-container
+                                    :epic property-container
                                     :alr property-container}
                :property-selector {
                                    :nyt #(:content (:attrs %))
@@ -133,8 +133,8 @@
                 :container-selector {
                                      :nyt default-container
                                      :foodnw property-container
-                                     :epic property-container
-                                    :alr property-container}
+                                     :epic default-container
+                                     :alr property-container}
                 :property-selector {:nyt #(:content (:attrs %))
                                     :foodnw #(:content (:attrs %))
                                     :epic #(:content (:attrs %))
@@ -162,7 +162,7 @@
                                :nyt #(:src (:attrs %))
                                :alr #(:src (:attrs %))
                                :foodnw #(:src (:attrs %))
-                               :epic #(:src (:attrs %))
+                               :epic #(:content (:attrs %))
                                }
            }
    :description {:key "description"
@@ -176,8 +176,8 @@
                                      :nyt #(:content (second (:content %)))
                                      :alr #(:content (:attrs %))
                                      :foodnw #(:content (:attrs %))
-                                     :epic #(or (:content (first (:content %)))
-                                                (:content (:attrs %)))
+                                     :epic #(or (flatten (epic-find-content-string %))
+                                                (:content (first %)))
                                      }}
    :instructions {:key "recipeInstructions"
                   :container-selector property-container
@@ -193,7 +193,7 @@
                   :property-selector {
                                       ; TODO: need to descend depth first
                                       :epic (fn [initial]
-                                              (flatten (find-content-string initial)))
+                                              (flatten (epic-find-content-string initial)))
                                       :foodnw (fn [cont]
                                              (->>
                                               cont

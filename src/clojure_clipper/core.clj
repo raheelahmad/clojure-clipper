@@ -45,12 +45,13 @@
         processed-prop-value (post-proccesor prop-value)
 
         ;; just-for-printing (if (and (= source-symbol :epic)
-        ;;                            (= property-key "recipeInstructions"))
+        ;;                            (= property-key "nutrition"))
         ;;                     (let []
+        ;;                       (println "===================\n=========================")
         ;;                       (clojure.pprint/pprint prop-container)
         ;;                       (clojure.pprint/pprint "------------------------------")
         ;;                       (clojure.pprint/pprint prop-value)
-        ;;                       ))
+                              ;; ))
 
         ]
     processed-prop-value))

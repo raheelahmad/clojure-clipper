@@ -11,8 +11,9 @@
    {:source :foodnw :name :foodnw-pancakes :url  "htmls/foodnw-zucchini-pancakes.html"}
    {:source :foodnw :name :foodnw-fajitas :url  "htmls/foodnw-spicy-fajita.html"}
    {:source :epic :name :epic-lamb :url  "htmls/epic-moroccan-lamb.html"}
-   {:source :epic :name :epic-fajitas :url  "htmls/epic-chipotle-fajitas.html"}
    {:source :epic :name :epic-gratin :url  "htmls/epic-spinach-gratin.html"}
+   {:source :epic :name :epic-pizza :url  "htmls/epic-pizza.html"}
+   {:source :epic :name :epic-sandwiches :url  "htmls/epic-sandwiches.html"}
    ])
 
 (defn parsed-recipe [recipe-name]
@@ -21,31 +22,31 @@
     parsed))
 
 (def expected {
-               :epic-gratin {:name "Spinach Gratin"
-                             :description "Get this all-star, easy-to-follow Spinach Gratin recipe from Ina Garten"
-                             :image "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2003/9/29/1/ig1a02_spinach_gratin_new.jpg.rend.sni12col.landscape.jpeg"
-                             :total-time "PT1H35M"
-                             :prep-time "PT0H55M"
-                             :cook-time "PT0H40M"
-                             :yield "8 servings"
-                             :ingredients data/epic-spinach-gratin-ingredients
-                             :instructions data/epic-spinach-instructions
+               :epic-sandwiches {:name "BBQ Eggplant Sandwiches with Provolone and Mushrooms"
+                                 :description "These cheesy, BBQ sauce-slathered eggplant-steak sandwiches seem almost meaty, even though they'’re entirely vegetarian."
+                                 :image "http://assets.epicurious.com/photos/54c7a61ae231becc7f3deeff/master/pass/51261010_bbq-eggplant-sandwich_6x4.jpg"
+                                 :prep-time "PT10M"
+                                 :cook-time "PT20M"
+                                 :ingredients data/epic-sandwiches-ingredients
+                                 :nutrition data/epic-sandwiches-nutrition
+                                 :instructions data/epic-sandwiches-instructions
+                            }
+               :epic-pizza {:name "Thanksgiving Skillet Pizza"
+                            :description "Transform your Thanksgiving leftovers into this irresistible pizza, with mashed potatoes taking the place of traditional tomato sauce. Cooking in a cast-iron skillet ensures a super-crispy crust and gets your pizza on the table in 22 minutes or less."
+                            :image "http://assets.epicurious.com/photos/582b5eae31bd0b471cece6f3/master/pass/thanksgiving-skillet-pizza-hero-14112016.jpg"
+                            :yield "Makes 1 (12\") pizza"
+                            :instructions data/epic-pizza-instructions
+                            :cook-time "PT22M"
+                            :prep-time "PT10M"
+                            :ingredients data/epic-pizza-ingredients
                              }
                :epic-lamb {:name "Moroccan Slow-Cooked Lamb"
                            :description "Goes great with: Couscous flavored with chopped mint, toasted slivered almonds, and grated lemon peel. What to drink: Australian Shiraz or red Faugères from the Languedoc in France."
-                           ;; :image "http://assets.epicurious.com/photos/560de52cf3a00aeb2f1d5328/master/pass/231597.jpg"
+                           :image "http://assets.epicurious.com/photos/560de52cf3a00aeb2f1d5328/master/pass/231597.jpg"
                            :yield "Makes 6 servings"
                            :ingredients data/epic-lamb-ingredients
                            :instructions data/epic-lamb-instructions
                            :nutrition data/epic-lamb-nutrition
-                           }
-               :epic-fajitas {:name "Chipotle Chicken Fajitas"
-                              :description "Get this all-star, easy-to-follow Chipotle Chicken Fajitas recipe from Aida Mollenkamp"
-                              :image "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2009/11/1/0/AI0302_Chipotle-Chicken-Fajitas_s4x3.jpg.rend.sni12col.landscape.jpeg"
-                           :yield "2 to 4 servings"
-                           ;; :ingredients data/epic-lamb-ingredients
-                           ;; :instructions data/epic-lamb-instructions
-                           ;; :nutrition data/epic-lamb-nutrition
                            }
                :foodnw-fajitas {:name "Spicy Fajita Soup"
                                 :description "Get this all-star, easy-to-follow Spicy Fajita Soup recipe from Sandra Lee"

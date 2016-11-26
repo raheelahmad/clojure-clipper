@@ -19,11 +19,15 @@
 (def foodnw-fajitas-instructions
   "In the sleeve of a slow cooker, add the onions, peppers, corn, tomatoes, garlic, 1 tablespoon chile powder, chipotle, and broth. Season with and salt and pepper, to taste. Cook on low for 4 to 6 hours. In a deep skillet over medium heat, add the canola oil and heat to 365 degrees F. Fry the tortilla pieces until brown and crispy, 1 to 2 minutes. Drain on brown paper and immediately season with salt and the remaining 1 tablespoon chile powder. (Reserve half the chips for Online Round 2 Recipe Creamy Mexican Dip with Spiced Chips.)Preheat the broiler. (Reserve 1 cup of the onion and pepper mixture for Round 2 Recipe Creamy Mexican Dip with Spiced Chips.) Ladle the soup into ovenproof bowls or crocks and top each with 2 tablespoons cheese. (Reserve remaining 1/2 cup cheese for Round 2 Recipe Crispy Steak Sandwiches.) Put the bowls on a sheet pan and put under the broiler until the cheese is brown and bubbly, 1 to 2 minutes. Garnish with scallions and serve.")
 
-(def epic-spinach-instructions
-  "Directions Watch how to make this recipe. Preheat the oven to 425 degrees F. Melt the butter in a heavy-bottomed saute pan over medium heat. Add the onions and saute until translucent, about 15 minutes. Add the flour and nutmeg and cook, stirring, for 2 more minutes. Add the cream and milk and cook until thickened. Squeeze as much liquid as possible from the spinach and add the spinach to the sauce. Add 1/2 cup of the Parmesan cheese and mix well. Season, to taste, with salt and pepper. Transfer the spinach to a baking dish and sprinkle the remaining 1/2 cup Parmesan and the Gruyere on top. Bake for 20 minutes until hot and bubbly. Serve hot. Note: This recipe has been updated and may differ from what was originally published or broadcast. Copyright 2001, Barefoot Contessa Parties!, All Rights Reserved CATEGORIES:")
+
+(def epic-sandwiches-instructions
+  "Preparation Position oven rack six inches from the heat source and preheat broiler on high. Line broiler pan or rimmed baking sheet with foil. Brush eggplant slices on both sides with 2 tablespoons BBQ sauce and season with 1/2 teaspoon salt and 1/4 teaspoon peeper. Arrange slices on foil-lined pan. Broil eggplant until browned and soft, about 4 minutes. Meanwhile, in a medium bowl, toss mushrooms and red onion with oil, 1/2 teaspoon salt, and 1/4 teaspoon pepper and reserve. Remove broiler pan from oven, flip eggplant slices, and brush with 2 more tablespoons BBQ sauce. Scatter mushroom mixture around the eggplant on the pan and broil until browned and soft, about 3 minutes more. Add 1 slice of cheese to each eggplant plank and continue to broil until cheese is melted and browned, about 2 minutes more. To assemble the sandwiches, brush the top toasted half of each roll with 1 tablespoon mayonnaise and each bottom half with 1 tablespoon BBQ sauce. Layer an eggplant slice, some mushroom mixture, and a few slices of pepperoncini on the bottom of each roll. Close the sandwiches and serve immediately.")
 
 (def epic-lamb-instructions
   "Preparation Mix first 6 ingredients in large bowl. Add lamb and toss to coat. Heat 2 tablespoons oil in heavy large skillet over medium-high heat. Working in batches, add lamb to skillet and cook until browned on all sides, turning occasionally and adding 2 more tablespoons oil to skillet between batches, about 8 minutes per batch. Transfer lamb to another large bowl after each batch. Add onion and tomato paste to drippings in skillet. Reduce heat to medium; sauté until onion is soft, about 5 minutes. Add broth, garbanzo beans, apricots, tomatoes, cinnamon sticks, ginger, and lemon peel and bring to boil, scraping up browned bits. Return lamb to skillet and bring to boil. Reduce heat to low, cover, and simmer until lamb is just tender, about 1 hour. Uncover and simmer until sauce thickens enough to coat spoon, about 20 minutes. Season with salt and pepper. (Can be prepared 1 day ahead. Cool slightly. Refrigerate uncovered until cold, then cover and keep chilled. Rewarm over medium-low heat, stirring occasionally.) Transfer lamb and sauce to bowl. Sprinkle with cilantro and serve.")
+
+(def epic-pizza-instructions
+  "Preparation Place a rack in upper third of oven; preheat to 500°F. On a lightly floured surface, roll dough to a 12\" round (if dough springs back, cover with plastic and let rest 5 minutes, then roll again, resting as needed). Heat 2 Tbsp. oil in a cast-iron skillet over medium-high until very hot. Carefully transfer dough to skillet. Brush top of dough with remaining 1 Tbsp. oil. Cook, shaking pan occasionally and turning pan to avoid hot spots, until bottom of dough is golden brown and crispy, 3–4 minutes. Meanwhile, toss turkey with 1/4 cup cranberry sauce, if using, in a medium bowl. Remove skillet from heat. Using a large flat spatula, flip dough. Spread potatoes over dough, leaving a 3/4\" border on all sides; season with salt and pepper. Top with 1 cup cheese, then turkey mixture, vegetables, and onion. Top with remaining 1 cup cheese and red pepper flakes, if using. Bake pizza until dough is golden brown and cheese is melted, 6–8 minutes. Transfer pizza to a cutting board and cut into wedges. Serve with additional cranberry sauce alongside, if using. Cooks' NoteRoom temperature pizza dough is easier to roll out. To soften chilled dough, place on a rimmed baking sheet set over bowl of hot water.")
 
 (def alr-apple-turnover-ingredients
   [{:amount "2" :unit "tablespoons" :ingredient "lemon juice"}
@@ -76,6 +80,34 @@
    {:amount "1", :unit "tablespoon", :ingredient "kosher salt"}
    {:amount "1/2", :unit "teaspoon", :ingredient "freshly ground black pepper"}
    {:amount "1/2", :unit "cup", :ingredient "grated Gruyere cheese"}])
+
+(def epic-sandwiches-ingredients
+  [{:amount "1", :unit nil, :ingredient "large eggplant (about 1 1/2 pounds), trimmed and sliced lengthwise into four 1/2-inch thick planks"}
+   {:amount "1/2", :unit "cup", :ingredient "BBQ sauce, divided"}
+   {:amount "1", :unit "teaspoon", :ingredient "kosher salt"}
+   {:amount "1/2", :unit "teaspoon", :ingredient "freshly ground black pepper"}
+   {:amount "8", :unit "ounces", :ingredient "cremini mushrooms, thinly sliced"}
+   {:amount "1", :unit nil, :ingredient "red onion, halved and sliced into thin wedges"}
+   {:amount "2", :unit "tablespoons", :ingredient "vegetable oil"}
+   {:amount "4", :unit nil, :ingredient "slices provolone cheese (1/8-inch thick slices)"}
+   {:amount "4", :unit nil, :ingredient "ciabatta or hoagie rolls, split and toasted"}
+   {:amount "1/4", :unit "cup", :ingredient "mayonnaise"}
+   {:amount "2", :unit nil, :ingredient "jarred pepperoncini peppers, thinly sliced"}
+   ])
+
+(def epic-pizza-ingredients
+  [{:amount nil, :unit nil, :ingredient "All-purpose flour (for surface)"}
+   {:amount "8", :unit "ounces", :ingredient "prepared pizza dough, room temperature"}
+   {:amount "3", :unit "tablespoons", :ingredient "olive oil, divided"}
+   {:amount "1 1/2", :unit "cups", :ingredient "shredded cooked turkey or rotisserie chicken"}
+   {:amount "1/4", :unit "cup", :ingredient "cranberry sauce, plus more for serving (optional)"}
+   {:amount "1", :unit "cup", :ingredient "mashed"}
+   {:amount nil, :unit nil, :ingredient "Kosher salt, freshly ground black pepper"}
+   {:amount "2", :unit "cups", :ingredient "shredded mozzarella, cheddar, and/or Fontina cheese (about 6 ounces), divided"}
+   {:amount "1", :unit "cup", :ingredient "cooked vegetables, such as green beans, Brussels sprouts, sautéed greens, carrots, squash, or mushrooms"}
+   {:amount "1/2", :unit "cup", :ingredient "sliced red onion"}
+   {:amount nil, :unit nil, :ingredient "Pinch crushed red pepper flakes (optional)"}
+   {:amount nil, :unit nil, :ingredient "A 12-inch cast-iron skillet"}])
 
 (def epic-lamb-ingredients
   [{:amount "1", :unit "tablespoon", :ingredient "ground cumin"}
@@ -146,7 +178,8 @@
    :fat {:amount 25.9 :unit "g" }
    :carbohydrate {:amount 80 :unit "g" }
    :protein {:amount 4.8 :unit "g" }
-   :sodium {:amount 184 :unit "mg" }})
+   :sodium {:amount 184 :unit "mg" }
+   :cholesterol {:amount 8, :unit "mg"}})
 
 (def alr-meatballs-nutrition
   {
@@ -154,7 +187,8 @@
    :fat {:amount 20.9 :unit "g" }
    :carbohydrate {:amount 18.9 :unit "g" }
    :protein {:amount 16.3 :unit "g" }
-   :sodium {:amount 865 :unit "mg" }})
+   :sodium {:amount 865 :unit "mg" }
+   :cholesterol {:amount 75, :unit "mg"}})
 
 (def nyt-lemon-garlic-nutrition
   {:calories {:amount 250 }
@@ -178,6 +212,18 @@
    :protein {:amount 8 :unit "grams"}
    :sodium {:amount 470 :unit "milligrams"}})
 
+(def epic-sandwiches-nutrition
+  {:calories {:amount "286", :unit nil, :percent nil}
+   :carbohydrate {:amount "35", :unit "g", :percent "12"}
+   :fat {:amount "10", :unit "g", :percent "16"}
+   :protein {:amount "8", :unit "g", :percent "16"}
+   :saturated-fat {:amount "2", :unit "g", :percent "11"}
+   :sodium {:amount "708", :unit "mg", :percent "29"}
+   :fiber {:amount "4", :unit "g", :percent "18"}
+   :cholesterol {:amount "10", :unit "mg", :percent "3"}
+   }
+  )
+
 (def epic-lamb-nutrition
   {:calories {:amount "777" :unit nil :percent nil}
    :carbohydrate {:amount "39" :unit "g" :percent "13"}
@@ -186,4 +232,5 @@
    :saturated-fat {:amount "19" :unit "g" :percent "96"}
    :sodium {:amount "904" :unit "mg" :percent "38"}
    :fiber {:amount "8" :unit "g" :percent "33"}
+   :cholesterol {:amount "136", :unit "mg", :percent "45"}
    })

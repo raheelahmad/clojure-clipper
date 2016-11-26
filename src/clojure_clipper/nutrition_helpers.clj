@@ -3,7 +3,8 @@
             [camel-snake-kebab.core :refer :all]))
 
 (def nutrition-items ["sodiumContent" "calories" "fatContent" "saturatedFatContent"
-                      "transFatContent" "carbohydrateContent" "fiberContent" "proteinContent" "cholestrolContent"])
+                      "transFatContent" "carbohydrateContent" "fiberContent" "proteinContent" "cholestrolContent"
+                      "cholesterolContent"])
 (defn without-Content [title]
   (let [to-index (or (clojure.string/index-of title "Content")
                      (count title))
