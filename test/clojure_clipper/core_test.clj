@@ -14,6 +14,7 @@
    {:source :epic :name :epic-gratin :url  "htmls/epic-spinach-gratin.html"}
    {:source :epic :name :epic-pizza :url  "htmls/epic-pizza.html"}
    {:source :epic :name :epic-sandwiches :url  "htmls/epic-sandwiches.html"}
+   {:source :bon :name :bon-deviled :url  "htmls/bon-deviled.html"}
    ])
 
 (defn parsed-recipe [recipe-name]
@@ -22,6 +23,13 @@
     parsed))
 
 (def expected {
+               :bon-deviled {:name "\"The Greatest\" Deviled Eggs"
+                             :description "The filling for these eggs is coarsely mashed and studded with crunchy celery and scallion."
+                             :yield "4  Servings"
+                             :instructions data/bon-deviled-instructions
+                             :ingredients data/bon-deviled-ingredients
+                             :nutrition data/bon-deviled-nutrition
+                             }
                :epic-sandwiches {:name "BBQ Eggplant Sandwiches with Provolone and Mushrooms"
                                  :description "These cheesy, BBQ sauce-slathered eggplant-steak sandwiches seem almost meaty, even though they'’re entirely vegetarian."
                                  :image "http://assets.epicurious.com/photos/54c7a61ae231becc7f3deeff/master/pass/51261010_bbq-eggplant-sandwich_6x4.jpg"

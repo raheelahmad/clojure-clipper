@@ -29,6 +29,25 @@
 (defn nutrient-title [raw-info]
   (-> raw-info :attrs :itemprop without-Content ->kebab-case))
 
+(defn bon-nutrition-selector
+  "Input is a map with \"nutrition\" key's value as a single string
+   of the form: Calories (kcal) 240 Fat (g) 19..."
+  [raw-map]
+  (let [raw-string (get raw-map "nutrition" )
+        components (re-seq #"([a-z\sA-Z]+)\s+\(([a-zA-Z]+)\)\s*([\d\.]*)" raw-string)
+        filtered-components (map rest components) ; drop the 1st full string match
+        as-map (map (fn [component]
+                      (cond
+                        (= (count component) 3) ; then return the proper nutrition map
+                        {(-> (first component) ; key is the nutrition name
+                             clojure.string/trim keyword ->kebab-case)
+                         {:unit (second component)
+                          :amount (-> (last component) read-string)}}
+
+                        :else {}))
+                    filtered-components)]
+    as-map))
+
 (defn alr-nutrition-selector [container]
   (let [tags (html/select container [:ul :li])
         nutrition-tags (filter #(.contains nutrition-items (-> % :attrs :itemprop))

@@ -8,6 +8,7 @@
                  [spyscope "0.1.5"]
                  [inflections "0.12.2"]
                  [camel-snake-kebab "0.4.0"]
+                 [org.clojure/data.json "0.2.6"]
                  ]
   :plugins [[test2junit "1.1.2"]
             [lein-codox "0.10.1"]]

@@ -44,14 +44,14 @@
         post-proccesor (get-post-processor selectors source-symbol)
         processed-prop-value (post-proccesor prop-value)
 
-        ;; just-for-printing (if (and (= source-symbol :epic)
-        ;;                            (= property-key "nutrition"))
+        ;; just-for-printing (if (and (= source-symbol :bon)
+        ;;                            (= property-key "description"))
         ;;                     (let []
         ;;                       (println "===================\n=========================")
         ;;                       (clojure.pprint/pprint prop-container)
         ;;                       (clojure.pprint/pprint "------------------------------")
         ;;                       (clojure.pprint/pprint prop-value)
-                              ;; ))
+        ;;                       ))
 
         ]
     processed-prop-value))

@@ -1,6 +1,7 @@
 (ns clojure-clipper.properties
   (:require [net.cgrand.enlive-html :as html]
             [clojure.string :as str]
+            [clojure.data.json :as json]
             [clojure-clipper.nyt-selectors :as nyt-helper]
             [clojure-clipper.alr-selectors :as alr-helper]
             [clojure-clipper.epic-selectors :as epic-helper]
@@ -10,6 +11,7 @@
 
 (def schema-selector (html/attr= :itemtype "http://schema.org/Recipe")) ; select the schema; top-level for the recipe
 (defn- get-property-selector [prop] (html/attr= :itemprop prop)) ; select the property (as in <tag itemprop="some-property-name">)
+
 
 (defn get-property-container
   "Get the container inside which we will find the property"
@@ -22,6 +24,16 @@
                     [schema-selector property-selector]
                     ; ... and some shoudl be selected directly with the property
                     [(get-property-selector property)])))))
+
+(defn head-json-container
+  "Find the content as a json string in a script with application/ld+json type"
+  [content property]
+  (let [head-raw (first (html/select content
+                                      [:head]))
+        head-content (:content head-raw)
+        json-tag (first (filter #(= (-> % :attrs :type) "application/ld+json") head-content))
+        json-content (-> json-tag :content first json/read-str)]
+    json-content))
 
 (defn last-in-property-container
   "Same as default-container but selects last element if multiple matches"
@@ -79,21 +91,33 @@
                                       :epic (fn [content property]
                                               (html/select content [(html/attr= :itemprop "ingredients")]))
                                       :foodnw (fn [content property]
-                                             (html/select content [(html/attr= :itemprop "ingredients")]))
+                                                (html/select content [(html/attr= :itemprop "ingredients")]))
+                                      :bon head-json-container
                                       }
                  :property-selector {
                                      :nyt nyt-helper/nyt-ingredient-selector
                                      :foodnw ingredients/default-ingredient-selector
                                      :alr ingredients/default-ingredient-selector
                                      :epic ingredients/default-ingredient-selector
+                                     :bon (fn [cont]
+                                            (let [ingredient-strings (get cont "recipeIngredient")
+                                                  parsed-ingredients (map ingredients/parse-ingredient ingredient-strings)]
+                                              parsed-ingredients))
                                      }
                  :post-processor #(identity %)}
 
    :name {:key "name"
+          :container-selector {:nyt default-container
+                               :alr default-container
+                               :foodnw default-container
+                               :epic default-container
+                               :bon head-json-container
+                               }
           :property-selector {:nyt #(first (:content %))
                               :alr #(:content (:attrs %))
                               :foodnw #(first (:content %))
                               :epic #(first (:content %))
+                              :bon #(get % "name")
                               }}
    :author {:key "author"
             :container-selector {:nyt default-container
@@ -102,9 +126,11 @@
    :nutrition {:key "nutrition"
                :container-selector {:nyt default-container
                                     :epic property-container
+                                    :bon head-json-container
                                     :alr property-container}
                :property-selector {:nyt nutrition/nyt-nutrition-selector
                                    :alr nutrition/alr-nutrition-selector
+                                   :bon nutrition/bon-nutrition-selector
                                    :epic nutrition/epic-nutrition-selector}
                :post-processor identity}
    :prep-time {:key "prepTime"
@@ -140,16 +166,17 @@
                                     :epic #(:content (:attrs %))
                                    :alr #(:datetime (:attrs %))}}
    :yield {:key "recipeYield"
-           :container-selector {
-                                :nyt default-container
+           :container-selector {:nyt default-container
                                 :foodnw default-container
                                 :epic property-container
+                                :bon head-json-container
                                 :alr property-container}
            :property-selector {
                                :nyt #(first (:content %))
                                :epic #(or (first (:content %))
                                           (:content (:attrs %)))
                                :foodnw #(:content (:attrs %))
+                               :bon #(get % "recipeYield")
                               :alr #(:content (:attrs %))}}
    :image {:key "image"
            :container-selector {
@@ -171,16 +198,24 @@
                                       :alr default-container
                                       :foodnw last-in-property-container
                                       :epic property-container
+                                      :bon head-json-container
                                       }
                  :property-selector {
                                      :nyt #(:content (second (:content %)))
                                      :alr #(:content (:attrs %))
+                                     :bon #(get % "description")
                                      :foodnw #(:content (:attrs %))
                                      :epic #(or (flatten (epic-find-content-string %))
                                                 (:content (first %)))
                                      }}
    :instructions {:key "recipeInstructions"
-                  :container-selector property-container
+                  :container-selector {
+                                       :alr property-container
+                                       :nyt property-container
+                                       :foodnw property-container
+                                       :epic property-container
+                                       :bon head-json-container
+                                       }
                   :post-processor #(->> %
                                         default-post-processor
                                         ((fn [in]
@@ -191,9 +226,9 @@
                                            )))
                                         )
                   :property-selector {
-                                      ; TODO: need to descend depth first
                                       :epic (fn [initial]
                                               (flatten (epic-find-content-string initial)))
+                                      :bon #(get % "recipeInstructions")
                                       :foodnw (fn [cont]
                                              (->>
                                               cont

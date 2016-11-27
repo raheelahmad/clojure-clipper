@@ -19,6 +19,8 @@
 (def foodnw-fajitas-instructions
   "In the sleeve of a slow cooker, add the onions, peppers, corn, tomatoes, garlic, 1 tablespoon chile powder, chipotle, and broth. Season with and salt and pepper, to taste. Cook on low for 4 to 6 hours. In a deep skillet over medium heat, add the canola oil and heat to 365 degrees F. Fry the tortilla pieces until brown and crispy, 1 to 2 minutes. Drain on brown paper and immediately season with salt and the remaining 1 tablespoon chile powder. (Reserve half the chips for Online Round 2 Recipe Creamy Mexican Dip with Spiced Chips.)Preheat the broiler. (Reserve 1 cup of the onion and pepper mixture for Round 2 Recipe Creamy Mexican Dip with Spiced Chips.) Ladle the soup into ovenproof bowls or crocks and top each with 2 tablespoons cheese. (Reserve remaining 1/2 cup cheese for Round 2 Recipe Crispy Steak Sandwiches.) Put the bowls on a sheet pan and put under the broiler until the cheese is brown and bubbly, 1 to 2 minutes. Garnish with scallions and serve.")
 
+(def bon-deviled-instructions
+  ": , Bring a small pot of salted water to a boil. Carefully add eggs. Bring water to a simmer and cook eggs 10 minutes. Drain and transfer to a bowl of ice water; let sit until cool enough to handle. Peel. , Meanwhile, whisk mayonnaise, celery, relish, scallion, mustard, 2 tsp. parsley, and 2 dashes hot sauce in a medium bowl; season with salt and pepper. , Halve eggs lengthwise. Scoop yolks into mayonnaise mixture and place whites on a plate. Gently mash yolks into dressing; season with salt and pepper. Using 2 forks, fill egg halves with yolk mixture. , Top eggs with pepper and more parsley and serve with hot sauce. , Do Ahead: Eggs can be made 1 day ahead. Cover and chill egg whites and filling separately; fill just before serving.")
 
 (def epic-sandwiches-instructions
   "Preparation Position oven rack six inches from the heat source and preheat broiler on high. Line broiler pan or rimmed baking sheet with foil. Brush eggplant slices on both sides with 2 tablespoons BBQ sauce and season with 1/2 teaspoon salt and 1/4 teaspoon peeper. Arrange slices on foil-lined pan. Broil eggplant until browned and soft, about 4 minutes. Meanwhile, in a medium bowl, toss mushrooms and red onion with oil, 1/2 teaspoon salt, and 1/4 teaspoon pepper and reserve. Remove broiler pan from oven, flip eggplant slices, and brush with 2 more tablespoons BBQ sauce. Scatter mushroom mixture around the eggplant on the pan and broil until browned and soft, about 3 minutes more. Add 1 slice of cheese to each eggplant plank and continue to broil until cheese is melted and browned, about 2 minutes more. To assemble the sandwiches, brush the top toasted half of each roll with 1 tablespoon mayonnaise and each bottom half with 1 tablespoon BBQ sauce. Layer an eggplant slice, some mushroom mixture, and a few slices of pepperoncini on the bottom of each roll. Close the sandwiches and serve immediately.")
@@ -172,6 +174,29 @@
    {:amount "1", :unit "pound", :ingredient "mushrooms, sliced"}
    {:amount "1", :unit "teaspoon", :ingredient "fresh thyme leaves or 1 tablespoon chopped flat-leaf parsley"}
    {:amount "1/4", :unit "cup", :ingredient "dry white wine"}])
+
+(def bon-deviled-ingredients
+  [{:amount nil, :unit nil, :ingredient "Kosher salt"}
+   {:amount "8", :unit nil, :ingredient "large eggs"}
+   {:amount "3", :unit "tablespoons", :ingredient "mayonnaise"}
+   {:amount "3", :unit "tablespoons", :ingredient "very finely chopped celery"}
+   {:amount "2", :unit "tablespoons", :ingredient "finely chopped drained pickle relish"}
+   {:amount "2", :unit "tablespoons", :ingredient "very finely chopped scallion"}
+   {:amount "2", :unit "teaspoons", :ingredient "yellow mustard"}
+   {:amount "2", :unit "teaspoons", :ingredient "very finely chopped parsley, plus more for serving"}
+   {:amount "2", :unit nil, :ingredient "dashes hot sauce (such as Tabasco), plus more for serving"}
+   {:amount nil, :unit nil, :ingredient "Freshly ground black pepper"}])
+
+(def bon-deviled-nutrition
+  [{:calories {:unit "kcal", :amount 240}}
+   {:fat {:unit "g", :amount 19}}
+   {:saturated-fat {:unit "g", :amount 4.5}}
+   {:cholesterol {:unit "mg", :amount 375}}
+   {:carbohydrates {:unit "g", :amount 4}}
+   {:dietary-fiber {:unit "g", :amount 0}}
+   {:total-sugars {:unit "g", :amount 4}}
+   {:protein {:unit "g", :amount 13}}
+   {:sodium {:unit "mg", :amount 290}}])
 
 (def alr-apple-turnover-nutrition
   {:calories {:amount 562 :unit "kcal" }
