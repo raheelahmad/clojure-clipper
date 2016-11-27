@@ -5,7 +5,7 @@
 
 (def sources
   [{:source :nyt :name :nyt-lemon-garlic :url "htmls/nyt.html"}
-   {:source :nyt :name :nyt-brussel-sprouts :url  "htmls/nyt_brussel_sprouts.html"}
+   {:source :nyt :name :nyt-brussel-sprouts :url "htmls/nyt_brussel_sprouts.html"}
    {:source :alr :name :alr-meatballs :url  "htmls/allrecipes.html"}
    {:source :alr :name :alr-apple-turnovers :url  "htmls/alr_apple_turnovers.html"}
    {:source :foodnw :name :foodnw-pancakes :url  "htmls/foodnw-zucchini-pancakes.html"}
@@ -31,6 +31,7 @@
                           :instructions data/bon-lamb-instructions
                           :ingredients data/bon-lamb-ingredients
                           :author "Alison Roman"
+                          :image "http://assets.bonappetit.com/photos/57ad29c153e63daf11a4dc7d/16:9/w_1000,c_limit/pomegranate-and-fennel-glazed-rack-of-lamb.jpg"
                           }
                :bon-deviled {:name "\"The Greatest\" Deviled Eggs"
                              :description "The filling for these eggs is coarsely mashed and studded with crunchy celery and scallion."
@@ -39,6 +40,7 @@
                              :ingredients data/bon-deviled-ingredients
                              :nutrition data/bon-deviled-nutrition
                              :author "Michael Schrader of Nine Restaurant Group in Palm Springs CA"
+                             :image "http://assets.bonappetit.com/photos/57acc2fc53e63daf11a4d9c3/16:9/w_1000,c_limit/the-greatest-deviled-eggs.jpg"
                              }
                :epic-sandwiches {:name "BBQ Eggplant Sandwiches with Provolone and Mushrooms"
                                  :description "These cheesy, BBQ sauce-slathered eggplant-steak sandwiches seem almost meaty, even though they'’re entirely vegetarian."

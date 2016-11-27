@@ -188,11 +188,13 @@
                                 :alr default-container
                                 :foodnw last-in-property-container
                                 :epic epic-helper/image-selector
+                                :bon head-json-container
                                 }
            :property-selector {
                                :nyt #(:src (:attrs %))
                                :alr #(:src (:attrs %))
                                :foodnw #(:src (:attrs %))
+                               :bon #(get % "image")
                                :epic #(:content (:attrs %))
                                }
            }
