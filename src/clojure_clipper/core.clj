@@ -14,7 +14,7 @@
   (let [found-selectors (selector-type selectors)
         ; selector is either in a map keyed by source, or a singular selector
         found-selector (or (get found-selectors source-symbol)
-                              found-selectors)]
+                           found-selectors)]
     found-selector))
 
 (defn get-property-selector [selectors source-symbol]
@@ -45,29 +45,61 @@
         processed-prop-value (post-proccesor prop-value)
 
         ;; just-for-printing (if (and (= source-symbol :bon)
-        ;;                            (= property-key "description"))
+        ;;                            (= property-key "image"))
         ;;                     (let []
         ;;                       (println "===================\n=========================")
         ;;                       (clojure.pprint/pprint prop-container)
         ;;                       (clojure.pprint/pprint "------------------------------")
         ;;                       (clojure.pprint/pprint prop-value)
         ;;                       ))
-
         ]
+
+
     processed-prop-value))
 
-(defn parse-recipe [source]
-  (let [page (html/html-resource (:url source))
-        result (reduce-kv (fn [col
-                              property-name ; key from `properties`
-                              property-selector ; selector that finds the property in page
-                              ]
-                            (assoc col
-                                   property-name
-                                   (get-property source page property-selector) ; this is the parsing step: get the property
-                                   ))
-                          {}
-                          properties)]
-    result))
+(defn- parse-recipe
+  "Parses the recipe with give `page` content from a determined `source`"
+  [page source]
+  (let [result (reduce-kv (fn [col
+                               property-name ; key from `properties`
+                               property-selector] ; selector that finds the property in page
 
+                           (assoc col
+                                  property-name
+                                  (get-property source page property-selector))) ; this is the parsing step: get the property
+
+                         {}
+                         properties)]
+   result))
+
+(defn url-to-source-name
+  [url]
+  (let [regex-to-source-name {#"(nytimes.com|nyt.com)" :nyt
+                              #"(bonappetit.com)" :bon
+                              #"(allrecipes.com)" :alr
+                              #"(foodnetwork.com)" :foodnw
+                              #"(epicurious.com)" :epic
+                              }
+        match (first (filter #(boolean (re-find (first %1) url))
+                             regex-to-source-name))
+        source-name (second match)]
+    source-name))
+
+(defn parse-local-recipe
+  "Used by tests to parse local recipe resource.
+  source-map includes :url and :source (local url cannot be used to determine its :source name)"
+  [source-map]
+  (let [page (html/html-resource (:url source-map))]
+    (parse-recipe page source-map)))
+
+(defn parse-recipe-at-url
+  "Main API function for parsing at a URL. Uses the URL's domain name to determine the
+  :source, which parametrizes how the recipe will be parsed"
+  [url]
+  (let [page (html/html-resource (java.net.URL. url))
+        source-name (url-to-source-name url)
+        m (clojure.pprint/pprint source-name)]
+    (parse-recipe page {:url url :source source-name})))
+
+;; (clojure.pprint/pprint (parse-recipe-at-url "http://www.epicurious.com/recipes/food/views/bbq-eggplant-sandwiches-with-provolone-and-mushrooms-51261010"))
 
