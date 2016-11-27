@@ -19,6 +19,9 @@
 (def foodnw-fajitas-instructions
   "In the sleeve of a slow cooker, add the onions, peppers, corn, tomatoes, garlic, 1 tablespoon chile powder, chipotle, and broth. Season with and salt and pepper, to taste. Cook on low for 4 to 6 hours. In a deep skillet over medium heat, add the canola oil and heat to 365 degrees F. Fry the tortilla pieces until brown and crispy, 1 to 2 minutes. Drain on brown paper and immediately season with salt and the remaining 1 tablespoon chile powder. (Reserve half the chips for Online Round 2 Recipe Creamy Mexican Dip with Spiced Chips.)Preheat the broiler. (Reserve 1 cup of the onion and pepper mixture for Round 2 Recipe Creamy Mexican Dip with Spiced Chips.) Ladle the soup into ovenproof bowls or crocks and top each with 2 tablespoons cheese. (Reserve remaining 1/2 cup cheese for Round 2 Recipe Crispy Steak Sandwiches.) Put the bowls on a sheet pan and put under the broiler until the cheese is brown and bubbly, 1 to 2 minutes. Garnish with scallions and serve.")
 
+(def bon-lamb-instructions
+  ": , Preheat oven to 425°. Mix oregano, olive oil, 3 Tbsp. pomegranate molasses, and 2 Tbsp. fennel seeds in a small bowl; season oregano mixture with salt and pepper. , Toss fennel, onion, remaining 1 Tbsp. fennel seeds, and remaining 2 tsp. pomegranate molasses in a large baking dish or roasting pan; season with salt and pepper. Distribute evenly across bottom of pan. , Season lamb with salt and pepper. Heat 1 Tbsp. vegetable oil in a large skillet, preferably cast iron, over medium. Cook 1 rack of lamb, fat side down, until golden brown, 8–10 minutes. Turn and cook until other side is just browned, about 5 minutes. Transfer to dish with fennel mixture, placing fat side up, and rub with half of oregano mixture. Wipe out skillet and repeat with remaining 1 Tbsp. vegetable oil, second rack of lamb, and remaining oregano mixture. , Roast lamb and vegetables until an instant-read thermometer inserted into thickest part of lamb registers 125° for medium-rare, 25–30 minutes. Transfer lamb to a cutting board and let rest at least 10 minutes before carving. , Meanwhile, toss vegetables in pan drippings to coat and continue to roast until tender and starting to caramelize, 10–15 minutes. Remove from oven; add vinegar and toss to combine. , Serve lamb over vegetables topped with pomegranate seeds.")
+
 (def bon-deviled-instructions
   ": , Bring a small pot of salted water to a boil. Carefully add eggs. Bring water to a simmer and cook eggs 10 minutes. Drain and transfer to a bowl of ice water; let sit until cool enough to handle. Peel. , Meanwhile, whisk mayonnaise, celery, relish, scallion, mustard, 2 tsp. parsley, and 2 dashes hot sauce in a medium bowl; season with salt and pepper. , Halve eggs lengthwise. Scoop yolks into mayonnaise mixture and place whites on a plate. Gently mash yolks into dressing; season with salt and pepper. Using 2 forks, fill egg halves with yolk mixture. , Top eggs with pepper and more parsley and serve with hot sauce. , Do Ahead: Eggs can be made 1 day ahead. Cover and chill egg whites and filling separately; fill just before serving.")
 
@@ -175,6 +178,21 @@
    {:amount "1", :unit "teaspoon", :ingredient "fresh thyme leaves or 1 tablespoon chopped flat-leaf parsley"}
    {:amount "1/4", :unit "cup", :ingredient "dry white wine"}])
 
+(def bon-lamb-ingredients
+  [{:amount "3", :unit "tablespoons", :ingredient "chopped fresh oregano"}
+   {:amount "2", :unit "tablespoons", :ingredient "olive oil"}
+   {:amount "3", :unit "tablespoons", :ingredient "plus 2 teaspoons pomegranate molasses"}
+   {:amount "3", :unit "tablespoons", :ingredient "fennel seeds, divided"}
+   {:amount nil, :unit nil, :ingredient "Kosher salt and freshly ground black pepper"}
+   {:amount "2", :unit nil, :ingredient "medium fennel bulbs, sliced lengthwise"}
+   {:amount "1", :unit nil, :ingredient "small onion, thinly sliced"}
+   {:amount "2 3–3½-pound", :unit nil, :ingredient "racks of lamb, rib bones frenched"}
+   {:amount "2", :unit "tablespoons", :ingredient "vegetable oil"}
+   {:amount "2", :unit "tablespoons", :ingredient "white wine vinegar"}
+   {:amount "1/4", :unit "cup", :ingredient "pomegranate seeds"}
+   {:amount nil, :unit nil, :ingredient "Be sure to ask for American lamb rather than New Zealand. The delicate New Zealand breeds are much smaller than the meaty domestic varieties, so the cooking time (and yield) would change significantly."}
+   {:amount nil, :unit nil, :ingredient "Pomegranate molasses is available at Middle Eastern markets and some supermarkets, and online."}])
+
 (def bon-deviled-ingredients
   [{:amount nil, :unit nil, :ingredient "Kosher salt"}
    {:amount "8", :unit nil, :ingredient "large eggs"}
@@ -186,6 +204,20 @@
    {:amount "2", :unit "teaspoons", :ingredient "very finely chopped parsley, plus more for serving"}
    {:amount "2", :unit nil, :ingredient "dashes hot sauce (such as Tabasco), plus more for serving"}
    {:amount nil, :unit nil, :ingredient "Freshly ground black pepper"}])
+
+
+
+(def bon-lamb-nutrition
+  [{:calories {:unit "kcal", :amount 800}}
+   {:fat {:unit "g", :amount 64}}
+   {:saturated-fat {:unit "g", :amount 25}}
+   {:cholesterol {:unit "mg", :amount 185}}
+   {:carbohydrates {:unit "g", :amount 13}}
+   {:dietary-fiber {:unit "g", :amount 3}}
+   {:total-sugars {:unit "g", :amount 5}}
+   {:protein {:unit "g", :amount 42}}
+   {:sodium {:unit "mg", :amount 170}}
+   ])
 
 (def bon-deviled-nutrition
   [{:calories {:unit "kcal", :amount 240}}

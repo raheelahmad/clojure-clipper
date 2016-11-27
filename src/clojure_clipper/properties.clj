@@ -121,8 +121,12 @@
                               }}
    :author {:key "author"
             :container-selector {:nyt default-container
+                                 :bon head-json-container
                                  :alr property-container}
-            :property-selector #(first (:content %))}
+            :property-selector {:nyt #(first (:content %))
+                                :alr #(first (:content %))
+                                :bon #(-> % (get-in ["author" "name"]))
+                                }}
    :nutrition {:key "nutrition"
                :container-selector {:nyt default-container
                                     :epic property-container

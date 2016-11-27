@@ -15,6 +15,7 @@
    {:source :epic :name :epic-pizza :url  "htmls/epic-pizza.html"}
    {:source :epic :name :epic-sandwiches :url  "htmls/epic-sandwiches.html"}
    {:source :bon :name :bon-deviled :url  "htmls/bon-deviled.html"}
+   {:source :bon :name :bon-lamb :url  "htmls/bon-lamb.html"}
    ])
 
 (defn parsed-recipe [recipe-name]
@@ -23,12 +24,21 @@
     parsed))
 
 (def expected {
+               :bon-lamb {:name "Pomegranate-and-Fennel-Glazed Rack of Lamb"
+                          :description "Two racks of lamb make enough for each person to have two chops. Cut between each bone individually for single chops, or cut into double-rib portions."
+                          :yield "8  Servings"
+                          :nutrition data/bon-lamb-nutrition
+                          :instructions data/bon-lamb-instructions
+                          :ingredients data/bon-lamb-ingredients
+                          :author "Alison Roman"
+                          }
                :bon-deviled {:name "\"The Greatest\" Deviled Eggs"
                              :description "The filling for these eggs is coarsely mashed and studded with crunchy celery and scallion."
                              :yield "4  Servings"
                              :instructions data/bon-deviled-instructions
                              :ingredients data/bon-deviled-ingredients
                              :nutrition data/bon-deviled-nutrition
+                             :author "Michael Schrader of Nine Restaurant Group in Palm Springs CA"
                              }
                :epic-sandwiches {:name "BBQ Eggplant Sandwiches with Provolone and Mushrooms"
                                  :description "These cheesy, BBQ sauce-slathered eggplant-steak sandwiches seem almost meaty, even though they'’re entirely vegetarian."
