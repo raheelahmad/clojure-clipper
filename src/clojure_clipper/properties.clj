@@ -71,15 +71,18 @@
     result))
 
 
-(defn epic-find-content-string [container]
+(defn epic-find-content-string
+  "Recursive function to find the strings in the DOM tree in its :content map.
+  Goes depth first.
+  Result is a possibly nested (based on the tree structure) of strings"
+  [html-map]
   (let [
-        from-string (fn [s] s)
         from-map (fn [m] (epic-find-content-string (:content m)))
         from-seq (fn [m] (map epic-find-content-string m))]
     (cond
-      (string? container) (from-string container)
-      (map? container) (from-map container)
-      (seq? container) (from-seq container)
+      (string? html-map) html-map ; return string as is
+      (map? html-map) (from-map html-map) ; descend in the map's :content tree
+      (seq? html-map) (from-seq html-map) ; apply `map` to collect vector's contents
       :else "")))
 
 (def properties
