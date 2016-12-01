@@ -77,7 +77,7 @@
 
 (defn parse-ingredient
   "Parse an ingredient string (e.g., 3 tablespoons olive oil)
-  into a map with :amount :unit :ingredient"
+  into a map with :amount :unit :name"
   [in]
   (let [
         comps (clojure.string/split in #" ")
@@ -85,7 +85,7 @@
         [unit rest-after-unit] (parse-unit-from-components rest-after-amount)
         ingredient (clojure.string/trim (clojure.string/join " " rest-after-unit))
         ]
-    {:amount amount :unit unit :ingredient ingredient}))
+    {:amount amount :unit unit :name ingredient}))
 
 (defn default-ingredient-selector [container]
   (->> container

@@ -35,177 +35,175 @@
   "Preparation Place a rack in upper third of oven; preheat to 500°F. On a lightly floured surface, roll dough to a 12\" round (if dough springs back, cover with plastic and let rest 5 minutes, then roll again, resting as needed). Heat 2 Tbsp. oil in a cast-iron skillet over medium-high until very hot. Carefully transfer dough to skillet. Brush top of dough with remaining 1 Tbsp. oil. Cook, shaking pan occasionally and turning pan to avoid hot spots, until bottom of dough is golden brown and crispy, 3–4 minutes. Meanwhile, toss turkey with 1/4 cup cranberry sauce, if using, in a medium bowl. Remove skillet from heat. Using a large flat spatula, flip dough. Spread potatoes over dough, leaving a 3/4\" border on all sides; season with salt and pepper. Top with 1 cup cheese, then turkey mixture, vegetables, and onion. Top with remaining 1 cup cheese and red pepper flakes, if using. Bake pizza until dough is golden brown and cheese is melted, 6–8 minutes. Transfer pizza to a cutting board and cut into wedges. Serve with additional cranberry sauce alongside, if using. Cooks' NoteRoom temperature pizza dough is easier to roll out. To soften chilled dough, place on a rimmed baking sheet set over bowl of hot water.")
 
 (def alr-apple-turnover-ingredients
-  [{:amount "2" :unit "tablespoons" :ingredient "lemon juice"}
-   {:amount "4" :unit "cups" :ingredient "water"}
-   {:amount "4" :unit nil :ingredient "Granny Smith apples - peeled, cored and sliced"}
-   {:amount "2" :unit "tablespoons" :ingredient "butter"}
-   {:amount "1" :unit "cup" :ingredient "brown sugar"}
-   {:amount "1" :unit "teaspoon" :ingredient "ground cinnamon"}
-   {:amount "1" :unit "tablespoon" :ingredient "cornstarch"}
-   {:amount "1" :unit "tablespoon" :ingredient "water"}
-   {:amount "1" :unit nil :ingredient "(17.25 ounce) package frozen puff pastry sheets, thawed"}
-   {:amount "1" :unit "cup" :ingredient "confectioners' sugar"}
-   {:amount "1" :unit "tablespoon" :ingredient "milk"}
-   {:amount "1" :unit "teaspoon" :ingredient "vanilla extract"}])
+  [{:amount "2" :unit "tablespoons" :name "lemon juice"}
+   {:amount "4" :unit "cups" :name "water"}
+   {:amount "4" :unit nil :name "Granny Smith apples - peeled, cored and sliced"}
+   {:amount "2" :unit "tablespoons" :name "butter"}
+   {:amount "1" :unit "cup" :name "brown sugar"}
+   {:amount "1" :unit "teaspoon" :name "ground cinnamon"}
+   {:amount "1" :unit "tablespoon" :name "cornstarch"}
+   {:amount "1" :unit "tablespoon" :name "water"}
+   {:amount "1" :unit nil :name "(17.25 ounce) package frozen puff pastry sheets, thawed"}
+   {:amount "1" :unit "cup" :name "confectioners' sugar"}
+   {:amount "1" :unit "tablespoon" :name "milk"}
+   {:amount "1" :unit "teaspoon" :name "vanilla extract"}])
 
 (def foodnw-pancakes-ingredients
-  [{:amount "2" :unit nil :ingredient "medium zucchini (about 3/4 pound)"}
-   {:amount "2" :unit "tablespoons" :ingredient "grated red onion"}
-   {:amount "2" :unit nil :ingredient "extra-large eggs, lightly beaten"}
-   {:amount "6 to 8" :unit "tablespoons" :ingredient "all-purpose flour"}
-   {:amount "1" :unit "teaspoon" :ingredient "baking powder"}
-   {:amount "1" :unit "teaspoon" :ingredient "kosher salt"}
-   {:amount "1/2" :unit "teaspoon" :ingredient "freshly ground black pepper"}
-   {:amount nil :unit nil :ingredient "Unsalted butter and vegetable oil"}])
+  [{:amount "2" :unit nil :name "medium zucchini (about 3/4 pound)"}
+   {:amount "2" :unit "tablespoons" :name "grated red onion"}
+   {:amount "2" :unit nil :name "extra-large eggs, lightly beaten"}
+   {:amount "6 to 8" :unit "tablespoons" :name "all-purpose flour"}
+   {:amount "1" :unit "teaspoon" :name "baking powder"}
+   {:amount "1" :unit "teaspoon" :name "kosher salt"}
+   {:amount "1/2" :unit "teaspoon" :name "freshly ground black pepper"}
+   {:amount nil :unit nil :name "Unsalted butter and vegetable oil"}])
 
 (def foodnw-fajitas-ingredients
-  [{:amount "2" :unit nil :ingredient "medium yellow onions, sliced"}
-   {:amount "2" :unit nil :ingredient "green peppers, cored, seeded, and sliced into strips"}
-   {:amount "1/2" :unit "cup" :ingredient "frozen corn, thawed"}
-   {:amount "1" :unit nil :ingredient "(14-ounce) can diced tomatoes"}
-   {:amount "1" :unit "tablespoon" :ingredient "chopped garlic"}
-   {:amount "2" :unit "tablespoons" :ingredient "chile powder, divided"}
-   {:amount "1" :unit nil :ingredient "chipotle pepper in adobo sauce, chopped (reserve adobe for Creamy Mexican Dip)"}
-   {:amount "1" :unit "quart" :ingredient "chicken broth"}
-   {:amount nil :unit nil :ingredient "Kosher salt and freshly ground black pepper"}
-   {:amount "2" :unit "cups" :ingredient "canola oil, for frying"}
-   {:amount "12" :unit nil :ingredient "corn tortillas, cut into eighths"}
-   {:amount "1" :unit "cup" :ingredient "Monterey Jack cheese, shredded"}
-   {:amount "2" :unit nil :ingredient "scallions, sliced"}])
+  [{:amount "2" :unit nil :name "medium yellow onions, sliced"}
+   {:amount "2" :unit nil :name "green peppers, cored, seeded, and sliced into strips"}
+   {:amount "1/2" :unit "cup" :name "frozen corn, thawed"}
+   {:amount "1" :unit nil :name "(14-ounce) can diced tomatoes"}
+   {:amount "1" :unit "tablespoon" :name "chopped garlic"}
+   {:amount "2" :unit "tablespoons" :name "chile powder, divided"}
+   {:amount "1" :unit nil :name "chipotle pepper in adobo sauce, chopped (reserve adobe for Creamy Mexican Dip)"}
+   {:amount "1" :unit "quart" :name "chicken broth"}
+   {:amount nil :unit nil :name "Kosher salt and freshly ground black pepper"}
+   {:amount "2" :unit "cups" :name "canola oil, for frying"}
+   {:amount "12" :unit nil :name "corn tortillas, cut into eighths"}
+   {:amount "1" :unit "cup" :name "Monterey Jack cheese, shredded"}
+   {:amount "2" :unit nil :name "scallions, sliced"}])
 
 (def epic-spinach-gratin-ingredients
-  [{:amount "4", :unit "tablespoons", :ingredient "(1/2 stick) unsalted butter"}
-   {:amount "4", :unit "cups", :ingredient "chopped yellow onions (2 large)"}
-   {:amount "1/4", :unit "cup", :ingredient "flour"}
-   {:amount "1/4", :unit "teaspoon", :ingredient "grated nutmeg"}
-   {:amount "1", :unit "cup", :ingredient "heavy cream"}
-   {:amount "2", :unit "cups", :ingredient "milk"}
-   {:amount "3", :unit "pounds", :ingredient "frozen chopped spinach, defrosted (5 (10-ounce) packages)"}
-   {:amount "1", :unit "cup", :ingredient "freshly grated Parmesan cheese"}
-   {:amount "1", :unit "tablespoon", :ingredient "kosher salt"}
-   {:amount "1/2", :unit "teaspoon", :ingredient "freshly ground black pepper"}
-   {:amount "1/2", :unit "cup", :ingredient "grated Gruyere cheese"}])
+  [{:amount "4", :unit "tablespoons", :name "(1/2 stick) unsalted butter"}
+   {:amount "4", :unit "cups", :name "chopped yellow onions (2 large)"}
+   {:amount "1/4", :unit "cup", :name "flour"}
+   {:amount "1/4", :unit "teaspoon", :name "grated nutmeg"}
+   {:amount "1", :unit "cup", :name "heavy cream"}
+   {:amount "2", :unit "cups", :name "milk"}
+   {:amount "3", :unit "pounds", :name "frozen chopped spinach, defrosted (5 (10-ounce) packages)"}
+   {:amount "1", :unit "cup", :name "freshly grated Parmesan cheese"}
+   {:amount "1", :unit "tablespoon", :name "kosher salt"}
+   {:amount "1/2", :unit "teaspoon", :name "freshly ground black pepper"}
+   {:amount "1/2", :unit "cup", :name "grated Gruyere cheese"}])
 
 (def epic-sandwiches-ingredients
-  [{:amount "1", :unit nil, :ingredient "large eggplant (about 1 1/2 pounds), trimmed and sliced lengthwise into four 1/2-inch thick planks"}
-   {:amount "1/2", :unit "cup", :ingredient "BBQ sauce, divided"}
-   {:amount "1", :unit "teaspoon", :ingredient "kosher salt"}
-   {:amount "1/2", :unit "teaspoon", :ingredient "freshly ground black pepper"}
-   {:amount "8", :unit "ounces", :ingredient "cremini mushrooms, thinly sliced"}
-   {:amount "1", :unit nil, :ingredient "red onion, halved and sliced into thin wedges"}
-   {:amount "2", :unit "tablespoons", :ingredient "vegetable oil"}
-   {:amount "4", :unit nil, :ingredient "slices provolone cheese (1/8-inch thick slices)"}
-   {:amount "4", :unit nil, :ingredient "ciabatta or hoagie rolls, split and toasted"}
-   {:amount "1/4", :unit "cup", :ingredient "mayonnaise"}
-   {:amount "2", :unit nil, :ingredient "jarred pepperoncini peppers, thinly sliced"}
+  [{:amount "1", :unit nil, :name "large eggplant (about 1 1/2 pounds), trimmed and sliced lengthwise into four 1/2-inch thick planks"}
+   {:amount "1/2", :unit "cup", :name "BBQ sauce, divided"}
+   {:amount "1", :unit "teaspoon", :name "kosher salt"}
+   {:amount "1/2", :unit "teaspoon", :name "freshly ground black pepper"}
+   {:amount "8", :unit "ounces", :name "cremini mushrooms, thinly sliced"}
+   {:amount "1", :unit nil, :name "red onion, halved and sliced into thin wedges"}
+   {:amount "2", :unit "tablespoons", :name "vegetable oil"}
+   {:amount "4", :unit nil, :name "slices provolone cheese (1/8-inch thick slices)"}
+   {:amount "4", :unit nil, :name "ciabatta or hoagie rolls, split and toasted"}
+   {:amount "1/4", :unit "cup", :name "mayonnaise"}
+   {:amount "2", :unit nil, :name "jarred pepperoncini peppers, thinly sliced"}
    ])
 
 (def epic-pizza-ingredients
-  [{:amount nil, :unit nil, :ingredient "All-purpose flour (for surface)"}
-   {:amount "8", :unit "ounces", :ingredient "prepared pizza dough, room temperature"}
-   {:amount "3", :unit "tablespoons", :ingredient "olive oil, divided"}
-   {:amount "1 1/2", :unit "cups", :ingredient "shredded cooked turkey or rotisserie chicken"}
-   {:amount "1/4", :unit "cup", :ingredient "cranberry sauce, plus more for serving (optional)"}
-   {:amount "1", :unit "cup", :ingredient "mashed"}
-   {:amount nil, :unit nil, :ingredient "Kosher salt, freshly ground black pepper"}
-   {:amount "2", :unit "cups", :ingredient "shredded mozzarella, cheddar, and/or Fontina cheese (about 6 ounces), divided"}
-   {:amount "1", :unit "cup", :ingredient "cooked vegetables, such as green beans, Brussels sprouts, sautéed greens, carrots, squash, or mushrooms"}
-   {:amount "1/2", :unit "cup", :ingredient "sliced red onion"}
-   {:amount nil, :unit nil, :ingredient "Pinch crushed red pepper flakes (optional)"}
-   {:amount nil, :unit nil, :ingredient "A 12-inch cast-iron skillet"}])
+  [{:amount nil, :unit nil, :name "All-purpose flour (for surface)"}
+   {:amount "8", :unit "ounces", :name "prepared pizza dough, room temperature"}
+   {:amount "3", :unit "tablespoons", :name "olive oil, divided"}
+   {:amount "1 1/2", :unit "cups", :name "shredded cooked turkey or rotisserie chicken"}
+   {:amount "1/4", :unit "cup", :name "cranberry sauce, plus more for serving (optional)"}
+   {:amount "1", :unit "cup", :name "mashed"}
+   {:amount nil, :unit nil, :name "Kosher salt, freshly ground black pepper"}
+   {:amount "2", :unit "cups", :name "shredded mozzarella, cheddar, and/or Fontina cheese (about 6 ounces), divided"}
+   {:amount "1", :unit "cup", :name "cooked vegetables, such as green beans, Brussels sprouts, sautéed greens, carrots, squash, or mushrooms"}
+   {:amount "1/2", :unit "cup", :name "sliced red onion"}
+   {:amount nil, :unit nil, :name "Pinch crushed red pepper flakes (optional)"}
+   {:amount nil, :unit nil, :name "A 12-inch cast-iron skillet"}])
 
 (def epic-lamb-ingredients
-  [{:amount "1", :unit "tablespoon", :ingredient "ground cumin"}
-   {:amount "2", :unit "teaspoons", :ingredient "ground coriander"}
-   {:amount "1 1/2", :unit "teaspoons", :ingredient "salt"}
-   {:amount "1", :unit "teaspoon", :ingredient "fennel seeds"}
-   {:amount "1/2", :unit "teaspoon", :ingredient "cayenne pepper"}
-   {:amount "1/2", :unit "teaspoon", :ingredient "ground black pepper"}
-   {:amount "2 1/2", :unit "pounds", :ingredient "trimmed boned lamb shoulder, cut into 1 1/2- to 2-inch pieces"}
-   {:amount "4", :unit "tablespoons", :ingredient "olive oil, divided"}
-   {:amount "1", :unit nil, :ingredient "large onion, finely chopped"}
-   {:amount "1", :unit "tablespoon", :ingredient "tomato paste"}
-   {:amount "2", :unit "cups", :ingredient "low-salt chicken broth"}
-   {:amount "1 15", :unit nil, :ingredient "1/2-ounce can garbanzo beans (chickpeas), drained"} ; TODO
-   {:amount "1", :unit "cup", :ingredient "dried apricots (about 5 ounces)"}
-   {:amount "2", :unit nil, :ingredient "large plum tomatoes, chopped"}
-   {:amount "2", :unit nil, :ingredient "cinnamon sticks"}
-   {:amount "1", :unit "tablespoon", :ingredient "minced peeled fresh ginger"}
-   {:amount "2", :unit "teaspoons", :ingredient "(packed) grated lemon peel"}
-   {:amount "2", :unit "tablespoons", :ingredient "chopped fresh cilantro"}
+  [{:amount "1", :unit "tablespoon", :name "ground cumin"}
+   {:amount "2", :unit "teaspoons", :name "ground coriander"}
+   {:amount "1 1/2", :unit "teaspoons", :name "salt"}
+   {:amount "1", :unit "teaspoon", :name "fennel seeds"}
+   {:amount "1/2", :unit "teaspoon", :name "cayenne pepper"}
+   {:amount "1/2", :unit "teaspoon", :name "ground black pepper"}
+   {:amount "2 1/2", :unit "pounds", :name "trimmed boned lamb shoulder, cut into 1 1/2- to 2-inch pieces"}
+   {:amount "4", :unit "tablespoons", :name "olive oil, divided"}
+   {:amount "1", :unit nil, :name "large onion, finely chopped"}
+   {:amount "1", :unit "tablespoon", :name "tomato paste"}
+   {:amount "2", :unit "cups", :name "low-salt chicken broth"}
+   {:amount "1 15", :unit nil, :name "1/2-ounce can garbanzo beans (chickpeas), drained"} ; TODO
+   {:amount "1", :unit "cup", :name "dried apricots (about 5 ounces)"}
+   {:amount "2", :unit nil, :name "large plum tomatoes, chopped"}
+   {:amount "2", :unit nil, :name "cinnamon sticks"}
+   {:amount "1", :unit "tablespoon", :name "minced peeled fresh ginger"}
+   {:amount "2", :unit "teaspoons", :name "(packed) grated lemon peel"}
+   {:amount "2", :unit "tablespoons", :name "chopped fresh cilantro"}
    ])
 
 (def alr-meatballs-ingredients
-  [{:amount "1/2" :unit nil :ingredient "onion, minced"}
-   {:amount "2" :unit "tablespoons" :ingredient "olive oil"}
-   {:amount "3" :unit nil :ingredient "cloves garlic, minced"}
-   {:amount "1" :unit "pound" :ingredient "ground beef"}
-   {:amount "1" :unit "cup" :ingredient "whole milk ricotta cheese"}
-   {:amount "1/4" :unit "cup" :ingredient "packed chopped Italian parsley"}
-   {:amount "1" :unit nil :ingredient "egg, beaten"}
-   {:amount "1 1/2" :unit "teaspoons" :ingredient "kosher salt"}
-   {:amount "1/2" :unit "teaspoon" :ingredient "freshly ground black pepper"}
-   {:amount "1" :unit "pinch" :ingredient "cayenne pepper, or to taste"}
-   {:amount "1/3" :unit "cup" :ingredient "dry bread crumbs"}
-   {:amount "2" :unit "tablespoons" :ingredient "olive oil"}
-   {:amount "1" :unit nil :ingredient "(28 ounce) jar marinara sauce"}
-   {:amount "1" :unit "cup" :ingredient "water"}])
+  [{:amount "1/2" :unit nil :name "onion, minced"}
+   {:amount "2" :unit "tablespoons" :name "olive oil"}
+   {:amount "3" :unit nil :name "cloves garlic, minced"}
+   {:amount "1" :unit "pound" :name "ground beef"}
+   {:amount "1" :unit "cup" :name "whole milk ricotta cheese"}
+   {:amount "1/4" :unit "cup" :name "packed chopped Italian parsley"}
+   {:amount "1" :unit nil :name "egg, beaten"}
+   {:amount "1 1/2" :unit "teaspoons" :name "kosher salt"}
+   {:amount "1/2" :unit "teaspoon" :name "freshly ground black pepper"}
+   {:amount "1" :unit "pinch" :name "cayenne pepper, or to taste"}
+   {:amount "1/3" :unit "cup" :name "dry bread crumbs"}
+   {:amount "2" :unit "tablespoons" :name "olive oil"}
+   {:amount "1" :unit nil :name "(28 ounce) jar marinara sauce"}
+   {:amount "1" :unit "cup" :name "water"}])
 
 (def nyt-brussel-sprouts-ingredients
-  [{:amount "6", :unit "tablespoons", :ingredient "olive oil, divided"}
-   {:amount "2", :unit nil, :ingredient "large sweet or yellow onions, sliced thin"}
-   {:amount nil, :unit nil, :ingredient "Salt to taste"}
-   {:amount "20", :unit nil, :ingredient "large brussels sprouts"}
-   {:amount "1", :unit "tablespoon", :ingredient "tamari"}
-   {:amount "2 to 3", :unit nil, :ingredient "cloves garlic, pressed"}
-   {:amount nil, :unit nil, :ingredient "a dash of liquid smoke (if desired)"}
-   {:amount "1/2", :unit "teaspoon", :ingredient "ground cumin"}
-   {:amount "1/4", :unit "teaspoon", :ingredient "cayenne pepper"}
-   {:amount "8", :unit "ounces", :ingredient "tempeh, cut into thin slices"}
-   {:amount "5", :unit "teaspoons", :ingredient "grainy mustard"}])
+  [{:amount "6", :unit "tablespoons", :name "olive oil, divided"}
+   {:amount "2", :unit nil, :name "large sweet or yellow onions, sliced thin"}
+   {:amount nil, :unit nil, :name "Salt to taste"}
+   {:amount "20", :unit nil, :name "large brussels sprouts"}
+   {:amount "1", :unit "tablespoon", :name "tamari"}
+   {:amount "2 to 3", :unit nil, :name "cloves garlic, pressed"}
+   {:amount nil, :unit nil, :name "a dash of liquid smoke (if desired)"}
+   {:amount "1/2", :unit "teaspoon", :name "ground cumin"}
+   {:amount "1/4", :unit "teaspoon", :name "cayenne pepper"}
+   {:amount "8", :unit "ounces", :name "tempeh, cut into thin slices"}
+   {:amount "5", :unit "teaspoons", :name "grainy mustard"}])
 
 (def nyt-lemon-garlic-ingredients
-  [{:amount "2", :unit nil, :ingredient "boneless skinless chicken breasts (most weigh 8 to 10 ounces)"}
-   {:amount "2", :unit "tablespoons", :ingredient "extra-virgin olive oil"}
-   {:amount "3", :unit "tablespoons", :ingredient "fresh lemon juice"}
-   {:amount "2", :unit nil, :ingredient "garlic cloves, minced or puréed"}
-   {:amount "1", :unit "teaspoon", :ingredient "chopped fresh rosemary"}
-   {:amount nil, :unit nil, :ingredient "Salt to taste"}
-   {:amount nil, :unit nil, :ingredient  "Freshly ground pepper"}
-   {:amount "2", :unit "tablespoons", :ingredient "all-purpose flour or a gluten-free flour such as rice flour or corn flour"}
-   {:amount "2", :unit "tablespoons", :ingredient "grapeseed, sunflower or canola oil"}
-   {:amount "1", :unit "pound", :ingredient "mushrooms, sliced"}
-   {:amount "1", :unit "teaspoon", :ingredient "fresh thyme leaves or 1 tablespoon chopped flat-leaf parsley"}
-   {:amount "1/4", :unit "cup", :ingredient "dry white wine"}])
+  [{:amount "2", :unit nil, :name "boneless skinless chicken breasts (most weigh 8 to 10 ounces)"}
+   {:amount "2", :unit "tablespoons", :name "extra-virgin olive oil"}
+   {:amount "3", :unit "tablespoons", :name "fresh lemon juice"}
+   {:amount "2", :unit nil, :name "garlic cloves, minced or puréed"}
+   {:amount "1", :unit "teaspoon", :name "chopped fresh rosemary"}
+   {:amount nil, :unit nil, :name "Salt to taste"}
+   {:amount nil, :unit nil, :name  "Freshly ground pepper"}
+   {:amount "2", :unit "tablespoons", :name "all-purpose flour or a gluten-free flour such as rice flour or corn flour"}
+   {:amount "2", :unit "tablespoons", :name "grapeseed, sunflower or canola oil"}
+   {:amount "1", :unit "pound", :name "mushrooms, sliced"}
+   {:amount "1", :unit "teaspoon", :name "fresh thyme leaves or 1 tablespoon chopped flat-leaf parsley"}
+   {:amount "1/4", :unit "cup", :name "dry white wine"}])
 
 (def bon-lamb-ingredients
-  [{:amount "3", :unit "tablespoons", :ingredient "chopped fresh oregano"}
-   {:amount "2", :unit "tablespoons", :ingredient "olive oil"}
-   {:amount "3", :unit "tablespoons", :ingredient "plus 2 teaspoons pomegranate molasses"}
-   {:amount "3", :unit "tablespoons", :ingredient "fennel seeds, divided"}
-   {:amount nil, :unit nil, :ingredient "Kosher salt and freshly ground black pepper"}
-   {:amount "2", :unit nil, :ingredient "medium fennel bulbs, sliced lengthwise"}
-   {:amount "1", :unit nil, :ingredient "small onion, thinly sliced"}
-   {:amount "2 3–3½-pound", :unit nil, :ingredient "racks of lamb, rib bones frenched"}
-   {:amount "2", :unit "tablespoons", :ingredient "vegetable oil"}
-   {:amount "2", :unit "tablespoons", :ingredient "white wine vinegar"}
-   {:amount "1/4", :unit "cup", :ingredient "pomegranate seeds"}
-   {:amount nil, :unit nil, :ingredient "Be sure to ask for American lamb rather than New Zealand. The delicate New Zealand breeds are much smaller than the meaty domestic varieties, so the cooking time (and yield) would change significantly."}
-   {:amount nil, :unit nil, :ingredient "Pomegranate molasses is available at Middle Eastern markets and some supermarkets, and online."}])
+  [{:amount "3", :unit "tablespoons", :name "chopped fresh oregano"}
+   {:amount "2", :unit "tablespoons", :name "olive oil"}
+   {:amount "3", :unit "tablespoons", :name "plus 2 teaspoons pomegranate molasses"}
+   {:amount "3", :unit "tablespoons", :name "fennel seeds, divided"}
+   {:amount nil, :unit nil, :name "Kosher salt and freshly ground black pepper"}
+   {:amount "2", :unit nil, :name "medium fennel bulbs, sliced lengthwise"}
+   {:amount "1", :unit nil, :name "small onion, thinly sliced"}
+   {:amount "2 3–3½-pound", :unit nil, :name "racks of lamb, rib bones frenched"}
+   {:amount "2", :unit "tablespoons", :name "vegetable oil"}
+   {:amount "2", :unit "tablespoons", :name "white wine vinegar"}
+   {:amount "1/4", :unit "cup", :name "pomegranate seeds"}
+   {:amount nil, :unit nil, :name "Be sure to ask for American lamb rather than New Zealand. The delicate New Zealand breeds are much smaller than the meaty domestic varieties, so the cooking time (and yield) would change significantly."}
+   {:amount nil, :unit nil, :name "Pomegranate molasses is available at Middle Eastern markets and some supermarkets, and online."}])
 
 (def bon-deviled-ingredients
-  [{:amount nil, :unit nil, :ingredient "Kosher salt"}
-   {:amount "8", :unit nil, :ingredient "large eggs"}
-   {:amount "3", :unit "tablespoons", :ingredient "mayonnaise"}
-   {:amount "3", :unit "tablespoons", :ingredient "very finely chopped celery"}
-   {:amount "2", :unit "tablespoons", :ingredient "finely chopped drained pickle relish"}
-   {:amount "2", :unit "tablespoons", :ingredient "very finely chopped scallion"}
-   {:amount "2", :unit "teaspoons", :ingredient "yellow mustard"}
-   {:amount "2", :unit "teaspoons", :ingredient "very finely chopped parsley, plus more for serving"}
-   {:amount "2", :unit nil, :ingredient "dashes hot sauce (such as Tabasco), plus more for serving"}
-   {:amount nil, :unit nil, :ingredient "Freshly ground black pepper"}])
-
-
+  [{:amount nil, :unit nil, :name "Kosher salt"}
+   {:amount "8", :unit nil, :name "large eggs"}
+   {:amount "3", :unit "tablespoons", :name "mayonnaise"}
+   {:amount "3", :unit "tablespoons", :name "very finely chopped celery"}
+   {:amount "2", :unit "tablespoons", :name "finely chopped drained pickle relish"}
+   {:amount "2", :unit "tablespoons", :name "very finely chopped scallion"}
+   {:amount "2", :unit "teaspoons", :name "yellow mustard"}
+   {:amount "2", :unit "teaspoons", :name "very finely chopped parsley, plus more for serving"}
+   {:amount "2", :unit nil, :name "dashes hot sauce (such as Tabasco), plus more for serving"}
+   {:amount nil, :unit nil, :name "Freshly ground black pepper"}])
 
 (def bon-lamb-nutrition
   [{:calories {:unit "kcal", :amount 800}}
