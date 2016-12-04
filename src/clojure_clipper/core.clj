@@ -3,6 +3,7 @@
             [clojure.string :as str]
             [clojure.pprint :as pp]
             [spyscope.core :as spy]
+            [clojure-clipper.sources :as src]
             [clojure-clipper.properties :refer :all]))
 
 (defn fetch [url] (html/html-resource url))
@@ -57,10 +58,14 @@
 
     processed-prop-value))
 
+
 (defn- parse-recipe
   "Parses the recipe with give `page` content from a determined `source`"
   [page source]
-  (let [result (reduce-kv (fn [col
+  (let [
+        source-symbol (:source source)
+        source-name (get-in src/sources [source-symbol :name])
+        result (reduce-kv (fn [col
                                property-name ; key from `properties`
                                property-selector] ; selector that finds the property in page
 
@@ -68,7 +73,7 @@
                                   property-name
                                   (get-property source page property-selector))) ; this is the parsing step: get the property
 
-                         {}
+                         {:source-name source-name}
                          properties)]
    result))
 
@@ -98,8 +103,11 @@
   [url]
   (let [page (html/html-resource (java.net.URL. url))
         source-name (url-to-source-name url)
-        m (clojure.pprint/pprint source-name)]
-    (parse-recipe page {:url url :source source-name})))
+        parsed-map (parse-recipe page {:url url :source source-name})
+        parsed-map-with-source (concat parsed-map {:source source-name :source-url url})
+        ]
+    parsed-map-with-source
+    ))
 
 ;; (clojure.pprint/pprint (parse-recipe-at-url "http://www.epicurious.com/recipes/food/views/bbq-eggplant-sandwiches-with-provolone-and-mushrooms-51261010"))
 

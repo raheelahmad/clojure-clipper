@@ -1,6 +1,7 @@
 (ns clojure-clipper.core-test
   (:require [clojure.test :refer :all]
             [clojure-clipper.core :as clipper]
+            [clojure-clipper.sources :as src]
             [clojure-clipper.data :as data]))
 
 (def sources
@@ -26,6 +27,7 @@
 
 (def expected {
                :bon-lamb {:name "Pomegranate-and-Fennel-Glazed Rack of Lamb"
+                          :source-name (get-in src/sources [:bon :name])
                           :description "Two racks of lamb make enough for each person to have two chops. Cut between each bone individually for single chops, or cut into double-rib portions."
                           :yield "8  Servings"
                           :nutrition data/bon-lamb-nutrition
@@ -35,6 +37,7 @@
                           :image "http://assets.bonappetit.com/photos/57ad29c153e63daf11a4dc7d/16:9/w_1000,c_limit/pomegranate-and-fennel-glazed-rack-of-lamb.jpg"}
 
                :bon-deviled {:name "\"The Greatest\" Deviled Eggs"
+                             :source-name (get-in src/sources [:bon :name])
                              :description "The filling for these eggs is coarsely mashed and studded with crunchy celery and scallion."
                              :yield "4  Servings"
                              :instructions data/bon-deviled-instructions
@@ -44,6 +47,7 @@
                              :image "http://assets.bonappetit.com/photos/57acc2fc53e63daf11a4d9c3/16:9/w_1000,c_limit/the-greatest-deviled-eggs.jpg"}
 
                :epic-sandwiches {:name "BBQ Eggplant Sandwiches with Provolone and Mushrooms"
+                                 :source-name (get-in src/sources [:epic :name])
                                  :description "These cheesy, BBQ sauce-slathered eggplant-steak sandwiches seem almost meaty, even though they'’re entirely vegetarian."
                                  :image "http://assets.epicurious.com/photos/54c7a61ae231becc7f3deeff/master/pass/51261010_bbq-eggplant-sandwich_6x4.jpg"
                                  :prep-time "PT10M"
@@ -54,6 +58,7 @@
 
                :epic-pizza {:name "Thanksgiving Skillet Pizza"
                             :description "Transform your Thanksgiving leftovers into this irresistible pizza, with mashed potatoes taking the place of traditional tomato sauce. Cooking in a cast-iron skillet ensures a super-crispy crust and gets your pizza on the table in 22 minutes or less."
+                            :source-name (get-in src/sources [:epic :name])
                             :image "http://assets.epicurious.com/photos/582b5eae31bd0b471cece6f3/master/pass/thanksgiving-skillet-pizza-hero-14112016.jpg"
                             :yield "Makes 1 (12\") pizza"
                             :instructions data/epic-pizza-instructions
@@ -63,6 +68,7 @@
 
                :epic-lamb {:name "Moroccan Slow-Cooked Lamb"
                            :description "Goes great with: Couscous flavored with chopped mint, toasted slivered almonds, and grated lemon peel. What to drink: Australian Shiraz or red Faugères from the Languedoc in France."
+                           :source-name (get-in src/sources [:epic :name])
                            :image "http://assets.epicurious.com/photos/560de52cf3a00aeb2f1d5328/master/pass/231597.jpg"
                            :yield "Makes 6 servings"
                            :ingredients data/epic-lamb-ingredients
@@ -71,6 +77,7 @@
 
                :foodnw-fajitas {:name "Spicy Fajita Soup"
                                 :description "Get this all-star, easy-to-follow Spicy Fajita Soup recipe from Sandra Lee"
+                                :source-name (get-in src/sources [:foodnw :name])
                                 :image "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2011/2/20/0/SM0408H_spicy-fajita-soup_s4x3.jpg.rend.sni12col.landscape.jpeg"
                                 :total-time "PT5H15M"
                                 :cook-time "PT5H0M"
@@ -81,6 +88,7 @@
 
                :foodnw-pancakes {:name "Zucchini Pancakes"
                                  :description "Get this all-star, easy-to-follow Zucchini Pancakes recipe from Ina Garten"
+                                 :source-name (get-in src/sources [:foodnw :name])
                                  :image "http://foodnetwork.sndimg.com/content/dam/images/food/fullset/2011/7/26/0/BX0214_zucchini-pancakes_s4x3.jpg.rend.sni12col.landscape.jpeg"
                                  :total-time "PT0H24M"
                                  :cook-time "PT0H4M"
@@ -90,6 +98,7 @@
                                  :ingredients data/foodnw-pancakes-ingredients}
 
                :nyt-brussel-sprouts {:name "Brussels Sprouts Sliders"
+                                     :source-name (get-in src/sources [:nyt :name])
                                      :yield "Serves 8 - 10 appetizer portions"
                                      :image "https://static01.nyt.com/images/2014/11/05/science/05VEGTHANKSGIVING3/05VEGTHANKSGIVING3-articleLarge.jpg"
                                      :cook-time "PT1H45M"
@@ -100,6 +109,7 @@
 
                :nyt-lemon-garlic {:yield "Serves 4"
                                   :name "Lemon and Garlic Chicken With Mushrooms"
+                                  :source-name (get-in src/sources [:nyt :name])
                                   :author "Martha Rose Shulman"
                                   :cook-time "PT45M"
                                   :image "https://static01.nyt.com/images/2014/03/22/science/28recipehealth/28recipehealth-articleLarge.jpg"
@@ -109,6 +119,7 @@
                                   :instructions data/nyt-lemon-garlic-instructions}
 
                :alr-apple-turnovers {:name "Apple Turnovers"
+                                     :source-name (get-in src/sources [:alr :name])
                                      :yield "8"
                                      :author "Maureen O'leary"
                                      :cook-time "PT25M"
@@ -121,6 +132,7 @@
                                      :instructions data/alr-apple-turnover-instructions}
 
                :alr-meatballs {:name "Chef John's Ricotta Meatballs"
+                               :source-name (get-in src/sources [:alr :name])
                                :yield "8"
                                :author "Chef John"
                                :cook-time "PT40M"
