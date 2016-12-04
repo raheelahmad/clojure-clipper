@@ -77,19 +77,6 @@
                          properties)]
    result))
 
-(defn url-to-source-name
-  [url]
-  (let [regex-to-source-name {#"(nytimes.com|nyt.com)" :nyt
-                              #"(bonappetit.com)" :bon
-                              #"(allrecipes.com)" :alr
-                              #"(foodnetwork.com)" :foodnw
-                              #"(epicurious.com)" :epic
-                              }
-        match (first (filter #(boolean (re-find (first %1) url))
-                             regex-to-source-name))
-        source-name (second match)]
-    source-name))
-
 (defn parse-local-recipe
   "Used by tests to parse local recipe resource.
   source-map includes :url and :source (local url cannot be used to determine its :source name)"
@@ -102,12 +89,11 @@
   :source, which parametrizes how the recipe will be parsed"
   [url]
   (let [page (html/html-resource (java.net.URL. url))
-        source-name (url-to-source-name url)
-        parsed-map (parse-recipe page {:url url :source source-name})
-        parsed-map-with-source (concat parsed-map {:source source-name :source-url url})
-        ]
-    parsed-map-with-source
-    ))
+        source-symbol (src/url-to-source-symbol url)
+        parsed-map (parse-recipe page {:url url :source source-symbol})
+        parsed-map-with-source (concat parsed-map
+                                       {:source source-symbol :source-url url})]
+    parsed-map-with-source))
 
 ;; (clojure.pprint/pprint (parse-recipe-at-url "http://www.epicurious.com/recipes/food/views/bbq-eggplant-sandwiches-with-provolone-and-mushrooms-51261010"))
 
