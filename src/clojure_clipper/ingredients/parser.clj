@@ -1,4 +1,4 @@
-(ns clojure-clipper.ingredient-parser
+(ns clojure-clipper.ingredients.parser
   (:require [inflections.core :as infl]))
 
 (def conjugates

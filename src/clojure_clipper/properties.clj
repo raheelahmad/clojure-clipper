@@ -6,7 +6,7 @@
             [clojure-clipper.alr-selectors :as alr-helper]
             [clojure-clipper.epic-selectors :as epic-helper]
             [clojure-clipper.nutrition-helpers :as nutrition]
-            [clojure-clipper.ingredient-parser :as ingredients]
+            [clojure-clipper.ingredients.parser :as ingredients]
             ))
 
 (def schema-selector (html/attr= :itemtype "http://schema.org/Recipe")) ; select the schema; top-level for the recipe

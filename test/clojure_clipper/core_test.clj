@@ -3,7 +3,6 @@
             [clojure-clipper.core :as clipper]
             [clojure-clipper.sources :as src]
             [clojure-clipper.data :as data]))
-
 (def sources
   [{:source :nyt :name :nyt-lemon-garlic :url "htmls/nyt.html"}
    {:source :nyt :name :nyt-brussel-sprouts :url "htmls/nyt_brussel_sprouts.html"}

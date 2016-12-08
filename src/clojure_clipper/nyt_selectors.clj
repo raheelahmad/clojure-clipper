@@ -1,6 +1,6 @@
 (ns clojure-clipper.nyt-selectors
   (:require [net.cgrand.enlive-html :as html]
-            [clojure-clipper.ingredient-parser :as parser]))
+            [clojure-clipper.ingredients.parser :as parser]))
 
 
 (defn- get-ingredient [input] (-> input
