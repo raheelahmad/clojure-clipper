@@ -1,8 +1,36 @@
 (ns clojure-clipper.ingredients.parser
   (:require [inflections.core :as infl]))
 
+(defrecord Unit [canonical variants short])
+
+(def units
+  [
+   (->Unit "tablespoon" #{ "tablespoon" "tablespoons" "tblsp" "tblsps" "tbl." "tbs." "tblsp." } "tbsp")
+   (->Unit "teaspoon" #{ "teaspoon" "teaspoons" "tso" "tsps" "tsp." "tsps." } "tsp")
+   (->Unit "fluid ounce" #{ "fl oz" "fluid ounce" "fl ozs" "fluid ounces" } "fl oz")
+   (->Unit "pound" #{ "lb" "lbs" "pound" "pounds" } "lb")
+   (->Unit "ounce" #{"ounce" "ounces" "oz" "ozs"} "oz")
+   (->Unit "cup" #{ "cup" "cups" } "cup")
+   (->Unit "pinch" #{"pinch" "pinches"} "pinch")
+   (->Unit "pint" #{ "pint" "pints" "pt" "pts" "fl pt"} "pint")
+   (->Unit "quart" #{ "quart" "quarts" "qt" "qts" "fl qt"} "quart")
+   (->Unit "gallon" #{"gallon" "gallons" "gal" "gals"} "gal")
+   (->Unit "millileter" #{"millileter" "millileters" "ml" "mls"} "ml")
+   (->Unit "liter" #{"litre" "litres" "liter" "liters" "l" } "l")
+   ])
+
+(defn unit-for-string
+  "returns the canonical symbol for a possible unit name (plural, capitalized, etc.)"
+  [str]
+  (->> units
+       (filter #(contains? (:variants %) str))
+       first
+       :canonical
+       ))
+
 (def conjugates
-  ["or" "to"])
+  [:or :to])
+
 (def unit-names
   ["tablespoon" "tbsp" "teaspoon" "tsp"
    "oz" "ounce"
@@ -45,7 +73,8 @@
   "ie., 2 to 4, 4 or 6"
   [comps]
   (let [third (get comps 2)
-        has-conjugate (.contains conjugates (second comps))
+        conjugates-strs (map name conjugates)
+        has-conjugate (.contains conjugates-strs (second comps))
         has-amounts (and (amount? (first comps))
                          (amount? third))]
     (and has-conjugate has-amounts)))
@@ -84,8 +113,9 @@
         [amount rest-after-amount] (parse-amount-from-components comps)
         [unit rest-after-unit] (parse-unit-from-components rest-after-amount)
         ingredient (clojure.string/trim (clojure.string/join " " rest-after-unit))
+        canonical-unit (unit-for-string unit)
         ]
-    {:amount amount :unit unit :name ingredient}))
+    {:amount amount :unit canonical-unit :name ingredient}))
 
 (defn default-ingredient-selector [container]
   (->> container

@@ -9,7 +9,7 @@
 (defn fetch [url] (html/html-resource url))
 
 (defn get-selector
-  "Get selector (selector-type, either property or container)
+  "Get selector (selector-type: either property, post-processor or container)
   from a list of selectors, for a source"
   [selector-type selectors source-symbol]
   (let [found-selectors (selector-type selectors)
@@ -96,4 +96,6 @@
     parsed-map-with-source))
 
 ;; (clojure.pprint/pprint (parse-recipe-at-url "http://www.epicurious.com/recipes/food/views/bbq-eggplant-sandwiches-with-provolone-and-mushrooms-51261010"))
+;; (clojure.pprint/pprint (parse-recipe-at-url "http://www.epicurious.com/recipes/food/views/mushroom-leek-and-fontina-frittata-51143040"))
+;; (clojure.pprint/pprint (parse-recipe-at-url "http://www.foodnetwork.com/recipes/anne-burrell/almond-and-raisin-biscotti-recipe2.html"))
 

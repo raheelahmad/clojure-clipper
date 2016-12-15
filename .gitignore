@@ -22,4 +22,6 @@ pom.xml.asc
 .lein-plugins/
 .lein-failures
 .nrepl-port
+.idea
+*.iml
 .DS_Store
