@@ -14,6 +14,7 @@
    {:source :epic :name :epic-gratin :url  "htmls/epic-spinach-gratin.html"}
    {:source :epic :name :epic-pizza :url  "htmls/epic-pizza.html"}
    {:source :epic :name :epic-sandwiches :url  "htmls/epic-sandwiches.html"}
+   {:source :food :name :food-crock-pot-chicken :url  "htmls/food-crock-pot-chicken.html"}
    {:source :bon :name :bon-deviled :url  "htmls/bon-deviled.html"}
    {:source :bon :name :bon-lamb :url  "htmls/bon-lamb.html"}])
 
@@ -25,6 +26,16 @@
     parsed))
 
 (def expected {
+               ;; :food-crock-pot-chicken {:name "Moko"
+                          ;; :source-name (get-in src/sources [:bon :name])
+                          ;; :description "Two racks of lamb make enough for each person to have two chops. Cut between each bone individually for single chops, or cut into double-rib portions."
+                          ;; :yield "8  Servings"
+                          ;; :nutrition data/bon-lamb-nutrition
+                          ;; :instructions data/bon-lamb-instructions
+                          ;; :ingredients data/bon-lamb-ingredients
+                          ;; :author "Alison Roman"
+                          ;; :image "http://assets.bonappetit.com/photos/57ad29c153e63daf11a4dc7d/16:9/w_1000,c_limit/pomegranate-and-fennel-glazed-rack-of-lamb.jpg"}
+                                        ;; }
                :bon-lamb {:name "Pomegranate-and-Fennel-Glazed Rack of Lamb"
                           :source-name (get-in src/sources [:bon :name])
                           :description "Two racks of lamb make enough for each person to have two chops. Cut between each bone individually for single chops, or cut into double-rib portions."

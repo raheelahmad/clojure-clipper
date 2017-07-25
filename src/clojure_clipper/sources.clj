@@ -7,12 +7,12 @@
                               #"(allrecipes.com)" :alr
                               #"(foodnetwork.com)" :foodnw
                               #"(epicurious.com)" :epic
+                              #"(food.com)" :food
                               }
         match (first (filter #(boolean (re-find (first %1) url))
                              regex-to-source-name))
         source-name (second match)]
     source-name))
-
 
 (def sources {
               :nyt {:name "New York Times"}
@@ -20,5 +20,6 @@
               :alr {:name "All Recipes"}
               :foodnw {:name "The Food Network"}
               :epic {:name "Epicurious"}
+              :food {:name "Food.com"}
               })
 

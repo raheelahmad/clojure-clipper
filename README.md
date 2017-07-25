@@ -1,14 +1,5 @@
 # clojure-clipper
 
-A Clojure library designed to ... well, that part is up to you.
-
-## Usage
-
-FIXME
-
-## License
-
-Copyright © 2016 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+A Clojure library to clip from recipe websites.
+Targets specific websites rather than being a general solution.
+Supports [All Recipes](http://allrecipes.com), [NYT Cooking](http://cooking.nytimes.com), and [Epicurious](http://www.epicurious.com).
